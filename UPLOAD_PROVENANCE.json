@@ -1,0 +1,19 @@
+{
+  "source_project": "TrustGTR",
+  "source_directory": "/mnt/data/zza/code/TrustGTR",
+  "snapshot_date": "2026-10-11",
+  "publication": "public GitHub repository requested by source owner",
+  "git_provenance": [
+    {
+      "path": ".",
+      "head": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status_entries": 0,
+      "upstreams": [
+        "https://github.com/macovaseas/GTR"
+      ]
+    }
+  ],
+  "scope": "Code, configurations, dependency records, licenses and lightweight documentation.",
+  "omitted": "Raw data, model weights, environments, caches, large files, credentials and restricted third-party source.",
+  "history": "Original repositories and histories remain untouched. This publication is a new filtered snapshot; old Git blobs are not pushed."
+}

@@ -1,0 +1,57 @@
+{
+  "pid": 677711,
+  "experiment_id": "trustgtr_a5__etth1__smoke__t96_h96__seed2024__20261005_110620",
+  "attempt": 1,
+  "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+  "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+  "started_at": "2026-10-05T11:07:47.083960+08:00",
+  "before": {
+    "time": "2026-10-05T11:07:47.105404+08:00",
+    "gpus": [
+      {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 16023.0,
+        "free_mib": 55.0
+      },
+      {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 8209.0,
+        "free_mib": 16000.0
+      }
+    ]
+  },
+  "process_peak_gpu_memory_mib": 788.0,
+  "torch_peak_allocated_mib": 221.9736328125,
+  "torch_peak_reserved_mib": 300.0,
+  "peak_gpu_memory_mib": 788.0,
+  "elapsed_seconds": 5.241649386938661,
+  "ended_at": "2026-10-05T11:07:52.325637+08:00",
+  "after": {
+    "time": "2026-10-05T11:07:52.345494+08:00",
+    "gpus": [
+      {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 16023.0,
+        "free_mib": 55.0
+      },
+      {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 8754.0,
+        "free_mib": 15454.0
+      }
+    ]
+  },
+  "exit_code": 0
+}

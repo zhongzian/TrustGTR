@@ -1,0 +1,1591 @@
+{
+  "updated_at": "2026-10-06T22:15:20.152163+08:00",
+  "step": "6.5",
+  "queue_path": "/mnt/data/zza/code/TrustGTR/configs/queue_step_6_5_ac10.json",
+  "queue_sha256": "85c98ca2a9dd33a54d4e0c6f17eeb9c53bffa186bf1727588a59b266d925568e",
+  "daemon": {
+    "finished_at": 1791296011.20614,
+    "pgid": 3429130,
+    "pid": 3429130,
+    "sid": 3429130,
+    "start_ticks": 71026524,
+    "started_at": 1791294515.6405306,
+    "state": "R",
+    "status": "COMPLETED",
+    "uid": 1018
+  },
+  "counts": {
+    "failed": 0,
+    "pending": 0,
+    "retrying": 0,
+    "running": 0,
+    "stopped": 0,
+    "succeeded": 17
+  },
+  "summary_exit_code": 0,
+  "science_hashes_checked": 14,
+  "config_hashes_checked": 17,
+  "smoke_succeeded": 9,
+  "smoke_total": 9,
+  "smoke_checks_passed": 63,
+  "maximum_observed_concurrency": 3,
+  "attempt_count": 17,
+  "oom_attempt_count": 0,
+  "OOM_requeue_checks": [],
+  "terminal": true,
+  "jobs": [
+    {
+      "id": "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 444.0,
+      "required_memory_estimate": 444.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 7700.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "pid": 3429142,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 8378.0,
+        "free_mib": 7700.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "4adbac69aeafe34bc53e4d3e7844d37cdfe4e169ee46e079971577e60ca4adde"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "6d19908ffa074ca47ee0f7ba0cdf067084e7b077cb44204ce41e0b0da52c5ef3"
+        }
+      },
+      "parameters": 633754
+    },
+    {
+      "id": "trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 646.0,
+      "required_memory_estimate": 646.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 7700.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "pid": 3430746,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 8378.0,
+        "free_mib": 7700.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "d989eaebcc27a60f46070fb33057213993063441007828a974fc3d1819729e85"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "74a8fe0ccfc8f9a6e20695b4482f9dbc07de2d491dd498ea64716da29ec60860"
+        }
+      },
+      "parameters": 634314
+    },
+    {
+      "id": "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "is_smoke": false,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 650.0,
+      "required_memory_estimate": 650.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 7700.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "pid": 3433624,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "official_budget_matches_gtr_a6": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 8378.0,
+        "free_mib": 7700.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 14,
+        "best_epoch": 9,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "114f116aae5e758438d5cca698fab83949aed2dae7e332576e3a602a4eefab4e"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "fa07eb551dcd093a8d4914de6b4996e423c004fb42158515373b99acc1d2910d"
+        }
+      },
+      "parameters": 634314,
+      "additional_parameters_vs_a6": 0,
+      "mse": 0.3657485246658325,
+      "mae": 0.39059317111968994,
+      "epochs_completed": 14,
+      "best_epoch": 9
+    },
+    {
+      "id": "trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 408.0,
+      "required_memory_estimate": 408.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3430787,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "21a12ebd334db4362152e764fe9a131306c862a37e26323fc13b6942cb52c682"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "d997c8a5861ee7d34ccd7daf5fd542e61c24d4593d008eaa69b4d4cb3f5a6447"
+        }
+      },
+      "parameters": 634314
+    },
+    {
+      "id": "trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "is_smoke": false,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 650.0,
+      "required_memory_estimate": 650.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5769.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "pid": 3451198,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "official_budget_matches_gtr_a6": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 10309.0,
+        "free_mib": 5769.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 14,
+        "best_epoch": 9,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "653e32547bf10e06462a811b225aec92fb19d73ac848f9d56028c2bce3044487"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "272863438ad155c479801b4380228274a5405365cebc85a33e99e3a56e4ecef3"
+        }
+      },
+      "parameters": 634314,
+      "additional_parameters_vs_a6": 0,
+      "mse": 0.3661349415779114,
+      "mae": 0.39087149500846863,
+      "epochs_completed": 14,
+      "best_epoch": 9
+    },
+    {
+      "id": "trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "solar",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 926.0,
+      "required_memory_estimate": 926.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3433703,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "f754468dfd380259ec694ee9701bb8190bd05dc31095c87bae4e72aef584a07b"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "65c2b4ef4f3786614ff8a0cf3aa5bd9f5b01b58126cb697d397ec331ce3fa77c"
+        }
+      },
+      "parameters": 653874
+    },
+    {
+      "id": "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "solar",
+      "is_smoke": false,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 1928.0,
+      "required_memory_estimate": 1928.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 7047.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "pid": 3442061,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "official_budget_matches_gtr_a6": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 9031.0,
+        "free_mib": 7047.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 8,
+        "best_epoch": 3,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "8d2a58f8435e3c4b94c28656e1c0bdec2ef5759f0a9dc9bd8323d56dff109946"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "88c949774edb15e86e44da6202241d8a5ed6bbe55c14e054e3285b757e8b78e8"
+        }
+      },
+      "parameters": 653874,
+      "additional_parameters_vs_a6": 0,
+      "mse": 0.18932810425758362,
+      "mae": 0.2553344666957855,
+      "epochs_completed": 8,
+      "best_epoch": 3
+    },
+    {
+      "id": "trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "solar",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 2102.0,
+      "required_memory_estimate": 2102.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3442402,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "b45b4deff878656be7b6ac25ea52f827e2af9273f1e6b407eb195c28641ffa51"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "498fa0e5919c8b9a0e4d84a21fb29c54b50bedcf1a9c5f13d9fd4d2e961c2dea"
+        }
+      },
+      "parameters": 653874
+    },
+    {
+      "id": "trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "solar",
+      "is_smoke": false,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 1930.0,
+      "required_memory_estimate": 2102.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 7085.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "pid": 3537068,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "official_budget_matches_gtr_a6": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 8993.0,
+        "free_mib": 7085.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 14,
+        "best_epoch": 9,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "668fcb97610fdcee12d75857c67dec19d0d0bdf9df11826b1021c2a5ad17889a"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "674935a6f0bc62d2b66b753fbdb765c7ddb9c4ab335a2e2509cacce526b8c96f"
+        }
+      },
+      "parameters": 653874,
+      "additional_parameters_vs_a6": 0,
+      "mse": 0.18366926908493042,
+      "mae": 0.24014846980571747,
+      "epochs_completed": 14,
+      "best_epoch": 9
+    },
+    {
+      "id": "trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "weather",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 454.0,
+      "required_memory_estimate": 454.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3450487,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "2f21289c9bc7f948a4053bb2a682c2406a77676eab95ce14fd720874264cbd52"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "6877422592c5d5438e84845f2cd04a6888df66b870f0e2e6bd37d5f3458d7837"
+        }
+      },
+      "parameters": 637170
+    },
+    {
+      "id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "weather",
+      "is_smoke": false,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 612.0,
+      "required_memory_estimate": 612.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5445.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "pid": 3452436,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "official_budget_matches_gtr_a6": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 10958.0,
+        "free_mib": 5121.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 18,
+        "best_epoch": 13,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "7f49350d7f3b9470b1f0b240c6790e49e18981612507c6f14ac37a1fc84e55ae"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "bca9ed343f9388f8342f768e02c807ae7c9ae298c4d12269eae975f3751ed3e9"
+        }
+      },
+      "parameters": 637170,
+      "additional_parameters_vs_a6": 0,
+      "mse": 0.15526236593723297,
+      "mae": 0.205132856965065,
+      "epochs_completed": 18,
+      "best_epoch": 13
+    },
+    {
+      "id": "trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "weather",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 780.0,
+      "required_memory_estimate": 780.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3473207,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "43380ab80c1e225592bbccb12a4e12eb9038d0b165573d07774eb7bf07804fdd"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "154a5ff34fe2e69042b629b0393efd3f1de30c0c4c42934d888bc5a948718ff8"
+        }
+      },
+      "parameters": 637170
+    },
+    {
+      "id": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "weather",
+      "is_smoke": false,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 610.0,
+      "required_memory_estimate": 780.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5767.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "pid": 3565580,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "official_budget_matches_gtr_a6": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 10311.0,
+        "free_mib": 5767.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 18,
+        "best_epoch": 13,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "9f8116dc89ba0932f0fb8910774c6cd00ad2f71441f6948b758ffd56a8c1e6b8"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "6fa855fb1ae4bfdeb8c302c5992bc43eea05305adf44f793925485f9cf77b336"
+        }
+      },
+      "parameters": 637170,
+      "additional_parameters_vs_a6": 0,
+      "mse": 0.15550075471401215,
+      "mae": 0.2054024338722229,
+      "epochs_completed": 18,
+      "best_epoch": 13
+    },
+    {
+      "id": "trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "ettm2",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 836.0,
+      "required_memory_estimate": 836.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3475619,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "10afd41340ecf0831bb97333fef58a71f72661ef369e092aef9778227600b12f"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "a6bee7d7601fbf07ec8f735321077f417a0c17530dc9c8ac6046c997a7d6f461"
+        }
+      },
+      "parameters": 634818
+    },
+    {
+      "id": "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "ettm2",
+      "is_smoke": false,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 840.0,
+      "required_memory_estimate": 840.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3478116,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "official_budget_matches_gtr_a6": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 8,
+        "best_epoch": 3,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "5d43ba9008c841f7173c6490d2a8725a3bcf83220939de0233e22de5d12337fa"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "9fa57da3511f64ce116aa26d9cb1ba59f8350247f29935e980daaf6565003ff2"
+        }
+      },
+      "parameters": 634818,
+      "additional_parameters_vs_a6": 0,
+      "mse": 0.16700196266174316,
+      "mae": 0.24997492134571075,
+      "epochs_completed": 8,
+      "best_epoch": 3
+    },
+    {
+      "id": "trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+      "dataset": "ettm2",
+      "is_smoke": true,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 836.0,
+      "required_memory_estimate": 836.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3506279,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 1,
+        "best_epoch": 1,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "9a5e54b35ed988e07c57d7b90b76550238348544fe10a27cbee698a91cae85ea"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "d61e0cfd7161993c22b03a403287a6aefd24ece691bc461b49b360f80777c44a"
+        }
+      },
+      "parameters": 634818
+    },
+    {
+      "id": "trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "ettm2",
+      "is_smoke": false,
+      "status": "SUCCESS",
+      "attempt": 1,
+      "oom_retry_count": 0,
+      "peak_memory_mib": 840.0,
+      "required_memory_estimate": 840.0,
+      "next_eligible_time": null,
+      "last_oom_time": null,
+      "last_oom_free_mib": null,
+      "last_oom_post_cleanup_free_mib": null,
+      "start_free_mib": 5304.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "pid": 3508330,
+      "wait_reason": null,
+      "exit_code": 0,
+      "resolved_options_match": true,
+      "official_budget_matches_gtr_a6": true,
+      "required_archive_types_present": 13,
+      "fixed_assets_match_gtr_a6": true,
+      "resource_UUID_visibility_matches": true,
+      "GPU_before_after_snapshots_complete": true,
+      "selected_GPU_start_snapshot": {
+        "index": 1,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "free_mib": 5304.0
+      },
+      "environment_summary": {
+        "python": "3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]",
+        "torch": "2.0.1+cu118",
+        "cuda_runtime": "11.8",
+        "conda_prefix": "/mnt/data/zza/code/TrustGTR/.conda",
+        "CUDA_VISIBLE_DEVICES": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "scientific_manifest_matches": true,
+      "scientific_snapshots": {
+        "models/TrustGTR.py": true,
+        "models/HistoricalMemory.py": true,
+        "scripts/run_experiment.py": true,
+        "scripts/run_trust_experiment.py": true,
+        "exp/exp_repro.py": true
+      },
+      "checkpoint_resume_semantic_checks": {
+        "last_resume_fields_complete": true,
+        "rng_state_complete": true,
+        "best_matches_last_best_model_state": true,
+        "best_and_last_model_finite": true,
+        "last_epoch": 8,
+        "best_epoch": 3,
+        "optimizer_state_saved": true,
+        "scheduler_state_saved": true,
+        "amp_scaler_saved": false
+      },
+      "checkpoint_checks": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+          "complete_crc": true,
+          "sha256": "f58071c53ba9dc5498f5383bbf88750831dd085a92b3dc5af054f7fa84e1f691"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/checkpoints/last.pt",
+          "complete_crc": true,
+          "sha256": "4ce395344a3daba57a8a9e00fe41928fd9469e4bc6c32c81231d150e2bb6526f"
+        }
+      },
+      "parameters": 634818,
+      "additional_parameters_vs_a6": 0,
+      "mse": 0.16697461903095245,
+      "mae": 0.24950699508190155,
+      "epochs_completed": 8,
+      "best_epoch": 3
+    }
+  ],
+  "actual_pairs": [
+    {
+      "dataset": "etth1",
+      "actual_resolved_difference": {
+        "contrast_sampling": [
+          "regime_extremes",
+          "retrieval_hard"
+        ]
+      },
+      "official_args_match": true
+    },
+    {
+      "dataset": "solar",
+      "actual_resolved_difference": {
+        "contrast_sampling": [
+          "regime_extremes",
+          "retrieval_hard"
+        ]
+      },
+      "official_args_match": true
+    },
+    {
+      "dataset": "weather",
+      "actual_resolved_difference": {
+        "contrast_sampling": [
+          "regime_extremes",
+          "retrieval_hard"
+        ]
+      },
+      "official_args_match": true
+    },
+    {
+      "dataset": "ettm2",
+      "actual_resolved_difference": {
+        "contrast_sampling": [
+          "regime_extremes",
+          "retrieval_hard"
+        ]
+      },
+      "official_args_match": true
+    }
+  ],
+  "gpu_snapshot": [
+    {
+      "free_mib": 7700.0,
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 4080",
+      "total_mib": 16376.0,
+      "used_mib": 8378.0,
+      "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+    },
+    {
+      "free_mib": 5304.0,
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 4090",
+      "total_mib": 24564.0,
+      "used_mib": 18905.0,
+      "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+    }
+  ],
+  "started_gpu_snapshots": [
+    {
+      "id": "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 7700.0,
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 8378.0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "time": 1791294516.442908
+    },
+    {
+      "id": "trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 7700.0,
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 8378.0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "time": 1791294522.3195887
+    },
+    {
+      "id": "trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294523.0255256
+    },
+    {
+      "id": "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 7700.0,
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 8378.0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "time": 1791294528.5318818
+    },
+    {
+      "id": "trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294529.3834798
+    },
+    {
+      "id": "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 7047.0,
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 9031.0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "time": 1791294549.6702158
+    },
+    {
+      "id": "trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294550.7925625
+    },
+    {
+      "id": "trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294570.647791
+    },
+    {
+      "id": "trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5769.0,
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 10309.0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "time": 1791294573.562488
+    },
+    {
+      "id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5445.0,
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 10634.0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "time": 1791294576.3823593
+    },
+    {
+      "id": "trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294684.454292
+    },
+    {
+      "id": "trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294693.5669143
+    },
+    {
+      "id": "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294702.6601472
+    },
+    {
+      "id": "trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294975.7635372
+    },
+    {
+      "id": "trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5304.0,
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_mib": 24564.0,
+        "used_mib": 18905.0,
+        "uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb"
+      },
+      "time": 1791294984.7634444
+    },
+    {
+      "id": "trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 7085.0,
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 8993.0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "time": 1791295233.9650745
+    },
+    {
+      "id": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "attempt": 1,
+      "gpu": {
+        "free_mib": 5767.0,
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4080",
+        "total_mib": 16376.0,
+        "used_mib": 10311.0,
+        "uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121"
+      },
+      "time": 1791295506.9814727
+    }
+  ],
+  "violations": [],
+  "read_only_audit": true,
+  "host_cleanup_audit": {
+    "path": "/mnt/data/zza/code/TrustGTR/reports/step_6_5_host_cleanup_audit.json",
+    "checked_at": "2026-10-06T22:16:06.252987+08:00",
+    "host_namespace": true,
+    "attempt_identity_count": 17,
+    "remaining_original_processes": 0,
+    "remaining_group_members": 0,
+    "self_queue_reservation_count": 0,
+    "self_queue_compute_process_count": 0,
+    "GPU_query_exit_code": 0,
+    "compute_query_exit_code": 0,
+    "violations": []
+  }
+}

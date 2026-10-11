@@ -1,0 +1,93 @@
+{
+  "step": "5.5",
+  "status": "COMPLETE",
+  "formal_success": 2,
+  "oom_count": 0,
+  "single_seed_exploratory_results": true,
+  "queue_completed": true,
+  "experiments": [
+    {
+      "experiment_id": "trustgtr_a8__etth1__forecast__t96_h96__seed2024__20261005_221654",
+      "dataset": "etth1",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "seed": 2024,
+      "scores": {
+        "mse": 0.3655358552932739,
+        "mae": 0.39030227065086365
+      },
+      "baseline_experiment_id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+      "baseline_scores": {
+        "mse": 0.3695984184741974,
+        "mae": 0.39260444045066833
+      },
+      "source_experiment_id": "trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105",
+      "source_scores": {
+        "mse": 0.36597487330436707,
+        "mae": 0.39065808057785034
+      },
+      "relative_change_vs_baseline_pct": {
+        "mse": -1.099183053243254,
+        "mae": -0.5863840452650103
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": -0.11995851166755524,
+        "mae": -0.09107962811376905
+      },
+      "runtime_seconds": 40.898725860984996,
+      "peak_gpu_memory_mib": 632.0,
+      "parameters": 634314,
+      "epochs_completed": 14,
+      "best_epoch": 9,
+      "ended_at": "2026-10-06T11:07:35.545912+08:00",
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__etth1__forecast__t96_h96__seed2024__20261005_221654/checkpoints/best.pt",
+      "checkpoint_sha256": "90d0833537c058d463a1e8ae8cbaa24a5c226db931dd8b897222711b6333d366",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__etth1__forecast__t96_h96__seed2024__20261005_221654/metrics.json",
+      "metrics_sha256": "e8ad6b4b5a6d39a46e2eb1f9e3c6256babe841950903492cae0f451efd0e4898",
+      "same_evaluation_assets_and_training_budget": true,
+      "added_parameters_vs_a6": 0
+    },
+    {
+      "experiment_id": "trustgtr_a8__solar__forecast__t96_h96__seed2024__20261005_221654",
+      "dataset": "solar",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "seed": 2024,
+      "scores": {
+        "mse": 0.19024695456027985,
+        "mae": 0.2558727264404297
+      },
+      "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+      "baseline_scores": {
+        "mse": 0.18117235600948334,
+        "mae": 0.2366592288017273
+      },
+      "source_experiment_id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+      "source_scores": {
+        "mse": 0.18590158224105835,
+        "mae": 0.24103502929210663
+      },
+      "relative_change_vs_baseline_pct": {
+        "mse": 5.008820744331164,
+        "mae": 8.118634433140754
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": 2.337458491120779,
+        "mae": 6.155826060593659
+      },
+      "runtime_seconds": 263.01419463194907,
+      "peak_gpu_memory_mib": 2004.0,
+      "parameters": 653874,
+      "epochs_completed": 8,
+      "best_epoch": 3,
+      "ended_at": "2026-10-06T11:19:27.006815+08:00",
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__forecast__t96_h96__seed2024__20261005_221654/checkpoints/best.pt",
+      "checkpoint_sha256": "45703f935f334b0ba7be8dcbb7833594e51b78dfcfad7d3d28bc70588e437de7",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__forecast__t96_h96__seed2024__20261005_221654/metrics.json",
+      "metrics_sha256": "f067d2dda23a9c5c1d957920b25874c35f8c4f1244898f37dd7eab0b4859c024",
+      "same_evaluation_assets_and_training_budget": true,
+      "added_parameters_vs_a6": 0
+    }
+  ],
+  "interpretation": "ETTh1 A8 improves both test metrics; Solar A8 worsens both versus GTR and A6. Do not freeze a universal method based on ETTh1 test ranking. Fixed validation mechanism audit remains step 5.6."
+}

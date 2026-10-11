@@ -1,0 +1,184 @@
+--- before/models/HistoricalMemory.py
++++ after/models/HistoricalMemory.py
+@@ -34,7 +34,8 @@
+     every valid bank and then continuously mixes their independent predictions.
+     """
+     def __init__(self, seq_len, pred_len, cycle, channels, periods,
+-                 state_dim=16, topk=3, candidate_cap=192, router_mode='global_topk'):
++                 state_dim=16, topk=3, candidate_cap=192, router_mode='global_topk',
++                 collect_reliability=False):
+         super().__init__()
+         if min(seq_len, pred_len, cycle, channels, state_dim, topk, candidate_cap) < 1:
+             raise ValueError('Historical-memory dimensions and budgets must be positive')
+@@ -47,10 +48,13 @@
+             raise ValueError('Periods must be positive integers')
+         if router_mode not in ('global_topk', 'per_bank'):
+             raise ValueError('router_mode must be global_topk or per_bank')
++        if not isinstance(collect_reliability, bool):
++            raise ValueError('collect_reliability must be a bool')
+         self.seq_len, self.pred_len, self.cycle = seq_len, pred_len, cycle
+         self.channels, self.periods = channels, periods
+         self.topk, self.candidate_cap = topk, candidate_cap
+         self.router_mode = router_mode
++        self.collect_reliability = collect_reliability
+         self.key_encoder = nn.Sequential(nn.Linear(15, state_dim), nn.GELU(), nn.Linear(state_dim, 15))
+         nn.init.zeros_(self.key_encoder[-1].weight)
+         nn.init.zeros_(self.key_encoder[-1].bias)
+@@ -122,6 +126,12 @@
+                              candidate_cap=self.candidate_cap, topk=self.topk,
+                              router_mode=self.router_mode,
+                              causality='candidate origin j + horizon <= query origin t')
++        if self.collect_reliability:
++            self.metadata['reliability_features'] = [
++                'nearest_key_distance_log1p', 'relative_nearest_distance_gap',
++                'selected_weight_entropy', 'selected_future_dispersion_log1p',
++                'selected_bank_dispersion_log1p', 'selected_bank_coverage',
++                'selected_age_cycles_log1p', 'candidate_count_fraction']
+         return dict(self.metadata)
+ 
+     def encode(self, key):
+@@ -172,7 +182,54 @@
+         return (torch.as_tensor(indices, device=self.series.device),
+                 torch.as_tensor(provenance, device=self.series.device), bank_counts)
+ 
+-    def _retrieve_bank(self, query, mean, scale, indices, provenance, priors):
++    @torch.no_grad()
++    def _reliability_features(self, distances, mask, selected_banks, weights,
++                              standardized, selected, origin):
++        """Small gate inputs from observed keys and completed historical futures.
++
++        The bank disagreement covers selected banks only; coverage explicitly
++        distinguishes one available opinion from agreement across age banks.
++        No query targets or differentiable retrieval activations enter the gate.
++        """
++        batch, channels, width = distances.shape
++        nearest = distances.topk(min(2, width), dim=-1, largest=False).values
++        valid_first = torch.isfinite(nearest[..., 0])
++        first = torch.where(valid_first, nearest[..., 0], 0)
++        second = nearest[..., 1] if width > 1 else torch.full_like(first, float('inf'))
++        valid_second = torch.isfinite(second)
++        second = torch.where(valid_second, second, first)
++        gap = (second - first) / (second + first + 1e-6)
++        gap = torch.where(valid_first & valid_second, gap, 0)
++
++        weights = weights.detach().masked_fill(selected_banks < 0, 0)
++        weights = weights / weights.sum(-1, keepdim=True).clamp_min(1e-12)
++        selected_count = (selected_banks >= 0).sum(-1).clamp_min(2).to(weights.dtype)
++        entropy = -(weights * weights.clamp_min(1e-12).log()).sum(-1) / selected_count.log()
++        futures = standardized.detach()
++        mean_future = (futures * weights.unsqueeze(-1)).sum(2)
++        variance = ((futures - mean_future.unsqueeze(2)).square() *
++                    weights.unsqueeze(-1)).sum(2).mean(-1)
++        bank_variance = torch.zeros_like(first)
++        bank_coverage = torch.zeros_like(first)
++        for bank in range(len(self.periods)):
++            bank_weights = weights.masked_fill(selected_banks != bank, 0)
++            mass = bank_weights.sum(-1)
++            bank_mean = ((futures * bank_weights.unsqueeze(-1)).sum(2) /
++                         mass.clamp_min(1e-12).unsqueeze(-1))
++            bank_variance += mass * (bank_mean - mean_future).square().mean(-1)
++            bank_coverage += (mass > 0).to(weights.dtype)
++        bank_coverage /= len(self.periods)
++        ages = (origin[:, None, None] - self.origins[selected]).to(weights.dtype)
++        age_cycles = (weights * ages).sum(-1).clamp_min(0) / self.cycle
++        candidate_fraction = (mask.sum(-1).to(weights.dtype) / self.candidate_cap)
++        candidate_fraction = candidate_fraction.unsqueeze(1).expand(batch, channels)
++        features = torch.stack((first.clamp_min(0).log1p(), gap, entropy,
++                                variance.clamp_min(0).sqrt().log1p(),
++                                bank_variance.clamp_min(0).sqrt().log1p(),
++                                bank_coverage, age_cycles.log1p(), candidate_fraction), -1)
++        return features.masked_fill(~valid_first.unsqueeze(-1), 0)
++
++    def _retrieve_bank(self, query, mean, scale, indices, provenance, priors, origin=None):
+         batch, channels, _ = query.shape
+         mask = indices >= 0
+         width = indices.shape[1]
+@@ -181,11 +238,13 @@
+             embeddings = query.new_empty(batch, channels, 0, 15)
+             selected_banks = indices.new_empty(batch, channels, 0)
+             weights = query.new_empty(batch, channels, 0)
+-            return prediction, embeddings, selected_banks, weights
++            reliability = query.new_zeros(batch, channels, 8) if self.collect_reliability else None
++            return prediction, embeddings, selected_banks, weights, reliability
+         safe = indices.clamp_min(0)
+         embeddings = self.encode(self.history_keys[safe].permute(0, 2, 1, 3))
+         distances = (embeddings - query.unsqueeze(2)).square().sum(-1)
+         distances = distances.masked_fill(~mask.unsqueeze(1), float('inf'))
++        reliability_distances = distances.detach() if self.collect_reliability else None
+         k = min(self.topk, width)
+         if self.router_mode == 'global_topk':
+             distances, positions = distances.topk(k, dim=-1, largest=False)
+@@ -218,7 +277,9 @@
+         transferred = (standardized * weights.unsqueeze(-1)).sum(2)
+         prediction = (transferred * scale.unsqueeze(-1) + mean.unsqueeze(-1)).transpose(1, 2)
+         selected_banks = selected_banks.masked_fill(~torch.isfinite(distances), -1)
+-        return prediction, embeddings, selected_banks, weights
++        reliability = (self._reliability_features(reliability_distances, mask, selected_banks,
++                       weights, standardized, selected, origin) if self.collect_reliability else None)
++        return prediction, embeddings, selected_banks, weights, reliability
+ 
+     def forward(self, raw_input, origin):
+         """Return B,H,C prediction and differentiable retrieval context.
+@@ -242,8 +303,8 @@
+         logits = self.cycle_router(query).masked_fill(~valid_banks.unsqueeze(1), -1e9)
+         priors = logits.softmax(-1) * valid_banks.unsqueeze(1)
+         priors = priors / priors.sum(-1, keepdim=True).clamp_min(1e-12)
+-        prediction, embeddings, selected_banks, selected_weights = self._retrieve_bank(
+-            query, mean, scale, indices, provenance, priors)
++        prediction, embeddings, selected_banks, selected_weights, reliability = self._retrieve_bank(
++            query, mean, scale, indices, provenance, priors, origin)
+         candidate_mask = indices >= 0
+         candidate_origins = self.origins[indices.clamp_min(0)].masked_fill(~candidate_mask, -1)
+         state = dict(query_embedding=query, query_mean=mean, query_std=scale, query_scale=scale,
+@@ -257,6 +318,8 @@
+         fallback = mean.unsqueeze(1).expand(-1, self.pred_len, -1)
+         prediction = torch.where(valid[:, None, None], prediction, fallback)
+         state.update(cycle_weights=priors, bank_valid=valid_banks, valid=valid)
++        if self.collect_reliability:
++            state['reliability_features'] = reliability
+         self.diagnostics['calls'] += 1
+         self.diagnostics['empty_queries'] += sum(not any(row) for row in counts)
+         candidate_totals = [sum(row[bank] for row in counts) for bank in range(len(self.periods))]
+--- before/models/TrustGTR.py
++++ after/models/TrustGTR.py
+@@ -41,8 +41,10 @@
+         raise ValueError('Unknown memory mode')
+     if result['memory_mode'] != 'independent' and any(period % cycle for period in result['periods']):
+         raise ValueError('Centered residual periods must be multiples of the base cycle')
+-    if result['gate_descriptor'] not in ('feature', 'forecast') or result['gate_loss_mode'] not in ('uniform', 'power_weighted'):
++    if result['gate_descriptor'] not in ('feature', 'forecast', 'retrieval') or result['gate_loss_mode'] not in ('uniform', 'power_weighted'):
+         raise ValueError('Unknown gate descriptor or calibration loss mode')
++    if result['gate_descriptor'] == 'retrieval' and result['memory_mode'] != 'historical':
++        raise ValueError('Retrieval reliability descriptors require historical memory')
+     if result['memory_mode'] == 'historical':
+         if not result['use_multi_cycle']:
+             raise ValueError('Historical retrieval requires the multi-cycle module')
+@@ -100,7 +102,8 @@
+             self.historical_memory = HistoricalMemory(self.seq_len, self.pred_len,
+                 self.cycle_len, self.enc_in, opts['periods'], state_dim=opts['state_dim'],
+                 topk=opts['historical_topk'], candidate_cap=opts['historical_candidate_cap'],
+-                router_mode=opts['historical_router_mode'])
++                router_mode=opts['historical_router_mode'],
++                collect_reliability=opts['use_reliability_gate'] and opts['gate_descriptor'] == 'retrieval')
+             # Start from the exact original forecast. This controls a small
+             # signed correction; the backbone and its training budget stay intact.
+             self.historical_strength = nn.Parameter(torch.zeros(()))
+@@ -115,7 +118,8 @@
+             with torch.no_grad():
+                 self.cycle_router.bias[0] = 2.0
+         if opts['use_reliability_gate']:
+-            self.gate = nn.Sequential(nn.Linear(10, 16), nn.GELU(), nn.Linear(16, 1))
++            gate_inputs = 18 if opts['gate_descriptor'] == 'retrieval' else 10
++            self.gate = nn.Sequential(nn.Linear(gate_inputs, 16), nn.GELU(), nn.Linear(16, 1))
+             nn.init.zeros_(self.gate[-1].weight)
+             nn.init.constant_(self.gate[-1].bias,
+                               math.log(opts['gate_initial_probability'] / (1 - opts['gate_initial_probability'])))
+@@ -256,6 +260,8 @@
+             norm_ratio = torch.log1p((right - left).square().mean(-1, keepdim=True).sqrt() / scale)
+             mismatch = (right - left).abs().mean(-1, keepdim=True) / scale
+             descriptor = torch.cat((state_features(raw_input), agreement, norm_ratio, mismatch), -1).clamp(-10, 10)
++            if self.options['gate_descriptor'] == 'retrieval':
++                descriptor = torch.cat((descriptor, state['reliability_features']), -1).detach().clamp(-10, 10)
+             gate = self.gate(descriptor).sigmoid().permute(0, 2, 1) * valid
+             output = baseline + strength * gate * correction
+             cache.update(gate=gate, local=baseline.detach(),

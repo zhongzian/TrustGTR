@@ -1,0 +1,157 @@
+{
+  "stage": "read_only_validation_prediction_diagnostic",
+  "method": {
+    "candidates": "all complete train windows only; j+H<=query forecast origin t (known through t-1)",
+    "candidate_age_coverage": "sort by t-j, split into three relative-age terciles, deterministic evenly spaced <=64 per tercile",
+    "phase_ablation": "same forecast-origin modulo official base cycle versus no phase restriction; same <=192 cap",
+    "input_keys": "window mean, log std, normalized last-minus-first-quarter trend plus 12 standardized block means",
+    "key_scaling": "training-only per-channel mean/std for 3 statistics; equal total weighting of statistics and window shape",
+    "retrieval": "per-channel k=3 nearest input keys; inverse squared-distance weights with additive 1e-3",
+    "future_transfer": "candidate future centered/scaled by candidate observed history, then query history mean/std; std floor 0.1 dataset-standardized units",
+    "fixed_blends": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "oracle": "clipped analytic MSE optimum; target-aware diagnostic only",
+    "validation_metric": "unchanged official MSE/MAE functions on fixed samples; no shuffled drop_last, so not the training early-stopping aggregate",
+    "selection_policy": "fixed methods/weights stated before evaluation; no test target access or parameter search"
+  },
+  "datasets": [
+    {
+      "dataset": "etth1",
+      "diagnostic_only": true,
+      "no_optimizer_steps": true,
+      "no_test_targets_loaded": true,
+      "validation_scope": "fixed evenly spaced validation subsample",
+      "validation_window_count": 2785,
+      "evaluated_windows": 2,
+      "validation_indices": [
+        0,
+        2784
+      ],
+      "baseline": {
+        "mse": 0.3322189748287201,
+        "mae": 0.3658263087272644
+      },
+      "retrieval_modes": {
+        "same_phase": {
+          "retrieval": {
+            "mse": 0.4281405508518219,
+            "mae": 0.44794514775276184
+          },
+          "fixed_blends": {
+            "0.05": {
+              "mse": 0.33007296919822693,
+              "mae": 0.3647843897342682
+            },
+            "0.1": {
+              "mse": 0.32865768671035767,
+              "mae": 0.36418038606643677
+            },
+            "0.2": {
+              "mse": 0.3280194103717804,
+              "mae": 0.36428284645080566
+            }
+          },
+          "oracle_sample_channel": {
+            "mse": 0.2882121801376343,
+            "mae": 0.35461705923080444
+          },
+          "oracle_sample_window": {
+            "mse": 0.3201659321784973,
+            "mae": 0.360608845949173
+          },
+          "oracle_label": "target-aware diagnostic upper bound; never deploy or count as model performance",
+          "oracle_gate_mean": 0.31940630078315735,
+          "oracle_gate_positive_fraction": 0.5,
+          "retrieval_better_window_fraction": 0.0,
+          "selected_age_min": 96,
+          "selected_age_max": 8832,
+          "selected_age_mean": 3717.1428571428573,
+          "candidate_count_min": 192,
+          "candidate_count_max": 192,
+          "candidate_population_age_terciles_first": [
+            118,
+            118,
+            117
+          ]
+        },
+        "without_phase": {
+          "retrieval": {
+            "mse": 0.5225249528884888,
+            "mae": 0.47579964995384216
+          },
+          "fixed_blends": {
+            "0.05": {
+              "mse": 0.33546915650367737,
+              "mae": 0.36638665199279785
+            },
+            "0.1": {
+              "mse": 0.33937880396842957,
+              "mae": 0.36783313751220703
+            },
+            "0.2": {
+              "mse": 0.34917664527893066,
+              "mae": 0.373384565114975
+            }
+          },
+          "oracle_sample_channel": {
+            "mse": 0.3257827162742615,
+            "mae": 0.3604288697242737
+          },
+          "oracle_sample_window": {
+            "mse": 0.3322189748287201,
+            "mae": 0.3658263087272644
+          },
+          "oracle_label": "target-aware diagnostic upper bound; never deploy or count as model performance",
+          "oracle_gate_mean": 0.14883042871952057,
+          "oracle_gate_positive_fraction": 0.42857142857142855,
+          "retrieval_better_window_fraction": 0.0,
+          "selected_age_min": 96,
+          "selected_age_max": 10925,
+          "selected_age_mean": 4529.428571428572,
+          "candidate_count_min": 192,
+          "candidate_count_max": 192,
+          "candidate_population_age_terciles_first": [
+            2817,
+            2816,
+            2816
+          ]
+        }
+      },
+      "baseline_run": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__forecast__t96_h96__seed2024__20261004_214520/checkpoints/best.pt",
+      "checkpoint_sha256": "2c9e2ac99f523e61bc189bbdf0b4881b5f5802c0e1cd8a3852a3403ec3704674",
+      "fixed_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+          "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+          "checks": {
+            "data_x": true,
+            "data_y": true,
+            "phase": true,
+            "mean": true,
+            "scale": true
+          }
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+          "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+          "checks": {
+            "data_x": true,
+            "data_y": true,
+            "phase": true,
+            "mean": true,
+            "scale": true
+          }
+        }
+      },
+      "input_length": 96,
+      "horizon": 96,
+      "cycle": 24,
+      "elapsed_seconds": 0.3635630860226229,
+      "cpu_threads": 4
+    }
+  ]
+}

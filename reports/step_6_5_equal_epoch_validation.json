@@ -1,0 +1,651 @@
+{
+  "step": "6.5.5",
+  "generated_at": "2026-10-06T22:15:57.783584+08:00",
+  "final": true,
+  "formal_pairs_complete": 4,
+  "queue_path": "/mnt/data/zza/code/TrustGTR/configs/queue_step_6_5_ac10.json",
+  "queue_sha256": "85c98ca2a9dd33a54d4e0c6f17eeb9c53bffa186bf1727588a59b266d925568e",
+  "source": "Original official per-epoch train.log Vali Loss field only; no epoch Test Loss metrics were extracted or stored",
+  "validation_loader": {
+    "shuffle": true,
+    "drop_last": true
+  },
+  "epoch_rule": "min(completed epochs for each pair); minimum logged Vali Loss over epochs1..N inclusive",
+  "logged_values_rounding": "Official logs print rounded values; ties take earliest logged epoch. Official checkpoint selection uses original validation values and is unchanged.",
+  "not_checkpoint_reevaluation": true,
+  "not_formal_test_result": true,
+  "does_not_replace_best_checkpoint_or_fixed_full_val": true,
+  "no_training_or_protocol_change": true,
+  "experiments": [
+    {
+      "experiment_id": "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "sampling": "regime_extremes",
+      "epochs_completed": 14,
+      "official_best_epoch": 9,
+      "train_log_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/train.log",
+      "train_log_sha256": "7062b8eff399a997ce273a11f2a96f5f3a2eb5b874c8d7a0680ee36ecd5073bb",
+      "resolved_config_sha256": "d0e7e9fffd4fbedbe8077bec0ce7d03db7c70f3b5e297a279a3d5648bc905a2b",
+      "curve_validation_only": [
+        {
+          "epoch": 1,
+          "validation_loss_logged": 1.0312974
+        },
+        {
+          "epoch": 2,
+          "validation_loss_logged": 0.7193577
+        },
+        {
+          "epoch": 3,
+          "validation_loss_logged": 0.694365
+        },
+        {
+          "epoch": 4,
+          "validation_loss_logged": 0.6795728
+        },
+        {
+          "epoch": 5,
+          "validation_loss_logged": 0.6791721
+        },
+        {
+          "epoch": 6,
+          "validation_loss_logged": 0.675888
+        },
+        {
+          "epoch": 7,
+          "validation_loss_logged": 0.6744238
+        },
+        {
+          "epoch": 8,
+          "validation_loss_logged": 0.6734762
+        },
+        {
+          "epoch": 9,
+          "validation_loss_logged": 0.6695381
+        },
+        {
+          "epoch": 10,
+          "validation_loss_logged": 0.669742
+        },
+        {
+          "epoch": 11,
+          "validation_loss_logged": 0.6741652
+        },
+        {
+          "epoch": 12,
+          "validation_loss_logged": 0.6793323
+        },
+        {
+          "epoch": 13,
+          "validation_loss_logged": 0.677085
+        },
+        {
+          "epoch": 14,
+          "validation_loss_logged": 0.6731205
+        }
+      ]
+    },
+    {
+      "experiment_id": "trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "sampling": "retrieval_hard",
+      "epochs_completed": 14,
+      "official_best_epoch": 9,
+      "train_log_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/train.log",
+      "train_log_sha256": "806be035f95457e352c3fe102c42741634338ac659edc5c935571e7d19940cfd",
+      "resolved_config_sha256": "67d64b54288a9a22d56b69bffeb810122d662f8a2f6d8badbef7c8b034c6c567",
+      "curve_validation_only": [
+        {
+          "epoch": 1,
+          "validation_loss_logged": 1.0312976
+        },
+        {
+          "epoch": 2,
+          "validation_loss_logged": 0.71949
+        },
+        {
+          "epoch": 3,
+          "validation_loss_logged": 0.6945943
+        },
+        {
+          "epoch": 4,
+          "validation_loss_logged": 0.6796699
+        },
+        {
+          "epoch": 5,
+          "validation_loss_logged": 0.6790914
+        },
+        {
+          "epoch": 6,
+          "validation_loss_logged": 0.6761266
+        },
+        {
+          "epoch": 7,
+          "validation_loss_logged": 0.6745719
+        },
+        {
+          "epoch": 8,
+          "validation_loss_logged": 0.6737025
+        },
+        {
+          "epoch": 9,
+          "validation_loss_logged": 0.6699216
+        },
+        {
+          "epoch": 10,
+          "validation_loss_logged": 0.6704071
+        },
+        {
+          "epoch": 11,
+          "validation_loss_logged": 0.6748691
+        },
+        {
+          "epoch": 12,
+          "validation_loss_logged": 0.6801665
+        },
+        {
+          "epoch": 13,
+          "validation_loss_logged": 0.6778163
+        },
+        {
+          "epoch": 14,
+          "validation_loss_logged": 0.6739517
+        }
+      ]
+    },
+    {
+      "experiment_id": "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "solar",
+      "sampling": "regime_extremes",
+      "epochs_completed": 8,
+      "official_best_epoch": 3,
+      "train_log_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/train.log",
+      "train_log_sha256": "97f12e9b6f01c0aaf5fdceed98a8baf98eeecec3a137bae9673329e23b905c80",
+      "resolved_config_sha256": "42f481dad6937c372d0ab5249325736a3f4e92fc8605cddb2e6cc270fa48b335",
+      "curve_validation_only": [
+        {
+          "epoch": 1,
+          "validation_loss_logged": 0.1614314
+        },
+        {
+          "epoch": 2,
+          "validation_loss_logged": 0.1472749
+        },
+        {
+          "epoch": 3,
+          "validation_loss_logged": 0.1441822
+        },
+        {
+          "epoch": 4,
+          "validation_loss_logged": 0.1449415
+        },
+        {
+          "epoch": 5,
+          "validation_loss_logged": 0.1474117
+        },
+        {
+          "epoch": 6,
+          "validation_loss_logged": 0.1451434
+        },
+        {
+          "epoch": 7,
+          "validation_loss_logged": 0.1498341
+        },
+        {
+          "epoch": 8,
+          "validation_loss_logged": 0.144599
+        }
+      ]
+    },
+    {
+      "experiment_id": "trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "solar",
+      "sampling": "retrieval_hard",
+      "epochs_completed": 14,
+      "official_best_epoch": 9,
+      "train_log_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/train.log",
+      "train_log_sha256": "718c82927efc0e503568b31e4bbf92e44ee27711ced63857dba012cc7ea22fe7",
+      "resolved_config_sha256": "618dae9e28e76ccdea087c8b1f91671598fa5a12ec55416c65dccb416373c2f9",
+      "curve_validation_only": [
+        {
+          "epoch": 1,
+          "validation_loss_logged": 0.1614436
+        },
+        {
+          "epoch": 2,
+          "validation_loss_logged": 0.1474573
+        },
+        {
+          "epoch": 3,
+          "validation_loss_logged": 0.1445759
+        },
+        {
+          "epoch": 4,
+          "validation_loss_logged": 0.144248
+        },
+        {
+          "epoch": 5,
+          "validation_loss_logged": 0.1482072
+        },
+        {
+          "epoch": 6,
+          "validation_loss_logged": 0.1439436
+        },
+        {
+          "epoch": 7,
+          "validation_loss_logged": 0.1496646
+        },
+        {
+          "epoch": 8,
+          "validation_loss_logged": 0.1440838
+        },
+        {
+          "epoch": 9,
+          "validation_loss_logged": 0.14141
+        },
+        {
+          "epoch": 10,
+          "validation_loss_logged": 0.1505361
+        },
+        {
+          "epoch": 11,
+          "validation_loss_logged": 0.1481364
+        },
+        {
+          "epoch": 12,
+          "validation_loss_logged": 0.1439966
+        },
+        {
+          "epoch": 13,
+          "validation_loss_logged": 0.1447688
+        },
+        {
+          "epoch": 14,
+          "validation_loss_logged": 0.1446192
+        }
+      ]
+    },
+    {
+      "experiment_id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "weather",
+      "sampling": "regime_extremes",
+      "epochs_completed": 18,
+      "official_best_epoch": 13,
+      "train_log_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/train.log",
+      "train_log_sha256": "7468b6ddf0a6da3c41bd6d79b2b6640e20704002705dc44d7929fcc616362ff8",
+      "resolved_config_sha256": "6f167b7f24c6e7786274c4536e1b083932de4484e776f69213067f2800a2f955",
+      "curve_validation_only": [
+        {
+          "epoch": 1,
+          "validation_loss_logged": 0.4910038
+        },
+        {
+          "epoch": 2,
+          "validation_loss_logged": 0.3943443
+        },
+        {
+          "epoch": 3,
+          "validation_loss_logged": 0.3871483
+        },
+        {
+          "epoch": 4,
+          "validation_loss_logged": 0.3860231
+        },
+        {
+          "epoch": 5,
+          "validation_loss_logged": 0.3878235
+        },
+        {
+          "epoch": 6,
+          "validation_loss_logged": 0.3823432
+        },
+        {
+          "epoch": 7,
+          "validation_loss_logged": 0.3792104
+        },
+        {
+          "epoch": 8,
+          "validation_loss_logged": 0.386979
+        },
+        {
+          "epoch": 9,
+          "validation_loss_logged": 0.3807251
+        },
+        {
+          "epoch": 10,
+          "validation_loss_logged": 0.3793125
+        },
+        {
+          "epoch": 11,
+          "validation_loss_logged": 0.3778235
+        },
+        {
+          "epoch": 12,
+          "validation_loss_logged": 0.3817876
+        },
+        {
+          "epoch": 13,
+          "validation_loss_logged": 0.3764901
+        },
+        {
+          "epoch": 14,
+          "validation_loss_logged": 0.379467
+        },
+        {
+          "epoch": 15,
+          "validation_loss_logged": 0.3790847
+        },
+        {
+          "epoch": 16,
+          "validation_loss_logged": 0.3777151
+        },
+        {
+          "epoch": 17,
+          "validation_loss_logged": 0.3790288
+        },
+        {
+          "epoch": 18,
+          "validation_loss_logged": 0.3788802
+        }
+      ]
+    },
+    {
+      "experiment_id": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "weather",
+      "sampling": "retrieval_hard",
+      "epochs_completed": 18,
+      "official_best_epoch": 13,
+      "train_log_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/train.log",
+      "train_log_sha256": "edc91c03ce125c33d3685bb223223b45447bf989d9f14437a1c27b05a68725db",
+      "resolved_config_sha256": "aab2c309be809cf39a1e50453678ff0159500935839ef0e893385e3b20dd582a",
+      "curve_validation_only": [
+        {
+          "epoch": 1,
+          "validation_loss_logged": 0.4910718
+        },
+        {
+          "epoch": 2,
+          "validation_loss_logged": 0.3949055
+        },
+        {
+          "epoch": 3,
+          "validation_loss_logged": 0.3869189
+        },
+        {
+          "epoch": 4,
+          "validation_loss_logged": 0.3884308
+        },
+        {
+          "epoch": 5,
+          "validation_loss_logged": 0.3889347
+        },
+        {
+          "epoch": 6,
+          "validation_loss_logged": 0.3816655
+        },
+        {
+          "epoch": 7,
+          "validation_loss_logged": 0.3802173
+        },
+        {
+          "epoch": 8,
+          "validation_loss_logged": 0.3832708
+        },
+        {
+          "epoch": 9,
+          "validation_loss_logged": 0.3811109
+        },
+        {
+          "epoch": 10,
+          "validation_loss_logged": 0.3790082
+        },
+        {
+          "epoch": 11,
+          "validation_loss_logged": 0.3777395
+        },
+        {
+          "epoch": 12,
+          "validation_loss_logged": 0.3820219
+        },
+        {
+          "epoch": 13,
+          "validation_loss_logged": 0.3767537
+        },
+        {
+          "epoch": 14,
+          "validation_loss_logged": 0.3793202
+        },
+        {
+          "epoch": 15,
+          "validation_loss_logged": 0.3791885
+        },
+        {
+          "epoch": 16,
+          "validation_loss_logged": 0.3777954
+        },
+        {
+          "epoch": 17,
+          "validation_loss_logged": 0.3794231
+        },
+        {
+          "epoch": 18,
+          "validation_loss_logged": 0.3791461
+        }
+      ]
+    },
+    {
+      "experiment_id": "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "ettm2",
+      "sampling": "regime_extremes",
+      "epochs_completed": 8,
+      "official_best_epoch": 3,
+      "train_log_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/train.log",
+      "train_log_sha256": "ca4d2ce9636847df6cc21598282587c5c0a61d1695759ac378580657b8972c90",
+      "resolved_config_sha256": "a24741719e5650ce8675fd0898dc0173dee3cccaf3b7224249bcbad2d0b62a97",
+      "curve_validation_only": [
+        {
+          "epoch": 1,
+          "validation_loss_logged": 0.1366919
+        },
+        {
+          "epoch": 2,
+          "validation_loss_logged": 0.1200348
+        },
+        {
+          "epoch": 3,
+          "validation_loss_logged": 0.1184711
+        },
+        {
+          "epoch": 4,
+          "validation_loss_logged": 0.1190525
+        },
+        {
+          "epoch": 5,
+          "validation_loss_logged": 0.1193874
+        },
+        {
+          "epoch": 6,
+          "validation_loss_logged": 0.1194279
+        },
+        {
+          "epoch": 7,
+          "validation_loss_logged": 0.1202587
+        },
+        {
+          "epoch": 8,
+          "validation_loss_logged": 0.1215052
+        }
+      ]
+    },
+    {
+      "experiment_id": "trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "ettm2",
+      "sampling": "retrieval_hard",
+      "epochs_completed": 8,
+      "official_best_epoch": 3,
+      "train_log_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/train.log",
+      "train_log_sha256": "a71ad4894513030cc327c983b97f0fbbd650f034383d1a98a68180b0cd45ecb0",
+      "resolved_config_sha256": "c1ea4bba1b52955606cf39e0761bc0af2de8cdaa4f5ba7a652c6e8e3ecbb79de",
+      "curve_validation_only": [
+        {
+          "epoch": 1,
+          "validation_loss_logged": 0.1366923
+        },
+        {
+          "epoch": 2,
+          "validation_loss_logged": 0.1199373
+        },
+        {
+          "epoch": 3,
+          "validation_loss_logged": 0.1183677
+        },
+        {
+          "epoch": 4,
+          "validation_loss_logged": 0.118774
+        },
+        {
+          "epoch": 5,
+          "validation_loss_logged": 0.1192432
+        },
+        {
+          "epoch": 6,
+          "validation_loss_logged": 0.1193827
+        },
+        {
+          "epoch": 7,
+          "validation_loss_logged": 0.1203028
+        },
+        {
+          "epoch": 8,
+          "validation_loss_logged": 0.1214023
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "dataset": "etth1",
+      "common_epoch_limit": 14,
+      "epochs_extremes": 14,
+      "epochs_hard": 14,
+      "extremes": {
+        "experiment_id": "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646",
+        "common_min_validation_loss_logged": 0.6695381,
+        "common_logged_best_epoch": 9,
+        "common_tied_best_epochs": [
+          9
+        ],
+        "all_epochs_min_validation_loss_logged": 0.6695381,
+        "all_epochs_logged_best_epoch": 9,
+        "official_best_epoch": 9
+      },
+      "hard": {
+        "experiment_id": "trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646",
+        "common_min_validation_loss_logged": 0.6699216,
+        "common_logged_best_epoch": 9,
+        "common_tied_best_epochs": [
+          9
+        ],
+        "all_epochs_min_validation_loss_logged": 0.6699216,
+        "all_epochs_logged_best_epoch": 9,
+        "official_best_epoch": 9
+      },
+      "absolute_change_hard_vs_extremes": 0.0003834999999999811,
+      "relative_change_hard_vs_extremes_pct": 0.057278293796869974,
+      "hard_has_validation_gain_within_common_epoch_range": false
+    },
+    {
+      "dataset": "solar",
+      "common_epoch_limit": 8,
+      "epochs_extremes": 8,
+      "epochs_hard": 14,
+      "extremes": {
+        "experiment_id": "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646",
+        "common_min_validation_loss_logged": 0.1441822,
+        "common_logged_best_epoch": 3,
+        "common_tied_best_epochs": [
+          3
+        ],
+        "all_epochs_min_validation_loss_logged": 0.1441822,
+        "all_epochs_logged_best_epoch": 3,
+        "official_best_epoch": 3
+      },
+      "hard": {
+        "experiment_id": "trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646",
+        "common_min_validation_loss_logged": 0.1439436,
+        "common_logged_best_epoch": 6,
+        "common_tied_best_epochs": [
+          6
+        ],
+        "all_epochs_min_validation_loss_logged": 0.14141,
+        "all_epochs_logged_best_epoch": 9,
+        "official_best_epoch": 9
+      },
+      "absolute_change_hard_vs_extremes": -0.00023860000000000547,
+      "relative_change_hard_vs_extremes_pct": -0.16548505987563336,
+      "hard_has_validation_gain_within_common_epoch_range": true
+    },
+    {
+      "dataset": "weather",
+      "common_epoch_limit": 18,
+      "epochs_extremes": 18,
+      "epochs_hard": 18,
+      "extremes": {
+        "experiment_id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+        "common_min_validation_loss_logged": 0.3764901,
+        "common_logged_best_epoch": 13,
+        "common_tied_best_epochs": [
+          13
+        ],
+        "all_epochs_min_validation_loss_logged": 0.3764901,
+        "all_epochs_logged_best_epoch": 13,
+        "official_best_epoch": 13
+      },
+      "hard": {
+        "experiment_id": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+        "common_min_validation_loss_logged": 0.3767537,
+        "common_logged_best_epoch": 13,
+        "common_tied_best_epochs": [
+          13
+        ],
+        "all_epochs_min_validation_loss_logged": 0.3767537,
+        "all_epochs_logged_best_epoch": 13,
+        "official_best_epoch": 13
+      },
+      "absolute_change_hard_vs_extremes": 0.0002636000000000305,
+      "relative_change_hard_vs_extremes_pct": 0.07001512124755219,
+      "hard_has_validation_gain_within_common_epoch_range": false
+    },
+    {
+      "dataset": "ettm2",
+      "common_epoch_limit": 8,
+      "epochs_extremes": 8,
+      "epochs_hard": 8,
+      "extremes": {
+        "experiment_id": "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+        "common_min_validation_loss_logged": 0.1184711,
+        "common_logged_best_epoch": 3,
+        "common_tied_best_epochs": [
+          3
+        ],
+        "all_epochs_min_validation_loss_logged": 0.1184711,
+        "all_epochs_logged_best_epoch": 3,
+        "official_best_epoch": 3
+      },
+      "hard": {
+        "experiment_id": "trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+        "common_min_validation_loss_logged": 0.1183677,
+        "common_logged_best_epoch": 3,
+        "common_tied_best_epochs": [
+          3
+        ],
+        "all_epochs_min_validation_loss_logged": 0.1183677,
+        "all_epochs_logged_best_epoch": 3,
+        "official_best_epoch": 3
+      },
+      "absolute_change_hard_vs_extremes": -0.00010339999999998961,
+      "relative_change_hard_vs_extremes_pct": -0.08727866965022661,
+      "hard_has_validation_gain_within_common_epoch_range": true
+    }
+  ]
+}

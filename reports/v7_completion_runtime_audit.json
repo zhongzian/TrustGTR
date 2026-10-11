@@ -1,0 +1,14 @@
+{
+  "queue_status": "COMPLETED",
+  "counts": {
+    "failed": 0,
+    "pending": 0,
+    "retrying": 0,
+    "running": 0,
+    "stopped": 0,
+    "succeeded": 35
+  },
+  "project_residual_process_groups": {},
+  "shared_reservation_count": 0,
+  "daemon_pid": 1620238
+}

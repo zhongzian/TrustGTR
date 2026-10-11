@@ -1,0 +1,171 @@
+{
+  "prepared_at": "2026-10-06T11:44:58.973195+08:00",
+  "step": "6.7",
+  "queue_path": "/mnt/data/zza/code/TrustGTR/configs/queue_four_datasets_v1.json",
+  "job_count": 8,
+  "formal_count": 4,
+  "smoke_count": 4,
+  "datasets_added": [
+    "weather",
+    "ettm2"
+  ],
+  "max_jobs": 3,
+  "launch_performed": false,
+  "scientific_code_sha256": {
+    "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+    "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+    "models/TrustGTR.py": "58196668bdc9b4ccbb49d9290ede3521848a17ddd04ab9f4de006f1466bb9a48",
+    "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+    "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+    "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+    "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+    "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+    "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+    "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+    "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94"
+  },
+  "source_provenance": {
+    "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105.json",
+    "config_sha256": "a79e160ccaae9498c69dbf7fbd41afb94aa5bbe8b2901875a96bf79f487df708",
+    "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105/metrics.json",
+    "metrics_sha256": "59ecc47061f6247579893de0386ebbb45259bb66c866785393c13cdee17901d3"
+  },
+  "asset_manifest": "/mnt/data/zza/code/TrustGTR/artifacts/expanded_data_assets.json",
+  "asset_manifest_sha256": "e8cd2f2669ecf0bad875792610f7a22de96d06dab4d7a274ef583f5832106264",
+  "formal_protocol_checks": [
+    {
+      "dataset": "weather",
+      "official_script": "scripts/GTR/weather.sh",
+      "script_sha256": "6f172df67528c6eaf7a755cbcf8abf3b51cccedec91e093d8c8622b6f82286e8",
+      "official_formal_args": {
+        "data": "custom",
+        "data_path": "weather.csv",
+        "enc_in": 21,
+        "cycle": 144,
+        "batch_size": 64,
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "use_revin": 1,
+        "is_training": 1,
+        "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+        "model_id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+        "model": "GTR",
+        "features": "M",
+        "seq_len": 96,
+        "pred_len": 96,
+        "train_epochs": 30,
+        "patience": 5,
+        "itr": 1,
+        "random_seed": 2024
+      },
+      "baseline_id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "improvement_id": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "inherited_official_defaults": {
+        "use_revin": 1,
+        "d_model": 512,
+        "label_len": 0,
+        "loss": "mse",
+        "lradj": "type3",
+        "pct_start": 0.3,
+        "use_amp": false,
+        "use_multi_gpu": false,
+        "num_workers": 10,
+        "model_type": "mlp",
+        "target": "OT",
+        "freq": "h"
+      },
+      "official_args_diff": {
+        "model_id": [
+          "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+          "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458"
+        ],
+        "model": [
+          "GTR",
+          "TrustGTR"
+        ]
+      },
+      "same_asset": true,
+      "same_training_budget": true,
+      "same_metric_and_loader": true,
+      "unchanged_a6_options": true,
+      "paper_values": "NA until independently verified"
+    },
+    {
+      "dataset": "ettm2",
+      "official_script": "scripts/GTR/ettm2.sh",
+      "script_sha256": "69512698f294b9b1e5fd2b2cfe88e4d9516fb198dd93b844cc7b7028a400daad",
+      "official_formal_args": {
+        "data": "ETTm2",
+        "data_path": "ETTm2.csv",
+        "enc_in": 7,
+        "cycle": 96,
+        "batch_size": 256,
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "use_revin": 1,
+        "is_training": 1,
+        "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+        "model_id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+        "model": "GTR",
+        "features": "M",
+        "seq_len": 96,
+        "pred_len": 96,
+        "train_epochs": 30,
+        "patience": 5,
+        "itr": 1,
+        "random_seed": 2024
+      },
+      "baseline_id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "improvement_id": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "inherited_official_defaults": {
+        "use_revin": 1,
+        "d_model": 512,
+        "label_len": 0,
+        "loss": "mse",
+        "lradj": "type3",
+        "pct_start": 0.3,
+        "use_amp": false,
+        "use_multi_gpu": false,
+        "num_workers": 10,
+        "model_type": "mlp",
+        "target": "OT",
+        "freq": "h"
+      },
+      "official_args_diff": {
+        "model_id": [
+          "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+          "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458"
+        ],
+        "model": [
+          "GTR",
+          "TrustGTR"
+        ]
+      },
+      "same_asset": true,
+      "same_training_budget": true,
+      "same_metric_and_loader": true,
+      "unchanged_a6_options": true,
+      "paper_values": "NA until independently verified"
+    }
+  ],
+  "memory_policy": "Baseline and A6 smoke use unknown peak; no borrowing baseline peak for retrieval; scheduler avoids own same-GPU co-location until first profile; formal uses own smoke peak.",
+  "scope_note": "A8 is not a universal default after Solar degradation; full A/B/C research scope retained",
+  "compatibility_requirement": "runner must record ETTm/custom absolute split metadata before historical A6 smoke; original loader/splits unchanged",
+  "prelaunch_scheduler_metadata_changes": [
+    {
+      "experiment_id": "trustgtr_a6__weather__smoke__t96_h96__seed2024__20261006_114458",
+      "key": "job.memory_estimate_from",
+      "old": "gtr__weather__smoke__t96_h96__seed2024__20261006_114458",
+      "new": null,
+      "reason": "Before first launch: historical A6 smoke peak unknown; do not borrow no-history baseline peak; unchanged science configs/IDs"
+    },
+    {
+      "experiment_id": "trustgtr_a6__ettm2__smoke__t96_h96__seed2024__20261006_114458",
+      "key": "job.memory_estimate_from",
+      "old": "gtr__ettm2__smoke__t96_h96__seed2024__20261006_114458",
+      "new": null,
+      "reason": "Before first launch: historical A6 smoke peak unknown; do not borrow no-history baseline peak; unchanged science configs/IDs"
+    }
+  ],
+  "metadata_adjusted_at": "2026-10-06T11:47:13.949281+08:00"
+}

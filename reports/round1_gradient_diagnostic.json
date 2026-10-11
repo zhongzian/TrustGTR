@@ -1,0 +1,10 @@
+{
+  "stage": "diagnostic_only_no_optimizer_step",
+  "seed": 2024,
+  "sample": "256 fixed training windows",
+  "forecast_mse": 0.3308052718639374,
+  "contrast_loss": 1.1611475944519043,
+  "gradient_cosine": 0.023094937205314636,
+  "forecast_gradient_norm": 0.004299071617424488,
+  "contrast_gradient_norm": 0.9045117497444153
+}

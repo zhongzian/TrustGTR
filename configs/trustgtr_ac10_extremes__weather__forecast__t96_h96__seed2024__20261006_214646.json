@@ -1,0 +1,247 @@
+{
+  "official_args": {
+    "data": "custom",
+    "data_path": "weather.csv",
+    "enc_in": 21,
+    "cycle": 144,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "dropout": 0.5,
+    "use_revin": 1,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 30,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+    "dataset": "weather",
+    "model": "TrustGTR_ac10_extremes",
+    "stage": "improvement",
+    "step": "6.5",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "same_evaluation_protocol": true,
+    "official_script": "scripts/GTR/weather.sh",
+    "baseline_experiment_id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+    "baseline_mse": null,
+    "baseline_mae": null,
+    "fixed_evaluation_asset_source": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+    "source_experiment_id": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+    "source_mse": 0.15659572184085846,
+    "source_mae": 0.2073282152414322,
+    "source_provenance": {
+      "id": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+      "metrics_sha256": "7aff8b2dfffb6f53a1d752abef077de1f071b4177e1249e05e4d697c73b2c346",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+      "code_manifest_sha256": "17169154ad27b532cc5595299cd8f5c013ff21f661dd11b10d764ce715f9e8ae",
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458.json",
+      "config_sha256": "71d3e50019c6034968d36d2774f5b42e3e3e4e8b3037a7f32e590cd50a9c0a4e",
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.json",
+          "sha256": "ed184698cea3f834de756f5a4a417819293e2330d3ab75c8c731908a6a33ac3b",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.scaler.npz",
+          "split": [
+            0,
+            36887
+          ],
+          "window_count": 36696,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.json",
+          "sha256": "63db9ed68cae8b47b2487dac9e87df9a9cc5dd56a388e6b57e8843d8da7d65da",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.scaler.npz",
+          "split": [
+            36791,
+            42157
+          ],
+          "window_count": 5175,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.json",
+          "sha256": "c896455a15bbb7c255f73985f453b502d6063ad284c0ca6d14a58526540e2474",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.scaler.npz",
+          "split": [
+            42061,
+            52696
+          ],
+          "window_count": 10444,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        }
+      },
+      "baseline": {
+        "id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+        "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__weather__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+        "metrics_sha256": "1ff229a4fe27d11d1651a294537164cb9f9e4b69db0df80a3fcd7c9f1b3e420d",
+        "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__weather__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+        "code_manifest_sha256": "17fed5850a2072534e75fd546e5ef8a147d2d2b8782e776cbfb2df4982fcf8ac"
+      }
+    },
+    "control_experiment_id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+    "paired_control_experiment_id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+    "paired_experiment_id": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+    "paired_factor": "trustgtr.contrast_sampling",
+    "frozen_code_sha256": {
+      "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+      "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+      "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+      "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+      "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+      "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+      "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+      "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+      "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+      "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+      "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+      "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+      "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+      "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+    },
+    "config_changes": [
+      {
+        "key": "official_args.model_id",
+        "old": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+        "new": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+        "reason": "unique immutable experiment ID; preserve completed A6 result"
+      },
+      {
+        "key": "trustgtr.use_regime_contrast",
+        "old": false,
+        "new": true,
+        "reason": "shared C setting in both groups; fix loss geometry/scale, A6 router and B-off attribution"
+      },
+      {
+        "key": "trustgtr.contrast_metric",
+        "old": "cosine",
+        "new": "euclidean",
+        "reason": "shared C setting in both groups; fix loss geometry/scale, A6 router and B-off attribution"
+      },
+      {
+        "key": "trustgtr.contrast_temperature",
+        "old": 0.1,
+        "new": 3.0,
+        "reason": "shared C setting in both groups; fix loss geometry/scale, A6 router and B-off attribution"
+      },
+      {
+        "key": "trustgtr.contrast_sampling",
+        "old": "regime_extremes",
+        "new": "regime_extremes",
+        "reason": "sole paired scientific factor: raw regime extremes versus different-regime negatives among actual learned retrieval neighbors"
+      }
+    ],
+    "comparison_note": "Four-dataset A6 per-bank causal train history fixed; B off only for attribution. Both C groups share Euclidean metric/T3/weight .002/distance1/gap .25; only sampling differs. This fresh control is not the prior cosine/T0.1 AC7. Existing successful GTR/A6 only referenced; original official budget/evaluation/assets unchanged. A/B/C research scope retained.",
+    "paper_mse": null,
+    "paper_mae": null,
+    "paper_reference": "NA: no verified paper values supplied for this extension",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "prepared_resolved_trustgtr": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": true,
+      "periods": [
+        144,
+        1008,
+        4320
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 3.0,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "historical",
+      "gate_descriptor": "forecast",
+      "detach_gate_descriptor": true,
+      "gate_loss_mode": "power_weighted",
+      "gate_calibration_context": "train",
+      "historical_topk": 3,
+      "historical_candidate_cap": 192,
+      "historical_blend_bound": 0.2,
+      "historical_strength_coordinates": "bounded",
+      "historical_router_mode": "per_bank",
+      "contrast_metric": "euclidean",
+      "contrast_sampling": "regime_extremes"
+    }
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/weather.csv",
+    "sha256": "34ee981d07313e51da2a50bb600072c8ae4a69cb4b0651f4cb93a069d7a2ba63",
+    "size_bytes": 7235425,
+    "provenance": "Exact public archive member; independent copy, no preprocessing",
+    "audit_manifest": "/mnt/data/zza/code/TrustGTR/artifacts/expanded_data_assets.json",
+    "audit_manifest_sha256": "e8cd2f2669ecf0bad875792610f7a22de96d06dab4d7a274ef583f5832106264",
+    "source_url": "https://drive.google.com/uc?export=download&id=1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot",
+    "rows": 52696,
+    "columns": [
+      "date",
+      "p (mbar)",
+      "T (degC)",
+      "Tpot (K)",
+      "Tdew (degC)",
+      "rh (%)",
+      "VPmax (mbar)",
+      "VPact (mbar)",
+      "VPdef (mbar)",
+      "sh (g/kg)",
+      "H2OC (mmol/mol)",
+      "rho (g/m**3)",
+      "wv (m/s)",
+      "max. wv (m/s)",
+      "wd (deg)",
+      "rain (mm)",
+      "raining (s)",
+      "SWDR (W/m�)",
+      "PAR (�mol/m�/s)",
+      "max. PAR (�mol/m�/s)",
+      "Tlog (degC)",
+      "OT"
+    ]
+  },
+  "smoke": {
+    "enabled": false,
+    "max_train_batches": null,
+    "max_eval_batches": null
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": false,
+    "use_regime_contrast": true,
+    "periods": [
+      144,
+      1008,
+      4320
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 3.0,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "historical",
+    "gate_descriptor": "forecast",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "gate_calibration_context": "train",
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "per_bank",
+    "contrast_metric": "euclidean",
+    "contrast_sampling": "regime_extremes"
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "cpu_threads": 2,
+  "no_test_dataset": true,
+  "no_optimizer_steps": true,
+  "no_checkpoint_writes": true,
+  "script_sha256": "5c80e117d7d4cb6753a9ff1465874f25ba2693d11774fc1179d720ada8d56fae",
+  "scalar_risk_gradients_helpful_harmful": [
+    -0.2200000137090683,
+    0.949999988079071
+  ],
+  "experiments": [
+    {
+      "experiment_id": "trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802",
+      "scope": "fixed train64; archived best checkpoint; no optimizer step",
+      "indices": [
+        5785,
+        1738,
+        1425,
+        7625,
+        6611,
+        6078,
+        2232,
+        3914,
+        6811,
+        5186,
+        3102,
+        557,
+        8213,
+        5668,
+        3854,
+        3738,
+        3731,
+        659,
+        2665,
+        661,
+        2265,
+        2263,
+        2741,
+        7677,
+        6963,
+        6462,
+        2217,
+        2596,
+        2025,
+        5027,
+        6709,
+        6731,
+        1091,
+        7378,
+        6748,
+        6996,
+        1705,
+        774,
+        1394,
+        4341,
+        598,
+        5401,
+        3946,
+        8434,
+        7683,
+        38,
+        1194,
+        1519,
+        1797,
+        8359,
+        1272,
+        7288,
+        2313,
+        4102,
+        886,
+        8191,
+        4759,
+        4949,
+        2344,
+        6728,
+        3022,
+        2907,
+        547,
+        8292
+      ],
+      "seed": 2024,
+      "checkpoint_sha256": "74c271adc2f4164063ebcc8b72d790991e15efc95c714994805b01c7ee392491",
+      "archived_sources": {
+        "untracked_code/models/HistoricalMemory.py": "3d8f84247121808d30a1690b7f835b4519424e4cea2ae50703a1e54ba546d6c0",
+        "untracked_code/models/TrustGTR.py": "d2fb75af54f65322795d24f00be4fd9d626e141926ef1162bb7b7bf03cd30e55"
+      },
+      "fixed_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+          "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+          "checks": {
+            "data_x": true,
+            "data_y": true,
+            "phase": true,
+            "mean": true,
+            "scale": true
+          }
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+          "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+          "checks": {
+            "data_x": true,
+            "data_y": true,
+            "phase": true,
+            "mean": true,
+            "scale": true
+          }
+        }
+      },
+      "dropout_probabilities": {
+        "GTR.dropout": 0.1,
+        "output_proj.0": 0.5
+      },
+      "main_loss": 0.3673706650733948,
+      "aux_loss": -0.013546385802328587,
+      "gate_main_gradient_norm": 0.00014437195204664022,
+      "gate_weighted_aux_gradient_norm": 1.6005285942810588e-05,
+      "weighted_aux_to_main_ratio": 0.11086146533489227,
+      "main_aux_gradient_cosine": 0.9860896468162537,
+      "aux_gradient_norm_by_module": {
+        "gate": 0.00032010572613216937,
+        "strength": 0.0,
+        "retrieval_encoder": 0.0,
+        "backbone_head": 0.0
+      },
+      "inference_aux_loss": -0.007661082781851292,
+      "inference_aux_gradient_norm": 0.0001681915600784123,
+      "train_aux_inference_aux_gradient_cosine": 0.7459705471992493,
+      "main_inference_aux_gradient_cosine": 0.8128841519355774,
+      "inference_cache_matches_eval_max_abs_error": 0.0,
+      "train_oracle_vs_inference_oracle_correlation": 0.8959755046461628,
+      "oracle_zero_status_changed_fraction": 0.07709750533103943,
+      "oracle_one_status_changed_fraction": 0.05895691737532616,
+      "training_experts": {
+        "valid_sample_channels": 441,
+        "local_mse": 0.3730695843696594,
+        "fixed_g1_mse": 0.3673674762248993,
+        "gate": {
+          "count": 441,
+          "mean": 0.9917594194412231,
+          "std": 0.007228802889585495,
+          "quantiles": {
+            "0": 0.9535170197486877,
+            "0.1": 0.9829856753349304,
+            "0.25": 0.9901869297027588,
+            "0.5": 0.9940497875213623,
+            "0.75": 0.9961209893226624,
+            "0.9": 0.9973342418670654,
+            "1": 0.9992350339889526
+          }
+        },
+        "oracle": {
+          "count": 441,
+          "mean": 0.6694381833076477,
+          "std": 0.4632624685764313,
+          "quantiles": {
+            "0": 0.0,
+            "0.1": 0.0,
+            "0.25": 0.0,
+            "0.5": 1.0,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "oracle_zero_fraction": 0.30385488271713257,
+        "oracle_one_fraction": 0.6507936716079712,
+        "scalar_open_push_fraction": 0.6507936716079712,
+        "scalar_close_push_fraction": 0.3492063581943512,
+        "mean_excess_risk": -0.013546385802328587
+      },
+      "inference_experts_same_train_windows": {
+        "valid_sample_channels": 441,
+        "local_mse": 0.36062997579574585,
+        "fixed_g1_mse": 0.35659557580947876,
+        "gate": {
+          "count": 441,
+          "mean": 0.9917681217193604,
+          "std": 0.007230734918266535,
+          "quantiles": {
+            "0": 0.953612208366394,
+            "0.1": 0.9828013777732849,
+            "0.25": 0.9901149272918701,
+            "0.5": 0.9940975904464722,
+            "0.75": 0.996130108833313,
+            "0.9": 0.9973376393318176,
+            "1": 0.9992209672927856
+          }
+        },
+        "oracle": {
+          "count": 441,
+          "mean": 0.6268685460090637,
+          "std": 0.47454380989074707,
+          "quantiles": {
+            "0": 0.0,
+            "0.1": 0.0,
+            "0.25": 0.0,
+            "0.5": 1.0,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "oracle_zero_fraction": 0.34467118978500366,
+        "oracle_one_fraction": 0.600907027721405,
+        "scalar_open_push_fraction": 0.600907027721405,
+        "scalar_close_push_fraction": 0.39909297227859497,
+        "mean_excess_risk": -0.007661082781851292
+      }
+    },
+    {
+      "experiment_id": "trustgtr_ab7__solar__forecast__t96_h96__seed2024__20261005_162802",
+      "scope": "fixed train64; archived best checkpoint; no optimizer step",
+      "indices": [
+        25141,
+        7547,
+        6200,
+        33206,
+        28648,
+        26374,
+        9670,
+        17008,
+        29535,
+        22551,
+        13457,
+        2421,
+        35679,
+        24694,
+        16761,
+        16207,
+        16195,
+        2870,
+        11607,
+        2877,
+        9820,
+        9809,
+        11900,
+        33403,
+        30217,
+        28048,
+        9644,
+        11308,
+        8824,
+        21828,
+        29216,
+        29237,
+        4739,
+        32010,
+        29263,
+        30350,
+        7408,
+        3374,
+        6067,
+        18854,
+        2594,
+        23461,
+        17099,
+        7798,
+        33451,
+        169,
+        5198,
+        6609,
+        7831,
+        36393,
+        5513,
+        31722,
+        10034,
+        17830,
+        3853,
+        35487,
+        20685,
+        21524,
+        10171,
+        29255,
+        13146,
+        12625,
+        2374,
+        36050
+      ],
+      "seed": 2024,
+      "checkpoint_sha256": "ead6390ccf3081a75eea05818f57a3601513689786767dc95d3cbd0ab17c92df",
+      "archived_sources": {
+        "untracked_code/models/HistoricalMemory.py": "3d8f84247121808d30a1690b7f835b4519424e4cea2ae50703a1e54ba546d6c0",
+        "untracked_code/models/TrustGTR.py": "d2fb75af54f65322795d24f00be4fd9d626e141926ef1162bb7b7bf03cd30e55"
+      },
+      "fixed_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+          "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+          "checks": {
+            "data_x": true,
+            "data_y": true,
+            "phase": true,
+            "mean": true,
+            "scale": true
+          }
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+          "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+          "checks": {
+            "data_x": true,
+            "data_y": true,
+            "phase": true,
+            "mean": true,
+            "scale": true
+          }
+        }
+      },
+      "dropout_probabilities": {
+        "GTR.dropout": 0.1,
+        "output_proj.0": 0.0
+      },
+      "main_loss": 0.17048141360282898,
+      "aux_loss": -0.03053002804517746,
+      "gate_main_gradient_norm": 0.0007339382427744567,
+      "gate_weighted_aux_gradient_norm": 0.0001996063074329868,
+      "weighted_aux_to_main_ratio": 0.2719660699367523,
+      "main_aux_gradient_cosine": 0.9985116720199585,
+      "aux_gradient_norm_by_module": {
+        "gate": 0.003992125857621431,
+        "strength": 0.0,
+        "retrieval_encoder": 0.0,
+        "backbone_head": 0.0
+      },
+      "inference_aux_loss": -0.025498999282717705,
+      "inference_aux_gradient_norm": 0.004135407507419586,
+      "train_aux_inference_aux_gradient_cosine": 0.9999643564224243,
+      "main_inference_aux_gradient_cosine": 0.9988418817520142,
+      "inference_cache_matches_eval_max_abs_error": 0.0,
+      "train_oracle_vs_inference_oracle_correlation": 0.9397744310821048,
+      "oracle_zero_status_changed_fraction": 0.04368156939744949,
+      "oracle_one_status_changed_fraction": 0.044023722410202026,
+      "training_experts": {
+        "valid_sample_channels": 8768,
+        "local_mse": 0.1756739318370819,
+        "fixed_g1_mse": 0.1715940684080124,
+        "gate": {
+          "count": 8768,
+          "mean": 0.9804656505584717,
+          "std": 0.13385482132434845,
+          "quantiles": {
+            "0": 9.119339949847927e-08,
+            "0.1": 0.9999948740005493,
+            "0.25": 0.999998927116394,
+            "0.5": 0.9999998807907104,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "oracle": {
+          "count": 8768,
+          "mean": 0.5999302864074707,
+          "std": 0.4744981825351715,
+          "quantiles": {
+            "0": 0.0,
+            "0.1": 0.0,
+            "0.25": 0.0,
+            "0.5": 1.0,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "oracle_zero_fraction": 0.3562956154346466,
+        "oracle_one_fraction": 0.5545164346694946,
+        "scalar_open_push_fraction": 0.5586222410202026,
+        "scalar_close_push_fraction": 0.441377729177475,
+        "mean_excess_risk": -0.03053002804517746
+      },
+      "inference_experts_same_train_windows": {
+        "valid_sample_channels": 8768,
+        "local_mse": 0.17369820177555084,
+        "fixed_g1_mse": 0.17017585039138794,
+        "gate": {
+          "count": 8768,
+          "mean": 0.9804651737213135,
+          "std": 0.1338954120874405,
+          "quantiles": {
+            "0": 6.568939880935432e-08,
+            "0.1": 0.9999948740005493,
+            "0.25": 0.999998927116394,
+            "0.5": 0.9999998807907104,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "oracle": {
+          "count": 8768,
+          "mean": 0.5899165272712708,
+          "std": 0.4756852984428406,
+          "quantiles": {
+            "0": 0.0,
+            "0.1": 0.0,
+            "0.25": 0.0,
+            "0.5": 1.0,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "oracle_zero_fraction": 0.36188411712646484,
+        "oracle_one_fraction": 0.5433394312858582,
+        "scalar_open_push_fraction": 0.5471031069755554,
+        "scalar_close_push_fraction": 0.4528968930244446,
+        "mean_excess_risk": -0.025498999282717705
+      }
+    }
+  ]
+}

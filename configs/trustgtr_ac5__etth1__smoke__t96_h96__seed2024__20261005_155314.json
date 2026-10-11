@@ -1,0 +1,176 @@
+{
+  "official_args": {
+    "data": "ETTh1",
+    "data_path": "ETTh1.csv",
+    "enc_in": 7,
+    "cycle": 24,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "dropout": 0.5,
+    "use_revin": 1,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_ac5__etth1__smoke__t96_h96__seed2024__20261005_155314",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 1,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_ac5__etth1__smoke__t96_h96__seed2024__20261005_155314",
+    "dataset": "etth1",
+    "model": "TrustGTR_ac5",
+    "stage": "smoke",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "paper_mse": 0.367,
+    "paper_mae": 0.391,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "same_evaluation_protocol": false,
+    "comparison_note": "Same official dataset/seed/budget/evaluation assets; v5 follow-up without test tuning",
+    "official_script": "scripts/GTR/etth1.sh",
+    "config_changes": [
+      {
+        "key": "model",
+        "old": "GTR",
+        "new": "TrustGTR",
+        "reason": "switchable historical retrieval variant"
+      },
+      {
+        "key": "memory_mode",
+        "old": "factorized_residual",
+        "new": "historical",
+        "reason": "long calendar banks overfit; fixed full-val historical retrieval shows complementary content"
+      },
+      {
+        "key": "retrieval_candidates",
+        "old": "one learned value per calendar cell",
+        "new": "train-only completed continuations, same base phase, three relative-age banks, at most 64 each",
+        "reason": "input state chooses actual history candidates; candidate future end <= query origin"
+      },
+      {
+        "key": "long_bank_phase_rule",
+        "old": "origin modulo 7x/30x base cycle",
+        "new": "all candidates align base cycle; memory banks cover short/middle/long historical cycle ages",
+        "reason": "validated three-age candidate coverage; periods retained as legacy source identifiers only"
+      },
+      {
+        "key": "retrieval_fusion",
+        "old": "modify learned Q before convolution",
+        "new": "original GTR forecast + 0.2*tanh(trainable scalar initialized 0)*retrieved forecast correction",
+        "reason": "retrieval standalone is weaker; initial prediction and RNG exactly match baseline"
+      },
+      {
+        "key": "historical_blend_bound",
+        "old": null,
+        "new": 0.2,
+        "reason": "fixed validation diagnostic blends 0.1/0.2 improve both metrics; no test tuning"
+      },
+      {
+        "key": "trustgtr",
+        "old": "disabled",
+        "new": {
+          "use_multi_cycle": true,
+          "use_reliability_gate": true,
+          "use_regime_contrast": true,
+          "memory_mode": "historical",
+          "preserve_initialization_rng": true,
+          "gate_descriptor": "forecast",
+          "detach_gate_descriptor": true,
+          "gate_loss_mode": "power_weighted",
+          "contrast_loss_weight": 0.002,
+          "historical_topk": 3,
+          "historical_candidate_cap": 192,
+          "historical_blend_bound": 0.2,
+          "historical_strength_coordinates": "bounded"
+        },
+        "reason": "A alone, add B, then add C; same original training budget and fixed assets"
+      },
+      {
+        "key": "gate_fallback",
+        "old": "local convolution/MLP branch",
+        "new": "original jointly trained GTR forecast branch",
+        "reason": "reject historical correction using train-only utility oracle"
+      },
+      {
+        "key": "contrast_candidate_source",
+        "old": "same-batch same-phase samples",
+        "new": "fixed causal training history candidates with disjoint windows",
+        "reason": "train actual retrieval key encoder; avoid sparse Solar/batch positives without stale queue"
+      },
+      {
+        "key": "historical_strength_coordinates",
+        "old": "0.2*tanh(raw)",
+        "new": "0.2*tanh(raw/0.2)",
+        "reason": "zero initial forecast and same amplitude bound; original LR/budget learned only 0.015-0.017 strength"
+      },
+      {
+        "key": "trustgtr.use_reliability_gate",
+        "old": true,
+        "new": false,
+        "reason": "AC5 attribution: only disable B relative to completed ABC5; preserve A/C and training budget"
+      },
+      {
+        "key": "official_args.model_id",
+        "old": "trustgtr_abc5__etth1__forecast__t96_h96__seed2024__20261005_110620",
+        "new": "trustgtr_ac5__etth1__smoke__t96_h96__seed2024__20261005_155314",
+        "reason": "unique follow-up experiment ID; preserve completed source"
+      },
+      {
+        "key": "official_args.train_epochs",
+        "old": 30,
+        "new": 1,
+        "reason": "independent smoke only; full formal budget remains unchanged"
+      },
+      {
+        "key": "smoke",
+        "old": {
+          "enabled": false,
+          "max_train_batches": null,
+          "max_eval_batches": null
+        },
+        "new": {
+          "enabled": true,
+          "max_train_batches": 3,
+          "max_eval_batches": 2
+        },
+        "reason": "three training/two evaluation batches for smoke only"
+      }
+    ],
+    "baseline_experiment_id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+    "baseline_mse": 0.3695984184741974,
+    "baseline_mae": 0.39260444045066833,
+    "source_experiment_id": "trustgtr_abc5__etth1__forecast__t96_h96__seed2024__20261005_110620",
+    "fixed_evaluation_asset_source": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520"
+  },
+  "smoke": {
+    "enabled": true,
+    "max_train_batches": 3,
+    "max_eval_batches": 2
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/ETTh1.csv",
+    "sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+    "size_bytes": 2589657,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": false,
+    "use_regime_contrast": true,
+    "memory_mode": "historical",
+    "preserve_initialization_rng": true,
+    "gate_descriptor": "forecast",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "contrast_loss_weight": 0.002,
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded"
+  }
+}

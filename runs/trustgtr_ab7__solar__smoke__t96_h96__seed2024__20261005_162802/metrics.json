@@ -1,0 +1,399 @@
+{
+  "id": "trustgtr_ab7__solar__smoke__t96_h96__seed2024__20261005_162802",
+  "dataset": "solar",
+  "model": "TrustGTR_ab7",
+  "stage": "smoke",
+  "protocol": "official_gtr_t96_h96_seed2024",
+  "paper_mse": 0.176,
+  "paper_mae": 0.235,
+  "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+  "paper_url": "https://arxiv.org/html/2602.10847v1",
+  "same_evaluation_protocol": false,
+  "comparison_note": "Single-factor gate loss versus completed AB6; same scalar gate, retrieval descriptor, initial probability, loss weight, seed/budget/assets; no safety guarantee",
+  "official_script": "scripts/GTR/solar.sh",
+  "config_changes": [
+    {
+      "key": "official_args.model",
+      "old": "GTR",
+      "new": "TrustGTR",
+      "reason": "test validated A5 architecture on a second dataset without changing official Solar budget"
+    },
+    {
+      "key": "trustgtr",
+      "old": "disabled",
+      "new": {
+        "use_multi_cycle": true,
+        "use_reliability_gate": false,
+        "use_regime_contrast": false,
+        "memory_mode": "historical",
+        "preserve_initialization_rng": true,
+        "gate_descriptor": "forecast",
+        "detach_gate_descriptor": true,
+        "gate_loss_mode": "power_weighted",
+        "contrast_loss_weight": 0.002,
+        "historical_topk": 3,
+        "historical_candidate_cap": 192,
+        "historical_blend_bound": 0.2,
+        "historical_strength_coordinates": "bounded",
+        "periods": [
+          144,
+          1008,
+          4320
+        ]
+      },
+      "reason": "copy completed ETTh1 A5 options; only periods scale to the official Solar base cycle"
+    },
+    {
+      "key": "trustgtr.periods",
+      "old": [
+        24,
+        168,
+        720
+      ],
+      "new": [
+        144,
+        1008,
+        4320
+      ],
+      "reason": "same short/middle/long relative-age bank semantics with Solar cycle 144; not a changed phase rule"
+    },
+    {
+      "key": "official_args.model_id",
+      "old": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+      "new": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+      "reason": "unique follow-up experiment ID; preserve completed source"
+    },
+    {
+      "key": "trustgtr.use_reliability_gate",
+      "old": false,
+      "new": true,
+      "reason": "first historical B reliability test on Solar: jointly enable B and its retrieval descriptor; not a descriptor-only ablation"
+    },
+    {
+      "key": "trustgtr.gate_descriptor",
+      "old": "forecast",
+      "new": "retrieval",
+      "reason": "retrieval distance/dispersion/age-bank evidence is available to reliability gate; no target needed at inference"
+    },
+    {
+      "key": "official_args.model_id",
+      "old": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+      "new": "trustgtr_ab6__solar__forecast__t96_h96__seed2024__20261005_160509",
+      "reason": "unique experiment ID; preserve completed source"
+    },
+    {
+      "key": "trustgtr.gate_loss_mode",
+      "old": "power_weighted",
+      "new": "counterfactual_risk",
+      "reason": "single-factor B loss: detached baseline error e and correction d define normalized counterfactual excess MSE (P*g^2-2*U*g)/(E+P); clipped oracle supervision discards benefit magnitude; fixed full-val AB6 gate/gain correlation -0.0986 and no-calibration gate nearly always open motivate this test; this is not a baseline safety guarantee"
+    },
+    {
+      "key": "official_args.model_id",
+      "old": "trustgtr_ab6__solar__forecast__t96_h96__seed2024__20261005_160509",
+      "new": "trustgtr_ab7__solar__smoke__t96_h96__seed2024__20261005_162802",
+      "reason": "unique follow-up experiment ID; preserve completed AB6 source"
+    },
+    {
+      "key": "official_args.train_epochs",
+      "old": 30,
+      "new": 1,
+      "reason": "independent smoke only; full formal budget remains unchanged"
+    },
+    {
+      "key": "smoke",
+      "old": {
+        "enabled": false,
+        "max_train_batches": null,
+        "max_eval_batches": null
+      },
+      "new": {
+        "enabled": true,
+        "max_train_batches": 3,
+        "max_eval_batches": 2
+      },
+      "reason": "three train/two evaluation batches for smoke only"
+    }
+  ],
+  "source_experiment_id": "trustgtr_ab6__solar__forecast__t96_h96__seed2024__20261005_160509",
+  "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+  "baseline_mse": 0.18117235600948334,
+  "baseline_mae": 0.2366592288017273,
+  "fixed_evaluation_asset_source": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+  "source_mse": 0.1835929900407791,
+  "source_mae": 0.2393493503332138,
+  "source_provenance": {
+    "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ab6__solar__forecast__t96_h96__seed2024__20261005_160509.json",
+    "config_sha256": "331eddf9f64e3b8b0b5ab0d695a06070b63ae511a4804903ba3c402e197adfd8",
+    "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab6__solar__forecast__t96_h96__seed2024__20261005_160509/metrics.json",
+    "metrics_sha256": "fbebe708f5557ba2728e81bbfb2c1f6699c921833cd60e37b77e8655d947b3f9"
+  },
+  "diagnostic_source": {
+    "path": "/mnt/data/zza/code/TrustGTR/reports/v6_fixed_full_val_20261005.json",
+    "sha256": "94fe42a57cb4cc28202d1342a6cef5bbd18b1aafca4876043f60a23a88c12074",
+    "scope": "fixed full ETTh1 validation only; no test targets; motivates gate loss on both datasets"
+  },
+  "baseline_recheck_experiment_id": "gtr__solar__smoke_recheck__t96_h96__seed2024__20261005_160509",
+  "experiment_id": "trustgtr_ab7__solar__smoke__t96_h96__seed2024__20261005_162802",
+  "status": "SUCCESS",
+  "seed": 2024,
+  "runtime_seconds": 19.139898409950547,
+  "peak_gpu_memory_mib": 1554.0,
+  "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+  "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__solar__smoke__t96_h96__seed2024__20261005_162802/resolved_config.yaml",
+  "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+  "evaluation_assets": {
+    "train": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+      "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+      "split": [
+        0,
+        36792
+      ],
+      "window_count": 36601
+    },
+    "val": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+      "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+      "split": [
+        36696,
+        42048
+      ],
+      "window_count": 5161
+    },
+    "test": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+      "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+      "split": [
+        41952,
+        52560
+      ],
+      "window_count": 10417
+    }
+  },
+  "error": null,
+  "parameters": 654195,
+  "trainable_parameters": 654195,
+  "training_time_seconds": 11.17709988297429,
+  "inference_time_seconds": 0.08325716899707913,
+  "inference_batches": 2,
+  "inference_seconds_per_batch": 0.04162858449853957,
+  "best_epoch": 1,
+  "epochs_completed": 1,
+  "global_step": 3,
+  "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__solar__smoke__t96_h96__seed2024__20261005_162802/checkpoints/best.pt",
+  "last_checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__solar__smoke__t96_h96__seed2024__20261005_162802/checkpoints/last.pt",
+  "smoke_checks": {
+    "forward": true,
+    "backward": true,
+    "optimizer_step": true,
+    "checkpoint_save": true,
+    "checkpoint_load": true,
+    "evaluation": true,
+    "metrics_write": true
+  },
+  "resume": {
+    "mode": "from_scratch",
+    "epoch": 0
+  },
+  "mae": 0.6014388203620911,
+  "mse": 0.5528518557548523,
+  "rmse": 0.7435401082038879,
+  "mape": 2.263946533203125,
+  "mspe": 1139.8446044921875,
+  "rse": 0.9990186095237732,
+  "corr": [
+    0.07258526980876923,
+    0.0724419578909874,
+    0.07377708703279495,
+    0.07023576647043228,
+    0.067447230219841,
+    0.07114662230014801,
+    0.0746106207370758,
+    0.06944911181926727,
+    0.07282213866710663,
+    0.0726756826043129,
+    0.06800432503223419,
+    0.06878632307052612,
+    0.06773369759321213,
+    0.07355580478906631,
+    0.05781478434801102,
+    0.0678696557879448,
+    0.07234054058790207,
+    0.07453911751508713,
+    0.07531322538852692,
+    0.06876596808433533,
+    0.07560727745294571,
+    0.07529275119304657,
+    0.07215246558189392,
+    0.0695883184671402,
+    0.0727296695113182,
+    0.07578816264867783,
+    0.07090470939874649,
+    0.07342785596847534,
+    0.07431335747241974,
+    0.07531458139419556,
+    0.07709778845310211,
+    0.07346554100513458,
+    0.07560737431049347,
+    0.07426711171865463,
+    0.07338523864746094,
+    0.07537844777107239,
+    0.07385366410017014,
+    0.07625528424978256,
+    0.07241775095462799,
+    0.07492730021476746,
+    0.0767538920044899,
+    0.06770312786102295,
+    0.07595674693584442,
+    0.0766550749540329,
+    0.07003580778837204,
+    0.07586820423603058,
+    0.07541008293628693,
+    0.07145921140909195,
+    0.07261911779642105,
+    0.06937175244092941,
+    0.07314426451921463,
+    0.07275895774364471,
+    0.07067983597517014,
+    0.0699504092335701,
+    0.07140033692121506,
+    0.06784912198781967,
+    0.06986209005117416,
+    0.06258507817983627,
+    0.06655996292829514,
+    0.06608795374631882,
+    0.0640704408288002,
+    0.061333008110523224,
+    0.06307139992713928,
+    0.06168142706155777,
+    0.06049813702702522,
+    0.05903176590800285,
+    0.061251986771821976,
+    0.056857284158468246,
+    0.06137750670313835,
+    0.05095577985048294,
+    0.0547114796936512,
+    0.050349313765764236,
+    0.05437092483043671,
+    0.051662057638168335,
+    0.053825754672288895,
+    0.05162803456187248,
+    0.045184630900621414,
+    0.05320511385798454,
+    0.0483255535364151,
+    0.05087326467037201,
+    0.0524575375020504,
+    0.05191504955291748,
+    0.04860532283782959,
+    0.056233663111925125,
+    0.05622873082756996,
+    0.05326581746339798,
+    0.05715944990515709,
+    0.05881490930914879,
+    0.0544164702296257,
+    0.059842295944690704,
+    0.05598168075084686,
+    0.06331528723239899,
+    0.06357633322477341,
+    0.06460811197757721,
+    0.06203852593898773,
+    0.06689611822366714
+  ],
+  "mse_difference_from_paper": 0.3768518557548523,
+  "mse_relative_difference_from_paper": 2.141203725879843,
+  "mae_difference_from_paper": 0.3664388203620911,
+  "mae_relative_difference_from_paper": 1.5593141292003876,
+  "trustgtr_diagnostics": {
+    "gate_sum": 71133.8056640625,
+    "gate_count": 78912,
+    "contrast_calls": 0,
+    "contrast_valid_anchors": 0,
+    "contrast_total_anchors": 0,
+    "cycle_weight_sum": [
+      26301.40380859375,
+      26455.776611328125,
+      26154.817138671875
+    ],
+    "cycle_weight_count": 78912,
+    "historical_strength": 0.008152664639055729,
+    "historical_valid_fraction_last_batch": 1.0,
+    "gate_mean": 0.9014320466350175,
+    "cycle_weight_mean": [
+      0.33330043350306354,
+      0.3352566987445271,
+      0.3314428368140698
+    ]
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": false,
+    "periods": [
+      144,
+      1008,
+      4320
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 0.1,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "historical",
+    "gate_descriptor": "retrieval",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "counterfactual_risk",
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "global_topk",
+    "contrast_metric": "cosine"
+  },
+  "historical_memory": {
+    "sha256": "92991871bb29ebd930a19ffa3eddf3d206c48f464aa59506bf88fe601bdd1d73",
+    "train_rows": 36792,
+    "channels": 137,
+    "source_split": "train",
+    "static_bank": true,
+    "candidate_windows": 36601,
+    "first_origin": 96,
+    "last_origin": 36696,
+    "seq_len": 96,
+    "pred_len": 96,
+    "descriptor": "train-scaled mean/log_std/trend + 12 normalized shape bins",
+    "history_std_floor": 0.1,
+    "stat_std_floor": 0.1,
+    "configured_periods": [
+      144,
+      1008,
+      4320
+    ],
+    "phase_cycle": 144,
+    "bank_rule": "same base phase; deterministic relative-age bands",
+    "bank_roles": [
+      "short",
+      "middle",
+      "long"
+    ],
+    "candidate_cap": 192,
+    "topk": 3,
+    "router_mode": "global_topk",
+    "causality": "candidate origin j + horizon <= query origin t",
+    "reliability_features": [
+      "nearest_key_distance_log1p",
+      "relative_nearest_distance_gap",
+      "selected_weight_entropy",
+      "selected_future_dispersion_log1p",
+      "selected_bank_dispersion_log1p",
+      "selected_bank_coverage",
+      "selected_age_cycles_log1p",
+      "candidate_count_fraction"
+    ]
+  }
+}

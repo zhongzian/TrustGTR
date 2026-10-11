@@ -1,0 +1,419 @@
+{
+  "id": "trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654",
+  "dataset": "solar",
+  "model": "TrustGTR_a8",
+  "stage": "smoke",
+  "protocol": "official_gtr_t96_h96_seed2024",
+  "paper_mse": 0.176,
+  "paper_mae": 0.235,
+  "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+  "paper_url": "https://arxiv.org/html/2602.10847v1",
+  "same_evaluation_protocol": false,
+  "comparison_note": "Single-factor evidence-aware bank weighting versus completed A6; B/C disabled, fixed seed, official budget and evaluation assets; evidence is input similarity, not guaranteed future utility",
+  "official_script": "scripts/GTR/solar.sh",
+  "config_changes": [
+    {
+      "key": "official_args.model",
+      "old": "GTR",
+      "new": "TrustGTR",
+      "reason": "test validated A5 architecture on a second dataset without changing official Solar budget"
+    },
+    {
+      "key": "trustgtr",
+      "old": "disabled",
+      "new": {
+        "use_multi_cycle": true,
+        "use_reliability_gate": false,
+        "use_regime_contrast": false,
+        "memory_mode": "historical",
+        "preserve_initialization_rng": true,
+        "gate_descriptor": "forecast",
+        "detach_gate_descriptor": true,
+        "gate_loss_mode": "power_weighted",
+        "contrast_loss_weight": 0.002,
+        "historical_topk": 3,
+        "historical_candidate_cap": 192,
+        "historical_blend_bound": 0.2,
+        "historical_strength_coordinates": "bounded",
+        "periods": [
+          144,
+          1008,
+          4320
+        ]
+      },
+      "reason": "copy completed ETTh1 A5 options; only periods scale to the official Solar base cycle"
+    },
+    {
+      "key": "trustgtr.periods",
+      "old": [
+        24,
+        168,
+        720
+      ],
+      "new": [
+        144,
+        1008,
+        4320
+      ],
+      "reason": "same short/middle/long relative-age bank semantics with Solar cycle 144; not a changed phase rule"
+    },
+    {
+      "key": "official_args.model_id",
+      "old": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+      "new": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+      "reason": "unique follow-up experiment ID; preserve completed source"
+    },
+    {
+      "key": "trustgtr.historical_router_mode",
+      "old": "global_topk",
+      "new": "per_bank",
+      "reason": "single-factor Solar router transfer from A5; B/C stay disabled"
+    },
+    {
+      "key": "official_args.model_id",
+      "old": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+      "new": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+      "reason": "unique follow-up experiment ID; preserve completed source"
+    },
+    {
+      "key": "trustgtr.historical_router_mode",
+      "old": "per_bank",
+      "new": "per_bank_evidence",
+      "reason": "single-factor A8: preserve top-k coverage per age bank, update bank mass with mean inverse-distance candidate evidence before final normalization; query-only bank priors ignore absolute matching quality; no new trainable parameters or independent innovation claim"
+    },
+    {
+      "key": "official_args.model_id",
+      "old": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+      "new": "trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654",
+      "reason": "unique A8 follow-up ID; preserve the completed A6 comparison"
+    },
+    {
+      "key": "official_args.train_epochs",
+      "old": 30,
+      "new": 1,
+      "reason": "independent smoke only; unchanged formal 30-epoch maximum and patience"
+    },
+    {
+      "key": "smoke",
+      "old": {
+        "enabled": false,
+        "max_train_batches": null,
+        "max_eval_batches": null
+      },
+      "new": {
+        "enabled": true,
+        "max_train_batches": 3,
+        "max_eval_batches": 2
+      },
+      "reason": "three training/two evaluation batches for smoke only"
+    }
+  ],
+  "source_experiment_id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+  "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+  "baseline_mse": 0.18117235600948334,
+  "baseline_mae": 0.2366592288017273,
+  "fixed_evaluation_asset_source": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+  "source_mse": 0.18590158224105835,
+  "source_mae": 0.24103502929210663,
+  "source_provenance": {
+    "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347.json",
+    "config_sha256": "d19849818e1c9c79eb34f83521bc8ab69cc7d2216aef25a4b114b6b50b2cb1e3",
+    "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/metrics.json",
+    "metrics_sha256": "116c25154b791e87b4a4961e5408859738512aac602c392d5285c4ca9e1bf9d9"
+  },
+  "baseline_recheck_experiment_id": "gtr__etth1__smoke_recheck_v8__t96_h96__seed2024__20261005_221654",
+  "experiment_id": "trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654",
+  "status": "SUCCESS",
+  "seed": 2024,
+  "runtime_seconds": 14.731943916063756,
+  "peak_gpu_memory_mib": 1516.0,
+  "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+  "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654/resolved_config.yaml",
+  "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+  "evaluation_assets": {
+    "train": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+      "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+      "split": [
+        0,
+        36792
+      ],
+      "window_count": 36601
+    },
+    "val": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+      "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+      "split": [
+        36696,
+        42048
+      ],
+      "window_count": 5161
+    },
+    "test": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+      "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+      "split": [
+        41952,
+        52560
+      ],
+      "window_count": 10417
+    }
+  },
+  "error": null,
+  "parameters": 653874,
+  "trainable_parameters": 653874,
+  "training_time_seconds": 8.162454017903656,
+  "inference_time_seconds": 0.06514988699927926,
+  "inference_batches": 2,
+  "inference_seconds_per_batch": 0.03257494349963963,
+  "best_epoch": 1,
+  "epochs_completed": 1,
+  "global_step": 3,
+  "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654/checkpoints/best.pt",
+  "last_checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654/checkpoints/last.pt",
+  "smoke_checks": {
+    "forward": true,
+    "backward": true,
+    "optimizer_step": true,
+    "checkpoint_save": true,
+    "checkpoint_load": true,
+    "evaluation": true,
+    "metrics_write": true
+  },
+  "resume": {
+    "mode": "from_scratch",
+    "epoch": 0
+  },
+  "mae": 0.6011309623718262,
+  "mse": 0.5523215532302856,
+  "rmse": 0.7431833744049072,
+  "mape": 2.263418197631836,
+  "mspe": 1140.364501953125,
+  "rse": 0.998539388179779,
+  "corr": [
+    0.07259897142648697,
+    0.07245848327875137,
+    0.07379506528377533,
+    0.07026390731334686,
+    0.06749428063631058,
+    0.07118251919746399,
+    0.07463501393795013,
+    0.06950604170560837,
+    0.07286573946475983,
+    0.07271120697259903,
+    0.06808076053857803,
+    0.06885254383087158,
+    0.06780117005109787,
+    0.07359101623296738,
+    0.057951487600803375,
+    0.06793352216482162,
+    0.07238946110010147,
+    0.0745682343840599,
+    0.07534090429544449,
+    0.06882032752037048,
+    0.07563091814517975,
+    0.07533452659845352,
+    0.07218524068593979,
+    0.06963919848203659,
+    0.0727793499827385,
+    0.07581239938735962,
+    0.07098745554685593,
+    0.07345972955226898,
+    0.07435665279626846,
+    0.07533930242061615,
+    0.07711983472108841,
+    0.07352980226278305,
+    0.07563457638025284,
+    0.07429720461368561,
+    0.07343113422393799,
+    0.07541900873184204,
+    0.07389383018016815,
+    0.07628455013036728,
+    0.07247724384069443,
+    0.07496383041143417,
+    0.07677514106035233,
+    0.06778418272733688,
+    0.07598666846752167,
+    0.0766901820898056,
+    0.07011894136667252,
+    0.07589724659919739,
+    0.07544483244419098,
+    0.07152346521615982,
+    0.0726543441414833,
+    0.06943725794553757,
+    0.07317130267620087,
+    0.07278243452310562,
+    0.07071242481470108,
+    0.06998258084058762,
+    0.07141760736703873,
+    0.0678897574543953,
+    0.06987688690423965,
+    0.06265141814947128,
+    0.06658875942230225,
+    0.06611216068267822,
+    0.06410550326108932,
+    0.06138294190168381,
+    0.06309881806373596,
+    0.06171981245279312,
+    0.060551244765520096,
+    0.05908920243382454,
+    0.0612800195813179,
+    0.05690443888306618,
+    0.06139982491731644,
+    0.05104729160666466,
+    0.05476462095975876,
+    0.050432343035936356,
+    0.05442119017243385,
+    0.051696304231882095,
+    0.0538497157394886,
+    0.051674485206604004,
+    0.04530145227909088,
+    0.05322787165641785,
+    0.0484032966196537,
+    0.050914399325847626,
+    0.052498191595077515,
+    0.05194856971502304,
+    0.048648156225681305,
+    0.05625118315219879,
+    0.05624740943312645,
+    0.05330309644341469,
+    0.057173699140548706,
+    0.05883234739303589,
+    0.054463956505060196,
+    0.059857968240976334,
+    0.05602835491299629,
+    0.06332958489656448,
+    0.06359192728996277,
+    0.06462127715349197,
+    0.062060803174972534,
+    0.06690768152475357
+  ],
+  "mse_difference_from_paper": 0.37632155323028565,
+  "mse_relative_difference_from_paper": 2.1381906433538957,
+  "mae_difference_from_paper": 0.3661309623718262,
+  "mae_relative_difference_from_paper": 1.5580040951992604,
+  "trustgtr_diagnostics": {
+    "gate_sum": 0.0,
+    "gate_count": 0,
+    "contrast_calls": 0,
+    "contrast_valid_anchors": 0,
+    "contrast_total_anchors": 0,
+    "cycle_weight_sum": [
+      26258.501220703125,
+      26459.077880859375,
+      26194.41845703125
+    ],
+    "cycle_weight_count": 78912,
+    "historical_strength": 0.008169390261173248,
+    "historical_valid_fraction_last_batch": 1.0,
+    "cycle_weight_mean": [
+      0.3327567571561122,
+      0.33529853356725686,
+      0.3319446783382914
+    ]
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": false,
+    "use_regime_contrast": false,
+    "periods": [
+      144,
+      1008,
+      4320
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 0.1,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "historical",
+    "gate_descriptor": "forecast",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "per_bank_evidence",
+    "contrast_metric": "cosine"
+  },
+  "historical_memory": {
+    "sha256": "92991871bb29ebd930a19ffa3eddf3d206c48f464aa59506bf88fe601bdd1d73",
+    "train_rows": 36792,
+    "channels": 137,
+    "source_split": "train",
+    "static_bank": true,
+    "candidate_windows": 36601,
+    "first_origin": 96,
+    "last_origin": 36696,
+    "seq_len": 96,
+    "pred_len": 96,
+    "descriptor": "train-scaled mean/log_std/trend + 12 normalized shape bins",
+    "history_std_floor": 0.1,
+    "stat_std_floor": 0.1,
+    "configured_periods": [
+      144,
+      1008,
+      4320
+    ],
+    "phase_cycle": 144,
+    "bank_rule": "same base phase; deterministic relative-age bands",
+    "bank_roles": [
+      "short",
+      "middle",
+      "long"
+    ],
+    "candidate_cap": 192,
+    "topk": 3,
+    "router_mode": "per_bank_evidence",
+    "causality": "candidate origin j + horizon <= query origin t",
+    "evidence_rule": "posterior proportional to masked query prior times mean(topk inverse distance); inverse-distance epsilon=0.001; finite distances only; empty banks have zero mass"
+  },
+  "historical_memory_diagnostics": {
+    "calls": 9,
+    "empty_queries": 0,
+    "candidate_total_by_bank": [
+      31665,
+      31618,
+      31565
+    ],
+    "bank_prior_sum": [
+      26258.501220703125,
+      26459.077880859375,
+      26194.41845703125
+    ],
+    "bank_posterior_sum": [
+      26865.213623046875,
+      20260.374267578125,
+      31786.413818359375
+    ],
+    "bank_effective_weight_sum": [
+      26865.2138671875,
+      20260.374267578125,
+      31786.413818359375
+    ],
+    "bank_routing_count": 78912,
+    "bank_prior_mean": [
+      0.3327567571561122,
+      0.33529853356725686,
+      0.3319446783382914
+    ],
+    "bank_posterior_mean": [
+      0.3404452253528852,
+      0.2567464297898688,
+      0.40280836651408375
+    ],
+    "bank_effective_weight_mean": [
+      0.34044522844671915,
+      0.2567464297898688,
+      0.40280836651408375
+    ],
+    "scope": "cumulative train/validation/test calls; not best-checkpoint validation only"
+  }
+}

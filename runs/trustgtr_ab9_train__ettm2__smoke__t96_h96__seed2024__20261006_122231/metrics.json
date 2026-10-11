@@ -1,0 +1,447 @@
+{
+  "id": "trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231",
+  "dataset": "ettm2",
+  "model": "TrustGTR_ab9_train",
+  "stage": "smoke",
+  "step": "6.4",
+  "protocol": "official_gtr_t96_h96_seed2024",
+  "same_evaluation_protocol": false,
+  "official_script": "scripts/GTR/ettm2.sh",
+  "baseline_experiment_id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+  "baseline_mse": null,
+  "baseline_mae": null,
+  "fixed_evaluation_asset_source": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+  "source_experiment_id": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+  "source_mse": 0.16614621877670288,
+  "source_mae": 0.2505177855491638,
+  "source_provenance": {
+    "id": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+    "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+    "metrics_sha256": "8065ca72de54179bc6c53d710a2dc03b729acab9459bfaeda10aab20a0d00a64",
+    "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+    "code_manifest_sha256": "0dbee9c9bb6dcf5b901923b6d8d7a567f75dc97325a5e1431e1594472074a784",
+    "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458.json",
+    "config_sha256": "761fdf0d231521fd3f97f96f0f205d5ab51cae756f9c04f7209079679c977f56",
+    "evaluation_assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.json",
+        "sha256": "56c16864c1a5b3d9b64ef5181e7d068f95ac1f2c2ef82856035e706af44649a8",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.scaler.npz",
+        "split": [
+          0,
+          34560
+        ],
+        "window_count": 34369,
+        "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.json",
+        "sha256": "8b3718767a1147631fd02e97a047dcdd84029574ec4f05fd725ef691beafbab9",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.scaler.npz",
+        "split": [
+          34464,
+          46080
+        ],
+        "window_count": 11425,
+        "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.json",
+        "sha256": "17fde4a80477d00f921515a4fa2f76604ec1b27c380b4a28c4d08ace0a8d1dbb",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.scaler.npz",
+        "split": [
+          45984,
+          57600
+        ],
+        "window_count": 11425,
+        "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+      }
+    },
+    "baseline": {
+      "id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+      "metrics_sha256": "66e6ce2ac8c575779d7b852f69cd4fa26971f31dc8f80cfb6421c465bb26cb51",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+      "code_manifest_sha256": "f8393d9806cba0a949deb25363e72336cbe0096404628ca05080d5aa4c6bd3b6"
+    }
+  },
+  "control_experiment_id": "trustgtr_ab9_train__ettm2__forecast__t96_h96__seed2024__20261006_122231",
+  "paired_control_experiment_id": "trustgtr_ab9_train__ettm2__forecast__t96_h96__seed2024__20261006_122231",
+  "paired_experiment_id": "trustgtr_ab9_inference__ettm2__smoke__t96_h96__seed2024__20261006_122231",
+  "paired_factor": "trustgtr.gate_calibration_context",
+  "frozen_code_sha256": {
+    "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+    "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+    "models/TrustGTR.py": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970",
+    "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+    "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+    "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+    "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+    "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+    "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+    "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+    "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+    "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+    "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+    "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+  },
+  "config_changes": [
+    {
+      "key": "official_args.model_id",
+      "old": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "new": "trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231",
+      "reason": "new immutable experiment ID; retain original A6 formal result"
+    },
+    {
+      "key": "trustgtr.use_reliability_gate",
+      "old": false,
+      "new": true,
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_descriptor",
+      "old": "forecast",
+      "new": "retrieval",
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.detach_gate_descriptor",
+      "old": true,
+      "new": true,
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_loss_mode",
+      "old": "power_weighted",
+      "new": "power_weighted",
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_loss_weight",
+      "old": 0.05,
+      "new": 0.05,
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_initial_probability",
+      "old": 0.9,
+      "new": 0.9,
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_calibration_context",
+      "old": "train",
+      "new": "train",
+      "reason": "sole paired scientific factor: same training-mode pass versus additional deterministic inference-mode gate calibration pass; original forecast loss and training budget unchanged"
+    },
+    {
+      "key": "official_args.train_epochs",
+      "old": 30,
+      "new": 1,
+      "reason": "independent smoke only"
+    },
+    {
+      "key": "smoke.batch_limits",
+      "old": null,
+      "new": {
+        "train": 3,
+        "evaluation": 2
+      },
+      "reason": "smoke chain only; official batch unchanged"
+    }
+  ],
+  "comparison_note": "Four-dataset A6 per-bank history held fixed; B shared retrieval descriptor/loss/init; C disabled only for attribution; train versus inference context is the sole pair difference. Existing GTR/A6 results are referenced, never rescheduled. Inference adds a calibration forward and may increase compute; official epochs/batches/optimizer/evaluation unchanged.",
+  "paper_mse": null,
+  "paper_mae": null,
+  "paper_reference": "NA: no verified paper values supplied for this extension",
+  "paper_url": "https://arxiv.org/html/2602.10847v1",
+  "prepared_resolved_trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": false,
+    "periods": [
+      96,
+      672,
+      2880
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 0.1,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "historical",
+    "gate_descriptor": "retrieval",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "gate_calibration_context": "train",
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "per_bank",
+    "contrast_metric": "cosine"
+  },
+  "experiment_id": "trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231",
+  "status": "SUCCESS",
+  "seed": 2024,
+  "runtime_seconds": 4.1512709819944575,
+  "peak_gpu_memory_mib": 350.0,
+  "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+  "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231/resolved_config.yaml",
+  "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+  "evaluation_assets": {
+    "train": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.json",
+      "sha256": "56c16864c1a5b3d9b64ef5181e7d068f95ac1f2c2ef82856035e706af44649a8",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.scaler.npz",
+      "split": [
+        0,
+        34560
+      ],
+      "window_count": 34369
+    },
+    "val": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.json",
+      "sha256": "8b3718767a1147631fd02e97a047dcdd84029574ec4f05fd725ef691beafbab9",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.scaler.npz",
+      "split": [
+        34464,
+        46080
+      ],
+      "window_count": 11425
+    },
+    "test": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.json",
+      "sha256": "17fde4a80477d00f921515a4fa2f76604ec1b27c380b4a28c4d08ace0a8d1dbb",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.scaler.npz",
+      "split": [
+        45984,
+        57600
+      ],
+      "window_count": 11425
+    }
+  },
+  "error": null,
+  "parameters": 635139,
+  "trainable_parameters": 635139,
+  "training_time_seconds": 2.414531634072773,
+  "inference_time_seconds": 0.06654368981253356,
+  "inference_batches": 2,
+  "inference_seconds_per_batch": 0.03327184490626678,
+  "best_epoch": 1,
+  "epochs_completed": 1,
+  "global_step": 3,
+  "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231/checkpoints/best.pt",
+  "last_checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231/checkpoints/last.pt",
+  "smoke_checks": {
+    "forward": true,
+    "backward": true,
+    "optimizer_step": true,
+    "checkpoint_save": true,
+    "checkpoint_load": true,
+    "evaluation": true,
+    "metrics_write": true
+  },
+  "resume": {
+    "mode": "from_scratch",
+    "epoch": 0
+  },
+  "mae": 0.19430530071258545,
+  "mse": 0.07992187887430191,
+  "rmse": 0.28270459175109863,
+  "mape": 0.5691453218460083,
+  "mspe": 3.774409055709839,
+  "rse": 0.23831912875175476,
+  "corr": [
+    0.07411444932222366,
+    0.09745284914970398,
+    0.08351943641901016,
+    0.08506009727716446,
+    0.05395772308111191,
+    0.07572607696056366,
+    0.06554829329252243,
+    0.06939452141523361,
+    0.06124230846762657,
+    0.05988866090774536,
+    0.04884696006774902,
+    0.056716036051511765,
+    0.06709231436252594,
+    0.02960742451250553,
+    0.04482110217213631,
+    0.017195530235767365,
+    0.043884020298719406,
+    0.022207779809832573,
+    0.020660726353526115,
+    0.03824514150619507,
+    0.042005542665719986,
+    0.03185410797595978,
+    0.016582127660512924,
+    -0.009858124889433384,
+    0.0010046366369351745,
+    0.018695373088121414,
+    -0.018270816653966904,
+    0.015879660844802856,
+    -0.02346831001341343,
+    0.03578214347362518,
+    0.030129190534353256,
+    -0.022351820021867752,
+    0.02316642552614212,
+    0.0023671681992709637,
+    0.018673008307814598,
+    -0.01067886408418417,
+    0.018810421228408813,
+    0.033092375844717026,
+    0.019316233694553375,
+    0.0015688827261328697,
+    0.011103583499789238,
+    0.03339843451976776,
+    0.031038817018270493,
+    0.042109351605176926,
+    0.02966960519552231,
+    0.03878988325595856,
+    0.05144990235567093,
+    0.027324043214321136,
+    0.042950015515089035,
+    0.04044217988848686,
+    0.042285360395908356,
+    0.029314624145627022,
+    0.02321317419409752,
+    0.0507318377494812,
+    0.026626693084836006,
+    0.04573655128479004,
+    0.04915061965584755,
+    0.031391825526952744,
+    0.06041219085454941,
+    0.05895876884460449,
+    0.06895063072443008,
+    0.024510404095053673,
+    0.010107995010912418,
+    0.054920680820941925,
+    0.05966934934258461,
+    0.05412906035780907,
+    0.05746397376060486,
+    0.06046073138713837,
+    0.06238359957933426,
+    0.06698441505432129,
+    0.06662878394126892,
+    0.07819648087024689,
+    0.06421621888875961,
+    0.06746513396501541,
+    0.0721052959561348,
+    0.07080096751451492,
+    0.06259812414646149,
+    0.07200228422880173,
+    0.08193265646696091,
+    0.08005678653717041,
+    0.08290775865316391,
+    0.07506905496120453,
+    0.07500343769788742,
+    0.07863293588161469,
+    0.07856941968202591,
+    0.07872715592384338,
+    0.0748007744550705,
+    0.08427345752716064,
+    0.08787962049245834,
+    0.06985151767730713,
+    0.07016311585903168,
+    0.07795816659927368,
+    0.07958991080522537,
+    0.07664326578378677,
+    0.07059501111507416,
+    0.07895032316446304
+  ],
+  "trustgtr_diagnostics": {
+    "gate_sum": 14510.11767578125,
+    "gate_count": 16128,
+    "contrast_calls": 0,
+    "contrast_valid_anchors": 0,
+    "contrast_total_anchors": 0,
+    "cycle_weight_sum": [
+      5369.814758300781,
+      5388.985168457031,
+      5355.200012207031
+    ],
+    "cycle_weight_count": 16128,
+    "historical_strength": 0.0029095630161464214,
+    "historical_valid_fraction_last_batch": 1.0,
+    "gate_mean": 0.8996848757304843,
+    "cycle_weight_mean": [
+      0.33294982380337185,
+      0.3341384653061155,
+      0.33204365155053517
+    ]
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": false,
+    "periods": [
+      96,
+      672,
+      2880
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 0.1,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "historical",
+    "gate_descriptor": "retrieval",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "gate_calibration_context": "train",
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "per_bank",
+    "contrast_metric": "cosine"
+  },
+  "historical_memory": {
+    "sha256": "2fb6125432bb595903664a84c54df6dc3d13a7ab3b2fc3df0a6813dcc2e517bc",
+    "train_rows": 34560,
+    "channels": 7,
+    "source_split": "train",
+    "static_bank": true,
+    "candidate_windows": 34369,
+    "first_origin": 96,
+    "last_origin": 34464,
+    "seq_len": 96,
+    "pred_len": 96,
+    "descriptor": "train-scaled mean/log_std/trend + 12 normalized shape bins",
+    "history_std_floor": 0.1,
+    "stat_std_floor": 0.1,
+    "configured_periods": [
+      96,
+      672,
+      2880
+    ],
+    "phase_cycle": 96,
+    "bank_rule": "same base phase; deterministic relative-age bands",
+    "bank_roles": [
+      "short",
+      "middle",
+      "long"
+    ],
+    "candidate_cap": 192,
+    "topk": 3,
+    "router_mode": "per_bank",
+    "causality": "candidate origin j + horizon <= query origin t",
+    "reliability_features": [
+      "nearest_key_distance_log1p",
+      "relative_nearest_distance_gap",
+      "selected_weight_entropy",
+      "selected_future_dispersion_log1p",
+      "selected_bank_dispersion_log1p",
+      "selected_bank_coverage",
+      "selected_age_cycles_log1p",
+      "candidate_count_fraction"
+    ]
+  }
+}

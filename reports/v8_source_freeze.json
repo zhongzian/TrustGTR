@@ -1,0 +1,18 @@
+{
+  "step": "5.4",
+  "sha256": {
+    "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+    "models/TrustGTR.py": "58196668bdc9b4ccbb49d9290ede3521848a17ddd04ab9f4de006f1466bb9a48",
+    "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+    "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+    "scripts/test_evidence_router.py": "fcf5113c1b2b421845a81186376c70cbfd3de3215689951972958a8ecd19389c",
+    "scripts/diagnose_evidence_router.py": "2f5b7e0cd8f08aefd955c974d8d82d86a3e0d24505cd153b48073e0ec5440c76"
+  },
+  "cpu_checks": {
+    "evidence_router": 6,
+    "baseline_regression": 5,
+    "historical_integration": 3,
+    "all_exit_status": 0
+  },
+  "official_tracked_diff_stat": ""
+}

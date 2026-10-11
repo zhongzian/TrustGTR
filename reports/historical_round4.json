@@ -1,0 +1,153 @@
+{
+  "baseline": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+  "results": [
+    {
+      "experiment_id": "trustgtr_a4__etth1__forecast__t96_h96__seed2024__20261004_232825",
+      "mse": 0.36897701025009155,
+      "mae": 0.3923245668411255,
+      "parameters": 634314,
+      "runtime_seconds": 57.24036017700564,
+      "training_time_seconds": 55.65740361798089,
+      "inference_time_seconds": 0.33092698571272194,
+      "peak_gpu_memory_mib": 794.0,
+      "best_epoch": 10,
+      "epochs_completed": 15,
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+          "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+          "split": [
+            0,
+            8640
+          ],
+          "window_count": 8449
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+          "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+          "split": [
+            8544,
+            11520
+          ],
+          "window_count": 2785
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+          "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+          "split": [
+            11424,
+            14400
+          ],
+          "window_count": 2785
+        }
+      },
+      "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a4__etth1__forecast__t96_h96__seed2024__20261004_232825/resolved_config.yaml",
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a4__etth1__forecast__t96_h96__seed2024__20261004_232825/checkpoints/best.pt",
+      "mse_relative": -0.0016813065019898321,
+      "mae_relative": -0.0007128640960392119,
+      "parameters_added": 560
+    },
+    {
+      "experiment_id": "trustgtr_ab4__etth1__forecast__t96_h96__seed2024__20261004_232825",
+      "mse": 0.3690415322780609,
+      "mae": 0.39222797751426697,
+      "parameters": 634507,
+      "runtime_seconds": 102.05150360206608,
+      "training_time_seconds": 99.88400258298498,
+      "inference_time_seconds": 0.38367908424697816,
+      "peak_gpu_memory_mib": 640.0,
+      "best_epoch": 10,
+      "epochs_completed": 15,
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+          "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+          "split": [
+            0,
+            8640
+          ],
+          "window_count": 8449
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+          "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+          "split": [
+            8544,
+            11520
+          ],
+          "window_count": 2785
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+          "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+          "split": [
+            11424,
+            14400
+          ],
+          "window_count": 2785
+        }
+      },
+      "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab4__etth1__forecast__t96_h96__seed2024__20261004_232825/resolved_config.yaml",
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab4__etth1__forecast__t96_h96__seed2024__20261004_232825/checkpoints/best.pt",
+      "mse_relative": -0.0015067331684899266,
+      "mae_relative": -0.0009588860889326867,
+      "parameters_added": 753
+    },
+    {
+      "experiment_id": "trustgtr_abc4__etth1__forecast__t96_h96__seed2024__20261004_232825",
+      "mse": 0.368973970413208,
+      "mae": 0.3921991288661957,
+      "parameters": 634507,
+      "runtime_seconds": 106.99836708093062,
+      "training_time_seconds": 105.74588472803589,
+      "inference_time_seconds": 0.2892491228412837,
+      "peak_gpu_memory_mib": 680.0,
+      "best_epoch": 10,
+      "epochs_completed": 15,
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+          "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+          "split": [
+            0,
+            8640
+          ],
+          "window_count": 8449
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+          "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+          "split": [
+            8544,
+            11520
+          ],
+          "window_count": 2785
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+          "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+          "split": [
+            11424,
+            14400
+          ],
+          "window_count": 2785
+        }
+      },
+      "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_abc4__etth1__forecast__t96_h96__seed2024__20261004_232825/resolved_config.yaml",
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_abc4__etth1__forecast__t96_h96__seed2024__20261004_232825/checkpoints/best.pt",
+      "mse_relative": -0.0016895312040762223,
+      "mae_relative": -0.0010323662768749742,
+      "parameters_added": 753
+    }
+  ],
+  "note": "single-seed screening only; diagnostics gate/routes are cumulative, not best-only validation"
+}

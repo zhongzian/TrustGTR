@@ -1,0 +1,137 @@
+{
+  "official_args": {
+    "random_seed": 2024,
+    "is_training": 1,
+    "model_id": "gtr__solar__smoke__t96_h96__seed2024__20261004_214520",
+    "model": "GTR",
+    "data": "Solar",
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset",
+    "data_path": "solar_AL.txt",
+    "features": "M",
+    "target": "OT",
+    "freq": "h",
+    "checkpoints": "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__smoke__t96_h96__seed2024__20261004_214520/checkpoints",
+    "seq_len": 96,
+    "label_len": 0,
+    "pred_len": 96,
+    "cycle": 144,
+    "model_type": "mlp",
+    "use_revin": 0,
+    "fc_dropout": 0.05,
+    "head_dropout": 0.0,
+    "patch_len": 16,
+    "stride": 8,
+    "padding_patch": "end",
+    "revin": 0,
+    "affine": 0,
+    "subtract_last": 0,
+    "decomposition": 0,
+    "kernel_size": 25,
+    "individual": 0,
+    "rnn_type": "gru",
+    "dec_way": "pmf",
+    "seg_len": 48,
+    "channel_id": 1,
+    "embed_type": 0,
+    "enc_in": 137,
+    "dec_in": 7,
+    "c_out": 7,
+    "d_model": 512,
+    "n_heads": 8,
+    "e_layers": 2,
+    "d_layers": 1,
+    "d_ff": 2048,
+    "moving_avg": 25,
+    "factor": 1,
+    "distil": true,
+    "dropout": 0.0,
+    "embed": "timeF",
+    "activation": "gelu",
+    "output_attention": false,
+    "do_predict": false,
+    "num_workers": 10,
+    "itr": 1,
+    "train_epochs": 1,
+    "batch_size": 64,
+    "patience": 5,
+    "learning_rate": 0.003,
+    "des": "test",
+    "loss": "mse",
+    "lradj": "type3",
+    "pct_start": 0.3,
+    "use_amp": false,
+    "use_gpu": true,
+    "gpu": 0,
+    "use_multi_gpu": false,
+    "devices": "0,1",
+    "test_flop": false
+  },
+  "experiment": {
+    "id": "gtr__solar__smoke__t96_h96__seed2024__20261004_214520",
+    "dataset": "solar",
+    "model": "GTR",
+    "stage": "smoke",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "paper_mse": 0.176,
+    "paper_mae": 0.235,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "same_evaluation_protocol": false,
+    "comparison_note": "Single seed 2024 versus paper multi-seed reference; not a statistical reproduction claim",
+    "official_script": "scripts/GTR/solar.sh",
+    "config_changes": [
+      {
+        "key": "train_epochs",
+        "old": 30,
+        "new": 1,
+        "reason": "Independent smoke only, explicitly authorized"
+      }
+    ]
+  },
+  "smoke": {
+    "enabled": true,
+    "max_train_batches": 3,
+    "max_eval_batches": 2
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/solar_AL.txt",
+    "sha256": "230327ef72d2abb387939d4a35d6fd34f1066071bc7c40ce7ecf5531a0122ac2",
+    "size_bytes": 180018000,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  },
+  "runner": {
+    "science_fingerprint": "fcc933093bbd1b19daac845f44c6ab6175366307a4cb5c1b2a194f505280413b",
+    "entrypoint": "runpy.run_path(original run.py)",
+    "resume_policy": "complete epoch only; identical science/data/code/environment fingerprint",
+    "loader_protocol": {
+      "train": {
+        "shuffle": true,
+        "drop_last": true
+      },
+      "val": {
+        "shuffle": true,
+        "drop_last": true
+      },
+      "test": {
+        "shuffle": false,
+        "drop_last": false
+      }
+    },
+    "checkpoint_selection": "official validation EarlyStopping; per-epoch test_loss is observation only",
+    "initial_lr_rule": "official OneCycleLR initialization: learning_rate / 25; type3 does not step OneCycleLR",
+    "changes_from_config": [
+      {
+        "parameter": "checkpoints",
+        "original": "official default",
+        "new": "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__smoke__t96_h96__seed2024__20261004_214520/checkpoints",
+        "reason": "isolate checkpoint outputs"
+      },
+      {
+        "parameter": "gpu",
+        "original": "official default",
+        "new": 0,
+        "reason": "UUID visibility maps the selected GPU to logical zero"
+      }
+    ]
+  }
+}

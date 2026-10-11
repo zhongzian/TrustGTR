@@ -1,0 +1,78 @@
+{
+  "official_args": {
+    "data": "ETTh1",
+    "data_path": "ETTh1.csv",
+    "enc_in": 7,
+    "cycle": 24,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "dropout": 0.5,
+    "use_revin": 1,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_ac__etth1__smoke__t96_h96__seed2024__20261004_220235",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 1,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_ac__etth1__smoke__t96_h96__seed2024__20261004_220235",
+    "dataset": "etth1",
+    "model": "TrustGTR_ac",
+    "stage": "smoke",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "paper_mse": 0.367,
+    "paper_mae": 0.391,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "same_evaluation_protocol": false,
+    "comparison_note": "Exact official seed-2024 baseline, same budget/assets/checkpoint selection",
+    "official_script": "scripts/GTR/etth1.sh",
+    "config_changes": [
+      {
+        "key": "model",
+        "old": "GTR",
+        "new": "TrustGTR",
+        "reason": "ac"
+      },
+      {
+        "key": "trustgtr",
+        "old": "all modules disabled",
+        "new": {
+          "use_multi_cycle": true,
+          "use_regime_contrast": true
+        },
+        "reason": "B alone; A alone; C incremental on A; full A/B/C combination"
+      },
+      {
+        "key": "train_epochs",
+        "old": 30,
+        "new": 1,
+        "reason": "independent smoke only"
+      }
+    ],
+    "baseline_experiment_id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+    "baseline_mse": 0.3695984184741974,
+    "baseline_mae": 0.39260444045066833
+  },
+  "smoke": {
+    "enabled": true,
+    "max_train_batches": 3,
+    "max_eval_batches": 2
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/ETTh1.csv",
+    "sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+    "size_bytes": 2589657,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_regime_contrast": true
+  }
+}

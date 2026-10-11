@@ -1,0 +1,1203 @@
+{
+  "step": "6.5",
+  "formal_runs_complete": 8,
+  "datasets": 4,
+  "single_seed_exploratory": true,
+  "paired_factor": "trustgtr.contrast_sampling",
+  "common_contrast_settings": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": false,
+    "use_regime_contrast": true,
+    "contrast_metric": "euclidean",
+    "contrast_temperature": 3.0,
+    "contrast_loss_weight": 0.002,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "historical_router_mode": "per_bank",
+    "historical_strength_coordinates": "bounded",
+    "gate_calibration_context": "train"
+  },
+  "legacy_ac7_is_not_this_control": "Old AC7 uses cosine/T0.1; both new C groups use euclidean/T3. C10 versus old AC7 cannot isolate sampling.",
+  "cumulative_training_contrast_statistics_are_not_best_checkpoint_fixed_validation": true,
+  "cycle_statistics_mix_train_val_test": true,
+  "speed_not_strict_benchmark_due_to_shared_gpu_concurrency": true,
+  "best_checkpoint_selected_by_original_validation_only": true,
+  "queue_path": "/mnt/data/zza/code/TrustGTR/configs/queue_step_6_5_ac10.json",
+  "queue_sha256": "85c98ca2a9dd33a54d4e0c6f17eeb9c53bffa186bf1727588a59b266d925568e",
+  "experiments": [
+    {
+      "experiment_id": "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "model": "TrustGTR_ac10_extremes",
+      "mse": 0.3657485246658325,
+      "mae": 0.39059317111968994,
+      "runtime_seconds": 40.63903050706722,
+      "training_time_seconds": 39.33440933399834,
+      "inference_time_seconds": 0.25788547506090254,
+      "inference_seconds_per_batch": 0.023444134096445687,
+      "peak_gpu_memory_mib": 650.0,
+      "parameters": 634314,
+      "trainable_parameters": 634314,
+      "epochs_completed": 14,
+      "best_epoch": 9,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+      "trustgtr_diagnostics": {
+        "gate_sum": 0.0,
+        "gate_count": 0,
+        "contrast_calls": 462,
+        "contrast_valid_anchors": 775392,
+        "contrast_total_anchors": 827904,
+        "cycle_weight_sum": [
+          636393.2112426758,
+          363124.7989807129,
+          362290.00595092773
+        ],
+        "cycle_weight_count": 1371209,
+        "historical_strength": 0.0732334554195404,
+        "historical_valid_fraction_last_batch": 1.0,
+        "contrast_valid_fraction": 0.9365723562152134,
+        "cycle_weight_mean": [
+          0.46411102263963827,
+          0.2648208981859898,
+          0.26421209746357244
+        ]
+      },
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "sampling": "regime_extremes",
+      "seed": 2024,
+      "baseline_experiment_id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+      "source_experiment_id": "trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105",
+      "baseline_scores": {
+        "mse": 0.3695984184741974,
+        "mae": 0.39260444045066833
+      },
+      "source_scores": {
+        "mse": 0.36597487330436707,
+        "mae": 0.39065808057785034
+      },
+      "absolute_change_vs_gtr": {
+        "mse": -0.003849893808364868,
+        "mae": -0.0020112693309783936
+      },
+      "relative_change_vs_gtr_pct": {
+        "mse": -1.0416423923723146,
+        "mae": -0.5122889921137085
+      },
+      "absolute_change_vs_a6": {
+        "mse": -0.0002263486385345459,
+        "mae": -6.490945816040039e-05
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": -0.06184813631899273,
+        "mae": -0.01661541419145565
+      },
+      "additional_parameters_vs_a6": 0,
+      "additional_parameters_vs_gtr": 560,
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646.json",
+      "config_sha256": "3dab4d33840c0f3fbf25d8167825c6dd31c6b970c9a541472ad7889e4b8ed47d",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/metrics.json",
+      "metrics_sha256": "681b5c63245465f4e21287a7c2d2d0dc570df1e454530d96499343f0e226e6a5",
+      "checkpoint_sha256": "114f116aae5e758438d5cca698fab83949aed2dae7e332576e3a602a4eefab4e",
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/resolved_config.yaml",
+      "resolved_config_sha256": "d0e7e9fffd4fbedbe8077bec0ce7d03db7c70f3b5e297a279a3d5648bc905a2b",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/code_manifest.json",
+      "code_manifest_sha256": "542e08cff630f7b894dee2f2ecd478da4b4730031a4330b08441007d33084922",
+      "scientific_code_sha256": {
+        "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+        "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+        "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+        "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+        "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+        "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+        "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+        "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+        "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+        "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+        "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+        "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+        "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+        "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+      },
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+          "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+          "split": [
+            0,
+            8640
+          ],
+          "window_count": 8449,
+          "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+          "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+          "split": [
+            8544,
+            11520
+          ],
+          "window_count": 2785,
+          "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+          "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+          "split": [
+            11424,
+            14400
+          ],
+          "window_count": 2785,
+          "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+        }
+      },
+      "same_training_budget_and_evaluation_assets": true
+    },
+    {
+      "experiment_id": "trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "etth1",
+      "model": "TrustGTR_ac10_hard",
+      "mse": 0.3661349415779114,
+      "mae": 0.39087149500846863,
+      "runtime_seconds": 108.36093990702648,
+      "training_time_seconds": 106.5025823500473,
+      "inference_time_seconds": 0.3339066469343379,
+      "inference_seconds_per_batch": 0.030355149721303445,
+      "peak_gpu_memory_mib": 650.0,
+      "parameters": 634314,
+      "trainable_parameters": 634314,
+      "epochs_completed": 14,
+      "best_epoch": 9,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+      "trustgtr_diagnostics": {
+        "gate_sum": 0.0,
+        "gate_count": 0,
+        "contrast_calls": 462,
+        "contrast_valid_anchors": 775392,
+        "contrast_total_anchors": 827904,
+        "cycle_weight_sum": [
+          609990.4951171875,
+          337239.04473876953,
+          414578.4748535156
+        ],
+        "cycle_weight_count": 1371209,
+        "historical_strength": 0.07308446615934372,
+        "historical_valid_fraction_last_batch": 1.0,
+        "contrast_valid_fraction": 0.9365723562152134,
+        "cycle_weight_mean": [
+          0.4448559593156021,
+          0.2459428465965214,
+          0.3023452113087907
+        ]
+      },
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "sampling": "retrieval_hard",
+      "seed": 2024,
+      "baseline_experiment_id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+      "source_experiment_id": "trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105",
+      "baseline_scores": {
+        "mse": 0.3695984184741974,
+        "mae": 0.39260444045066833
+      },
+      "source_scores": {
+        "mse": 0.36597487330436707,
+        "mae": 0.39065808057785034
+      },
+      "absolute_change_vs_gtr": {
+        "mse": -0.0034634768962860107,
+        "mae": -0.001732945442199707
+      },
+      "relative_change_vs_gtr_pct": {
+        "mse": -0.9370919146743603,
+        "mae": -0.44139731079212174
+      },
+      "absolute_change_vs_a6": {
+        "mse": 0.00016006827354431152,
+        "mae": 0.00021341443061828613
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": 0.043737503643095456,
+        "mae": 0.05462946787190721
+      },
+      "additional_parameters_vs_a6": 0,
+      "additional_parameters_vs_gtr": 560,
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646.json",
+      "config_sha256": "04d27b09947776b97c0ce3be88e5c4e5d8b42c5705353d9eb06244dd03c6b14e",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/metrics.json",
+      "metrics_sha256": "dd9f70ba47e68d8776b0034a8e1bc3d14b68a1df997e2c60896058aaecae7ba4",
+      "checkpoint_sha256": "653e32547bf10e06462a811b225aec92fb19d73ac848f9d56028c2bce3044487",
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/resolved_config.yaml",
+      "resolved_config_sha256": "67d64b54288a9a22d56b69bffeb810122d662f8a2f6d8badbef7c8b034c6c567",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/code_manifest.json",
+      "code_manifest_sha256": "1d3a25bd031de7a0fc17ea0ac3485d62f64a10e317146cba3bdafb31e66d5b17",
+      "scientific_code_sha256": {
+        "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+        "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+        "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+        "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+        "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+        "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+        "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+        "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+        "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+        "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+        "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+        "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+        "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+        "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+      },
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+          "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+          "split": [
+            0,
+            8640
+          ],
+          "window_count": 8449,
+          "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+          "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+          "split": [
+            8544,
+            11520
+          ],
+          "window_count": 2785,
+          "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+          "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+          "split": [
+            11424,
+            14400
+          ],
+          "window_count": 2785,
+          "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+        }
+      },
+      "same_training_budget_and_evaluation_assets": true
+    },
+    {
+      "experiment_id": "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "solar",
+      "model": "TrustGTR_ac10_extremes",
+      "mse": 0.18932810425758362,
+      "mae": 0.2553344666957855,
+      "runtime_seconds": 680.2039686229546,
+      "training_time_seconds": 659.2870892590145,
+      "inference_time_seconds": 3.528745398041792,
+      "inference_seconds_per_batch": 0.021648744773262528,
+      "peak_gpu_memory_mib": 1928.0,
+      "parameters": 653874,
+      "trainable_parameters": 653874,
+      "epochs_completed": 8,
+      "best_epoch": 3,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+      "trustgtr_diagnostics": {
+        "gate_sum": 0.0,
+        "gate_count": 0,
+        "contrast_calls": 4568,
+        "contrast_valid_anchors": 39014845,
+        "contrast_total_anchors": 40052224,
+        "cycle_weight_sum": [
+          33630390.28973389,
+          20421968.651367188,
+          4297859.593719482
+        ],
+        "cycle_weight_count": 58507905,
+        "historical_strength": 0.184470072388649,
+        "historical_valid_fraction_last_batch": 1.0,
+        "contrast_valid_fraction": 0.9740993409005203,
+        "cycle_weight_mean": [
+          0.5748007946914846,
+          0.34904631521786994,
+          0.07345775914757985
+        ]
+      },
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "sampling": "regime_extremes",
+      "seed": 2024,
+      "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+      "source_experiment_id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+      "baseline_scores": {
+        "mse": 0.18117235600948334,
+        "mae": 0.2366592288017273
+      },
+      "source_scores": {
+        "mse": 0.18590158224105835,
+        "mae": 0.24103502929210663
+      },
+      "absolute_change_vs_gtr": {
+        "mse": 0.00815574824810028,
+        "mae": 0.018675237894058228
+      },
+      "relative_change_vs_gtr_pct": {
+        "mse": 4.501651591743596,
+        "mae": 7.8911935903012305
+      },
+      "absolute_change_vs_a6": {
+        "mse": 0.0034265220165252686,
+        "mae": 0.014299437403678894
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": 1.8431914216212004,
+        "mae": 5.932514226531625
+      },
+      "additional_parameters_vs_a6": 0,
+      "additional_parameters_vs_gtr": 560,
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646.json",
+      "config_sha256": "e03ee5c2088aaf6c0d8124702cbd2ff269ec6580e5d350935ae32ec5e382c4ca",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/metrics.json",
+      "metrics_sha256": "280609028780bdc2441bc55d43b751d45104d0270dd28868ec9bf86b2dba26ff",
+      "checkpoint_sha256": "8d2a58f8435e3c4b94c28656e1c0bdec2ef5759f0a9dc9bd8323d56dff109946",
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/resolved_config.yaml",
+      "resolved_config_sha256": "42f481dad6937c372d0ab5249325736a3f4e92fc8605cddb2e6cc270fa48b335",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/code_manifest.json",
+      "code_manifest_sha256": "2ec3c88c019ebdcb3794c7a430655221365362818ba661919820ad9c1057409e",
+      "scientific_code_sha256": {
+        "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+        "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+        "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+        "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+        "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+        "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+        "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+        "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+        "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+        "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+        "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+        "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+        "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+        "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+      },
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+          "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+          "split": [
+            0,
+            36792
+          ],
+          "window_count": 36601,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+          "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+          "split": [
+            36696,
+            42048
+          ],
+          "window_count": 5161,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+          "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+          "split": [
+            41952,
+            52560
+          ],
+          "window_count": 10417,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        }
+      },
+      "same_training_budget_and_evaluation_assets": true
+    },
+    {
+      "experiment_id": "trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "solar",
+      "model": "TrustGTR_ac10_hard",
+      "mse": 0.18366926908493042,
+      "mae": 0.24014846980571747,
+      "runtime_seconds": 657.8631425660569,
+      "training_time_seconds": 641.4535597999347,
+      "inference_time_seconds": 3.2494045575149357,
+      "inference_seconds_per_batch": 0.019934997285367705,
+      "peak_gpu_memory_mib": 1930.0,
+      "parameters": 653874,
+      "trainable_parameters": 653874,
+      "epochs_completed": 14,
+      "best_epoch": 9,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+      "trustgtr_diagnostics": {
+        "gate_sum": 0.0,
+        "gate_count": 0,
+        "contrast_calls": 7994,
+        "contrast_valid_anchors": 64143231,
+        "contrast_total_anchors": 70091392,
+        "cycle_weight_sum": [
+          58568450.90893555,
+          37295101.23815918,
+          5178880.750826359
+        ],
+        "cycle_weight_count": 101318487,
+        "historical_strength": 0.19555173814296722,
+        "historical_valid_fraction_last_batch": 1.0,
+        "contrast_valid_fraction": 0.9151370684719744,
+        "cycle_weight_mean": [
+          0.5780628258783173,
+          0.36809769216312105,
+          0.05111486466261936
+        ]
+      },
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "sampling": "retrieval_hard",
+      "seed": 2024,
+      "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+      "source_experiment_id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+      "baseline_scores": {
+        "mse": 0.18117235600948334,
+        "mae": 0.2366592288017273
+      },
+      "source_scores": {
+        "mse": 0.18590158224105835,
+        "mae": 0.24103502929210663
+      },
+      "absolute_change_vs_gtr": {
+        "mse": 0.0024969130754470825,
+        "mae": 0.0034892410039901733
+      },
+      "relative_change_vs_gtr_pct": {
+        "mse": 1.378197607209117,
+        "mae": 1.4743735208033883
+      },
+      "absolute_change_vs_a6": {
+        "mse": -0.0022323131561279297,
+        "mae": -0.0008865594863891602
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": -1.200803742075359,
+        "mae": -0.3678135451900447
+      },
+      "additional_parameters_vs_a6": 0,
+      "additional_parameters_vs_gtr": 560,
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646.json",
+      "config_sha256": "2cb8b43e13adaf1151510e2d38bb56e2a9283e6a55dc80a3e297a89e59a15bb5",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/metrics.json",
+      "metrics_sha256": "6626d50a4181fbe74887f9b310d7894b8f12ad4a06f156db440df01574c237f0",
+      "checkpoint_sha256": "668fcb97610fdcee12d75857c67dec19d0d0bdf9df11826b1021c2a5ad17889a",
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/resolved_config.yaml",
+      "resolved_config_sha256": "618dae9e28e76ccdea087c8b1f91671598fa5a12ec55416c65dccb416373c2f9",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/code_manifest.json",
+      "code_manifest_sha256": "ac318364b614740aa1ec2488ef3374df5f86f3ef546295e565453fccae1d2f25",
+      "scientific_code_sha256": {
+        "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+        "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+        "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+        "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+        "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+        "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+        "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+        "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+        "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+        "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+        "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+        "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+        "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+        "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+      },
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+          "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+          "split": [
+            0,
+            36792
+          ],
+          "window_count": 36601,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+          "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+          "split": [
+            36696,
+            42048
+          ],
+          "window_count": 5161,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+          "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+          "split": [
+            41952,
+            52560
+          ],
+          "window_count": 10417,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        }
+      },
+      "same_training_budget_and_evaluation_assets": true
+    },
+    {
+      "experiment_id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "weather",
+      "model": "TrustGTR_ac10_extremes",
+      "mse": 0.15526236593723297,
+      "mae": 0.205132856965065,
+      "runtime_seconds": 926.5987081890926,
+      "training_time_seconds": 919.6052903659875,
+      "inference_time_seconds": 2.3167636394500732,
+      "inference_seconds_per_batch": 0.014126607557622397,
+      "peak_gpu_memory_mib": 612.0,
+      "parameters": 637170,
+      "trainable_parameters": 637170,
+      "epochs_completed": 18,
+      "best_epoch": 13,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+      "trustgtr_diagnostics": {
+        "gate_sum": 0.0,
+        "gate_count": 0,
+        "contrast_calls": 10314,
+        "contrast_valid_anchors": 12842119,
+        "contrast_total_anchors": 13862016,
+        "cycle_weight_sum": [
+          13138455.91772461,
+          3724916.547050476,
+          3046727.695599079
+        ],
+        "cycle_weight_count": 19964532,
+        "historical_strength": 0.19400402903556824,
+        "historical_valid_fraction_last_batch": 1.0,
+        "contrast_valid_fraction": 0.9264250596738598,
+        "cycle_weight_mean": [
+          0.6580898524305308,
+          0.18657670247669597,
+          0.15260701806579183
+        ]
+      },
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "sampling": "regime_extremes",
+      "seed": 2024,
+      "baseline_experiment_id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "source_experiment_id": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "baseline_scores": {
+        "mse": 0.1567707359790802,
+        "mae": 0.20133957266807556
+      },
+      "source_scores": {
+        "mse": 0.15659572184085846,
+        "mae": 0.2073282152414322
+      },
+      "absolute_change_vs_gtr": {
+        "mse": -0.001508370041847229,
+        "mae": 0.003793284296989441
+      },
+      "relative_change_vs_gtr_pct": {
+        "mse": -0.9621502587373889,
+        "mae": 1.8840232184474606
+      },
+      "absolute_change_vs_a6": {
+        "mse": -0.0013333559036254883,
+        "mae": -0.0021953582763671875
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": -0.8514638126452273,
+        "mae": -1.0588806129502002
+      },
+      "additional_parameters_vs_a6": 0,
+      "additional_parameters_vs_gtr": 560,
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646.json",
+      "config_sha256": "afb6b83541b5ff1156e8fc82c41e8c5222a664284dd879c1cf79a09c30a19107",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/metrics.json",
+      "metrics_sha256": "69831d855f20d1481ca7d638e7691daa0ffa858b2e5fc40946b1f6dd7dc332b1",
+      "checkpoint_sha256": "7f49350d7f3b9470b1f0b240c6790e49e18981612507c6f14ac37a1fc84e55ae",
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/resolved_config.yaml",
+      "resolved_config_sha256": "6f167b7f24c6e7786274c4536e1b083932de4484e776f69213067f2800a2f955",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/code_manifest.json",
+      "code_manifest_sha256": "55be6b09449fa59ccb7358863d49c23c6bb953123ddc07bf2d343767edadec16",
+      "scientific_code_sha256": {
+        "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+        "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+        "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+        "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+        "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+        "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+        "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+        "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+        "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+        "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+        "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+        "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+        "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+        "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+      },
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.json",
+          "sha256": "ed184698cea3f834de756f5a4a417819293e2330d3ab75c8c731908a6a33ac3b",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.scaler.npz",
+          "split": [
+            0,
+            36887
+          ],
+          "window_count": 36696,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.json",
+          "sha256": "63db9ed68cae8b47b2487dac9e87df9a9cc5dd56a388e6b57e8843d8da7d65da",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.scaler.npz",
+          "split": [
+            36791,
+            42157
+          ],
+          "window_count": 5175,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.json",
+          "sha256": "c896455a15bbb7c255f73985f453b502d6063ad284c0ca6d14a58526540e2474",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.scaler.npz",
+          "split": [
+            42061,
+            52696
+          ],
+          "window_count": 10444,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        }
+      },
+      "same_training_budget_and_evaluation_assets": true
+    },
+    {
+      "experiment_id": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "weather",
+      "model": "TrustGTR_ac10_hard",
+      "mse": 0.15550075471401215,
+      "mae": 0.2054024338722229,
+      "runtime_seconds": 499.1702691100072,
+      "training_time_seconds": 494.5447388339089,
+      "inference_time_seconds": 1.5587896632496268,
+      "inference_seconds_per_batch": 0.009504815019814797,
+      "peak_gpu_memory_mib": 610.0,
+      "parameters": 637170,
+      "trainable_parameters": 637170,
+      "epochs_completed": 18,
+      "best_epoch": 13,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+      "trustgtr_diagnostics": {
+        "gate_sum": 0.0,
+        "gate_count": 0,
+        "contrast_calls": 10314,
+        "contrast_valid_anchors": 12727855,
+        "contrast_total_anchors": 13862016,
+        "cycle_weight_sum": [
+          12513802.737487793,
+          4259064.365619659,
+          3137233.0828170776
+        ],
+        "cycle_weight_count": 19964532,
+        "historical_strength": 0.19339118897914886,
+        "historical_valid_fraction_last_batch": 1.0,
+        "contrast_valid_fraction": 0.9181821028052485,
+        "cycle_weight_mean": [
+          0.6268017070216217,
+          0.21333154043479002,
+          0.1571403267963946
+        ]
+      },
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "sampling": "retrieval_hard",
+      "seed": 2024,
+      "baseline_experiment_id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "source_experiment_id": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "baseline_scores": {
+        "mse": 0.1567707359790802,
+        "mae": 0.20133957266807556
+      },
+      "source_scores": {
+        "mse": 0.15659572184085846,
+        "mae": 0.2073282152414322
+      },
+      "absolute_change_vs_gtr": {
+        "mse": -0.0012699812650680542,
+        "mae": 0.004062861204147339
+      },
+      "relative_change_vs_gtr_pct": {
+        "mse": -0.8100882203152526,
+        "mae": 2.0179148839484684
+      },
+      "absolute_change_vs_a6": {
+        "mse": -0.0010949671268463135,
+        "mae": -0.0019257813692092896
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": -0.6992318270093495,
+        "mae": -0.9288563869450819
+      },
+      "additional_parameters_vs_a6": 0,
+      "additional_parameters_vs_gtr": 560,
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646.json",
+      "config_sha256": "9fa1976d3ad6a7621e4192690ffd875e43c96f0c47e9e5db5df1e934d3745cf8",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/metrics.json",
+      "metrics_sha256": "428f332727d13f9d5481d8d9d2b1a6a267a2fb64a7260ccde9fb379089c54bf9",
+      "checkpoint_sha256": "9f8116dc89ba0932f0fb8910774c6cd00ad2f71441f6948b758ffd56a8c1e6b8",
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/resolved_config.yaml",
+      "resolved_config_sha256": "aab2c309be809cf39a1e50453678ff0159500935839ef0e893385e3b20dd582a",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/code_manifest.json",
+      "code_manifest_sha256": "60370f86fc85dd0b5cc3ba3fb04c0afd627f20bab7132bc69916ae81779dc494",
+      "scientific_code_sha256": {
+        "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+        "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+        "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+        "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+        "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+        "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+        "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+        "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+        "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+        "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+        "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+        "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+        "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+        "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+      },
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.json",
+          "sha256": "ed184698cea3f834de756f5a4a417819293e2330d3ab75c8c731908a6a33ac3b",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.scaler.npz",
+          "split": [
+            0,
+            36887
+          ],
+          "window_count": 36696,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.json",
+          "sha256": "63db9ed68cae8b47b2487dac9e87df9a9cc5dd56a388e6b57e8843d8da7d65da",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.scaler.npz",
+          "split": [
+            36791,
+            42157
+          ],
+          "window_count": 5175,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.json",
+          "sha256": "c896455a15bbb7c255f73985f453b502d6063ad284c0ca6d14a58526540e2474",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.scaler.npz",
+          "split": [
+            42061,
+            52696
+          ],
+          "window_count": 10444,
+          "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+        }
+      },
+      "same_training_budget_and_evaluation_assets": true
+    },
+    {
+      "experiment_id": "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "ettm2",
+      "model": "TrustGTR_ac10_extremes",
+      "mse": 0.16700196266174316,
+      "mae": 0.24997492134571075,
+      "runtime_seconds": 270.2637067140313,
+      "training_time_seconds": 262.9633263919968,
+      "inference_time_seconds": 1.461486664135009,
+      "inference_seconds_per_batch": 0.03247748142522242,
+      "peak_gpu_memory_mib": 840.0,
+      "parameters": 634818,
+      "trainable_parameters": 634818,
+      "epochs_completed": 8,
+      "best_epoch": 3,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+      "trustgtr_diagnostics": {
+        "gate_sum": 0.0,
+        "gate_count": 0,
+        "contrast_calls": 1072,
+        "contrast_valid_anchors": 1813376,
+        "contrast_total_anchors": 1921024,
+        "cycle_weight_sum": [
+          1505482.9701843262,
+          897692.2196044922,
+          863045.838684082
+        ],
+        "cycle_weight_count": 3271583,
+        "historical_strength": 0.11119689792394638,
+        "historical_valid_fraction_last_batch": 1.0,
+        "contrast_valid_fraction": 0.9439632196162047,
+        "cycle_weight_mean": [
+          0.46016957851423185,
+          0.27439078256748867,
+          0.263800685687657
+        ]
+      },
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "sampling": "regime_extremes",
+      "seed": 2024,
+      "baseline_experiment_id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "source_experiment_id": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "baseline_scores": {
+        "mse": 0.16799364984035492,
+        "mae": 0.2511110007762909
+      },
+      "source_scores": {
+        "mse": 0.16614621877670288,
+        "mae": 0.2505177855491638
+      },
+      "absolute_change_vs_gtr": {
+        "mse": -0.0009916871786117554,
+        "mae": -0.0011360794305801392
+      },
+      "relative_change_vs_gtr_pct": {
+        "mse": -0.5903123002293003,
+        "mae": -0.45242121096568233
+      },
+      "absolute_change_vs_a6": {
+        "mse": 0.0008557438850402832,
+        "mae": -0.000542864203453064
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": 0.5150546857707219,
+        "mae": -0.21669687134709545
+      },
+      "additional_parameters_vs_a6": 0,
+      "additional_parameters_vs_gtr": 560,
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646.json",
+      "config_sha256": "458f49cc6e3dd56b01d631812e95893749d0f176e76dea7daf9f6b5d1330503c",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/metrics.json",
+      "metrics_sha256": "35c8e77d2d351630bb51966f63f73b7fa8cb62ca26549b29c9d83dec40e42df8",
+      "checkpoint_sha256": "5d43ba9008c841f7173c6490d2a8725a3bcf83220939de0233e22de5d12337fa",
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/resolved_config.yaml",
+      "resolved_config_sha256": "a24741719e5650ce8675fd0898dc0173dee3cccaf3b7224249bcbad2d0b62a97",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/code_manifest.json",
+      "code_manifest_sha256": "44aefc2fbf6f3b5ee31f3d9f19f941a97013cbf7d6aea83b6c1bb9ea3a63e14b",
+      "scientific_code_sha256": {
+        "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+        "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+        "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+        "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+        "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+        "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+        "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+        "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+        "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+        "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+        "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+        "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+        "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+        "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+      },
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.json",
+          "sha256": "56c16864c1a5b3d9b64ef5181e7d068f95ac1f2c2ef82856035e706af44649a8",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.scaler.npz",
+          "split": [
+            0,
+            34560
+          ],
+          "window_count": 34369,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.json",
+          "sha256": "8b3718767a1147631fd02e97a047dcdd84029574ec4f05fd725ef691beafbab9",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.scaler.npz",
+          "split": [
+            34464,
+            46080
+          ],
+          "window_count": 11425,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.json",
+          "sha256": "17fde4a80477d00f921515a4fa2f76604ec1b27c380b4a28c4d08ace0a8d1dbb",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.scaler.npz",
+          "split": [
+            45984,
+            57600
+          ],
+          "window_count": 11425,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        }
+      },
+      "same_training_budget_and_evaluation_assets": true
+    },
+    {
+      "experiment_id": "trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "dataset": "ettm2",
+      "model": "TrustGTR_ac10_hard",
+      "mse": 0.16697461903095245,
+      "mae": 0.24950699508190155,
+      "runtime_seconds": 257.0891169629758,
+      "training_time_seconds": 253.2038845620118,
+      "inference_time_seconds": 1.1984460491221398,
+      "inference_seconds_per_batch": 0.026632134424936442,
+      "peak_gpu_memory_mib": 840.0,
+      "parameters": 634818,
+      "trainable_parameters": 634818,
+      "epochs_completed": 8,
+      "best_epoch": 3,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/checkpoints/best.pt",
+      "trustgtr_diagnostics": {
+        "gate_sum": 0.0,
+        "gate_count": 0,
+        "contrast_calls": 1072,
+        "contrast_valid_anchors": 1801284,
+        "contrast_total_anchors": 1921024,
+        "cycle_weight_sum": [
+          1177389.5836791992,
+          775422.7968444824,
+          1313408.6532592773
+        ],
+        "cycle_weight_count": 3271583,
+        "historical_strength": 0.10930321365594864,
+        "historical_valid_fraction_last_batch": 1.0,
+        "contrast_valid_fraction": 0.9376686600479744,
+        "cycle_weight_mean": [
+          0.35988375770359465,
+          0.23701761405548397,
+          0.40145967663338433
+        ]
+      },
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "sampling": "retrieval_hard",
+      "seed": 2024,
+      "baseline_experiment_id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "source_experiment_id": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "baseline_scores": {
+        "mse": 0.16799364984035492,
+        "mae": 0.2511110007762909
+      },
+      "source_scores": {
+        "mse": 0.16614621877670288,
+        "mae": 0.2505177855491638
+      },
+      "absolute_change_vs_gtr": {
+        "mse": -0.0010190308094024658,
+        "mae": -0.0016040056943893433
+      },
+      "relative_change_vs_gtr_pct": {
+        "mse": -0.6065888861697184,
+        "mae": -0.6387636102881513
+      },
+      "absolute_change_vs_a6": {
+        "mse": 0.0008284002542495728,
+        "mae": -0.001010790467262268
+      },
+      "relative_change_vs_a6_pct": {
+        "mse": 0.49859711544981095,
+        "mae": -0.4034805213715661
+      },
+      "additional_parameters_vs_a6": 0,
+      "additional_parameters_vs_gtr": 560,
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646.json",
+      "config_sha256": "68d5f82895dc58914893fbce3dd6b9c98d973deec493339c4a77323d2bcd2ae2",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/metrics.json",
+      "metrics_sha256": "5dd3d0e4dc3a2dcc716c23b334ea1af7d60ac71df865ee4903635a19fef90f60",
+      "checkpoint_sha256": "f58071c53ba9dc5498f5383bbf88750831dd085a92b3dc5af054f7fa84e1f691",
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/resolved_config.yaml",
+      "resolved_config_sha256": "c1ea4bba1b52955606cf39e0761bc0af2de8cdaa4f5ba7a652c6e8e3ecbb79de",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/code_manifest.json",
+      "code_manifest_sha256": "567c5c98da5abd97e0a582e80c002d71c23552dc22dba0d0e192e6e39c2a0e9a",
+      "scientific_code_sha256": {
+        "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+        "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+        "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+        "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+        "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+        "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+        "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+        "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+        "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+        "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+        "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+        "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+        "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+        "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+      },
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.json",
+          "sha256": "56c16864c1a5b3d9b64ef5181e7d068f95ac1f2c2ef82856035e706af44649a8",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.scaler.npz",
+          "split": [
+            0,
+            34560
+          ],
+          "window_count": 34369,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.json",
+          "sha256": "8b3718767a1147631fd02e97a047dcdd84029574ec4f05fd725ef691beafbab9",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.scaler.npz",
+          "split": [
+            34464,
+            46080
+          ],
+          "window_count": 11425,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.json",
+          "sha256": "17fde4a80477d00f921515a4fa2f76604ec1b27c380b4a28c4d08ace0a8d1dbb",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.scaler.npz",
+          "split": [
+            45984,
+            57600
+          ],
+          "window_count": 11425,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        }
+      },
+      "same_training_budget_and_evaluation_assets": true
+    }
+  ],
+  "comparisons": [
+    {
+      "dataset": "etth1",
+      "extremes_control_experiment_id": "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "hard_experiment_id": "trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "scores_extremes": {
+        "mse": 0.3657485246658325,
+        "mae": 0.39059317111968994
+      },
+      "scores_hard": {
+        "mse": 0.3661349415779114,
+        "mae": 0.39087149500846863
+      },
+      "absolute_change_hard_vs_extremes": {
+        "mse": 0.0003864169120788574,
+        "mae": 0.0002783238887786865
+      },
+      "relative_change_hard_vs_extremes_pct": {
+        "mse": 0.10565098312615441,
+        "mae": 0.07125672166280639
+      },
+      "independent_variable": {
+        "contrast_sampling": [
+          "regime_extremes",
+          "retrieval_hard"
+        ]
+      }
+    },
+    {
+      "dataset": "solar",
+      "extremes_control_experiment_id": "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "hard_experiment_id": "trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "scores_extremes": {
+        "mse": 0.18932810425758362,
+        "mae": 0.2553344666957855
+      },
+      "scores_hard": {
+        "mse": 0.18366926908493042,
+        "mae": 0.24014846980571747
+      },
+      "absolute_change_hard_vs_extremes": {
+        "mse": -0.005658835172653198,
+        "mae": -0.015185996890068054
+      },
+      "relative_change_hard_vs_extremes_pct": {
+        "mse": -2.988903942625587,
+        "mae": -5.947491964788751
+      },
+      "independent_variable": {
+        "contrast_sampling": [
+          "regime_extremes",
+          "retrieval_hard"
+        ]
+      }
+    },
+    {
+      "dataset": "weather",
+      "extremes_control_experiment_id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "hard_experiment_id": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "scores_extremes": {
+        "mse": 0.15526236593723297,
+        "mae": 0.205132856965065
+      },
+      "scores_hard": {
+        "mse": 0.15550075471401215,
+        "mae": 0.2054024338722229
+      },
+      "absolute_change_hard_vs_extremes": {
+        "mse": 0.0002383887767791748,
+        "mae": 0.00026957690715789795
+      },
+      "relative_change_hard_vs_extremes_pct": {
+        "mse": 0.15353931736139256,
+        "mae": 0.13141576203163205
+      },
+      "independent_variable": {
+        "contrast_sampling": [
+          "regime_extremes",
+          "retrieval_hard"
+        ]
+      }
+    },
+    {
+      "dataset": "ettm2",
+      "extremes_control_experiment_id": "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "hard_experiment_id": "trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "scores_extremes": {
+        "mse": 0.16700196266174316,
+        "mae": 0.24997492134571075
+      },
+      "scores_hard": {
+        "mse": 0.16697461903095245,
+        "mae": 0.24950699508190155
+      },
+      "absolute_change_hard_vs_extremes": {
+        "mse": -2.734363079071045e-05,
+        "mae": -0.0004679262638092041
+      },
+      "relative_change_hard_vs_extremes_pct": {
+        "mse": -0.016373239185274755,
+        "mae": -0.18718928334497628
+      },
+      "independent_variable": {
+        "contrast_sampling": [
+          "regime_extremes",
+          "retrieval_hard"
+        ]
+      }
+    }
+  ]
+}

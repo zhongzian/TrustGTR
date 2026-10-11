@@ -1,0 +1,17 @@
+{
+  "reference_step": "6.4",
+  "scientific_changes": [
+    {
+      "path": "models/TrustGTR.py",
+      "added_lines": 51,
+      "removed_lines": 3
+    },
+    {
+      "path": "models/HistoricalMemory.py",
+      "added_lines": 21,
+      "removed_lines": 3
+    }
+  ],
+  "original_tracked_git_diff_stat": "",
+  "original_gtr_unchanged": true
+}

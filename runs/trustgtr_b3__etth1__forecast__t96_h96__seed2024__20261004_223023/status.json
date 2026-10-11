@@ -1,0 +1,15 @@
+{
+  "experiment_id": "trustgtr_b3__etth1__forecast__t96_h96__seed2024__20261004_223023",
+  "id": "trustgtr_b3__etth1__forecast__t96_h96__seed2024__20261004_223023",
+  "status": "SUCCESS",
+  "state": "succeeded",
+  "attempt": 1,
+  "stage": "improvement",
+  "pid": 2874851,
+  "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+  "started_at": "2026-10-04T22:30:41.260112+08:00",
+  "updated_at": "2026-10-04T22:32:36.698900+08:00",
+  "exit_code": 0,
+  "ended_at": "2026-10-04T22:32:36.698857+08:00",
+  "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_b3__etth1__forecast__t96_h96__seed2024__20261004_223023/metrics.json"
+}

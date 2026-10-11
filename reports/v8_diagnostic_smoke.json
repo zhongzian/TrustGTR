@@ -1,0 +1,96 @@
+{
+  "scope": "best checkpoint; identical deterministic validation windows; CPU 2 threads",
+  "no_test_dataset_constructed": true,
+  "no_test_targets_used": true,
+  "no_backward": true,
+  "no_optimizer_steps": true,
+  "archived_scientific_sources": true,
+  "official_early_stopping_validation_uses_different_aggregation": true,
+  "script_sha256": "2f5b7e0cd8f08aefd955c974d8d82d86a3e0d24505cd153b48073e0ec5440c76",
+  "experiments": [
+    {
+      "experiment_id": "trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105",
+      "dataset": "etth1",
+      "router_mode": "per_bank",
+      "scores": {
+        "mse": 0.40118539333343506,
+        "mae": 0.42180997133255005
+      },
+      "evaluated_validation_windows": 4,
+      "total_validation_windows": 2785,
+      "validation_indices": [
+        0,
+        928,
+        1856,
+        2784
+      ],
+      "fixed_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+          "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+          "checks": {
+            "data_x": true,
+            "data_y": true,
+            "phase": true,
+            "mean": true,
+            "scale": true
+          }
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+          "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+          "checks": {
+            "data_x": true,
+            "data_y": true,
+            "phase": true,
+            "mean": true,
+            "scale": true
+          }
+        }
+      },
+      "model_sources": {
+        "models/GTR.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/models/GTR.py",
+          "sha256": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b"
+        },
+        "data_provider/data_loader.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/data_provider/data_loader.py",
+          "sha256": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54"
+        },
+        "utils/metrics.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/utils/metrics.py",
+          "sha256": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d"
+        },
+        "models/TrustGTR.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105/untracked_code/models/TrustGTR.py",
+          "sha256": "2851253e0a207c8ccad240a54886e113072b2492a592d793937c137b2a216794"
+        },
+        "models/HistoricalMemory.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105/untracked_code/models/HistoricalMemory.py",
+          "sha256": "3d8f84247121808d30a1690b7f835b4519424e4cea2ae50703a1e54ba546d6c0"
+        }
+      },
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105/checkpoints/best.pt",
+      "checkpoint_sha256": "279128573774ec0814ac98946c395ebed4578b2945b397d93d9ac56ad3958d53",
+      "historical_memory_sha256": "31766370417f05f9bdd4d5ed275a8d74288015489be7b3ee310a080e6d1287be",
+      "bank_prior_mean": [
+        0.5413521528244019,
+        0.2100369781255722,
+        0.24861082434654236
+      ],
+      "bank_posterior_mean": [
+        0.5413521528244019,
+        0.2100369781255722,
+        0.24861082434654236
+      ],
+      "bank_effective_weight_mean": [
+        0.5413521528244019,
+        0.2100369781255722,
+        0.24861082434654236
+      ],
+      "posterior_effective_max_error": 5.960464477539063e-08,
+      "posterior_prior_mean_absolute_difference": 0.0,
+      "elapsed_seconds": 5.957389070070349
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "as_of": "2026-10-05",
+  "status": "PASS",
+  "pages": 18,
+  "paper": "A4",
+  "body_bounds": "all 18 pages inside content bounds",
+  "fonts": "Chinese and Latin fonts embedded",
+  "metrics": "generated directly from persisted metrics; v5 and paper-reference deltas checked",
+  "visual_review": [
+    "cover",
+    "latest_results",
+    "negative_results",
+    "reproducibility"
+  ],
+  "content_review": "independent method/planning reviewer passed",
+  "pdfinfo": "Creator:         Writer\nProducer:        LibreOffice 7.3\nCreationDate:    Mon Oct  5 11:54:57 2026 CST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           18\nEncrypted:       no\nPage size:       595.304 x 841.89 pts (A4)\nPage rot:        0\nFile size:       220051 bytes\nOptimized:       no\nPDF version:     1.6\n",
+  "fonts_info": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nBAAAAA+LiberationSans                TrueType          WinAnsi          yes yes yes     85  0\nCAAAAA+WenQuanYiMicroHei             TrueType          WinAnsi          yes yes yes     65  0\nDAAAAA+LiberationSans-Bold           TrueType          WinAnsi          yes yes yes     80  0\nEAAAAA+WenQuanYiMicroHei             TrueType          WinAnsi          yes yes yes     70  0\nFAAAAA+DejaVuSansMono                TrueType          WinAnsi          yes yes yes     60  0\nGAAAAA+WenQuanYiMicroHei             TrueType          WinAnsi          yes yes yes     75  0\n",
+  "artifacts": {
+    "docs/TrustGTR_项目完整计划_20261005.pdf": {
+      "bytes": 220051,
+      "sha256": "d0111284ef65feea3b6a342bc3f3c5aeb04917adab01a0c64b72d32c58d3e5f6"
+    },
+    "docs/TrustGTR_项目完整计划_20261005.docx": {
+      "bytes": 26655,
+      "sha256": "87e37feef5f4dcbd028b298611832e3a969acae08bc10c23e4dd273aeab2a8f5"
+    },
+    "docs/TrustGTR_项目完整计划_20261005.md": {
+      "bytes": 31663,
+      "sha256": "1f5706500a5d2587da8b6826d80d18ca71dabb880af6eab2038d7dd5107c1d57"
+    },
+    "docs/TrustGTR_项目完整计划_20261005.evidence.json": {
+      "bytes": 231109,
+      "sha256": "8f20b1e745b0a18edd8b3c09e01ab723d2125a8757b642d661e9381af2fc92af"
+    }
+  }
+}

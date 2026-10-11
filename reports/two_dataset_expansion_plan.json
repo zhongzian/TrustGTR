@@ -1,0 +1,349 @@
+{
+  "step": "6.6",
+  "generated_at": "2026-10-06T11:44:29.411978+08:00",
+  "authorization": "User explicitly requested two additional datasets after step 5.6",
+  "selection_rule": "Freeze Weather and ETTm2 by availability and domain/cadence coverage, without new validation/test result selection",
+  "archive": {
+    "path": "/mnt/data/zza/code/RegimeBridge/runtime/downloads/timebridge_official_datasets.zip",
+    "sha256": "01d7016eaa3eb571b77542612219d116dfc6a9f5399586dea1f98261fc4d80c4",
+    "size_bytes": 171600194,
+    "source_url": "https://drive.google.com/uc?export=download&id=1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot",
+    "official_readme": "/mnt/data/zza/code/RegimeBridge/upstream/TimeBridge/README.md",
+    "official_readme_sha256": "66c12560c68cbafc4e552c3c03f843fa768af9e03962567f779f42753cffd8b2",
+    "parent_manifest": "/mnt/data/zza/code/RegimeBridge/data/manifest.json",
+    "parent_manifest_sha256": "afa6d849cc09a6aac7efa73b68a8db0e3eab09c3406e997eba56979e006a4630"
+  },
+  "storage_policy": "Independent read-only project copies; no hardlinks, source mutations, or deletion",
+  "datasets": {
+    "weather": {
+      "path": "/mnt/data/zza/code/TrustGTR/dataset/weather.csv",
+      "sha256": "34ee981d07313e51da2a50bb600072c8ae4a69cb4b0651f4cb93a069d7a2ba63",
+      "size_bytes": 7235425,
+      "archive_member": "iTransformer_datasets/weather/weather.csv",
+      "rows": 52696,
+      "variables": 21,
+      "dataset": "weather",
+      "source_url": "https://drive.google.com/uc?export=download&id=1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot",
+      "provenance": "Exact public archive member; independent copy, no preprocessing",
+      "columns": [
+        "date",
+        "p (mbar)",
+        "T (degC)",
+        "Tpot (K)",
+        "Tdew (degC)",
+        "rh (%)",
+        "VPmax (mbar)",
+        "VPact (mbar)",
+        "VPdef (mbar)",
+        "sh (g/kg)",
+        "H2OC (mmol/mol)",
+        "rho (g/m**3)",
+        "wv (m/s)",
+        "max. wv (m/s)",
+        "wd (deg)",
+        "rain (mm)",
+        "raining (s)",
+        "SWDR (W/m�)",
+        "PAR (�mol/m�/s)",
+        "max. PAR (�mol/m�/s)",
+        "Tlog (degC)",
+        "OT"
+      ],
+      "first_time": "2020-01-01 00:10:00",
+      "last_time": "2021-01-01 00:00:00",
+      "cadence_seconds": 600,
+      "finite_values": true,
+      "missing_value_count": 0,
+      "unique_regular_timestamps": false,
+      "timestamp_duplicate_rows": 1,
+      "cadence_histogram_seconds": {
+        "600.0": 52693,
+        "0.0": 1,
+        "6000.0": 1
+      },
+      "timestamp_anomalies": [
+        {
+          "row": 19044,
+          "previous": "2020-05-12 06:00:00",
+          "time": "2020-05-12 06:00:00",
+          "delta_seconds": 0.0
+        },
+        {
+          "row": 21514,
+          "previous": "2020-05-29 09:30:00",
+          "time": "2020-05-29 11:10:00",
+          "delta_seconds": 6000.0
+        }
+      ],
+      "timestamp_anomaly_policy": "Preserve canonical row sequence, cycle index and official split; no deduplication or resampling",
+      "official_loader": "Dataset_Custom",
+      "official_script": "/mnt/data/zza/code/TrustGTR/scripts/GTR/weather.sh",
+      "official_script_sha256": "6f172df67528c6eaf7a755cbcf8abf3b51cccedec91e093d8c8622b6f82286e8",
+      "split_rule": "Official Dataset_Custom: floor(70%) train, floor(20%) test, remaining val; 96-step input overlap only",
+      "absolute_data_slice": {
+        "train": [
+          0,
+          36887
+        ],
+        "val": [
+          36791,
+          42157
+        ],
+        "test": [
+          42061,
+          52696
+        ]
+      },
+      "window_count": {
+        "train": 36696,
+        "val": 5175,
+        "test": 10444
+      },
+      "normalization": "StandardScaler fitted on training slice only; same scaler used on all splits",
+      "official_args": {
+        "data": "custom",
+        "data_path": "weather.csv",
+        "enc_in": 21,
+        "cycle": 144,
+        "batch_size": 64,
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "use_revin": 1,
+        "features": "M",
+        "seq_len": 96,
+        "pred_len": 96,
+        "train_epochs": 30,
+        "patience": 5,
+        "random_seed": 2024,
+        "label_len": 0,
+        "freq": "h",
+        "embed": "timeF",
+        "d_model": 512,
+        "lradj": "type3",
+        "pct_start": 0.3,
+        "loss": "mse",
+        "use_amp": false
+      },
+      "frequency_note": "Preserve official parser default freq=h even though CSV cadence is finer; GTR forward does not consume time marks. No silent override.",
+      "evaluation_note": "Official val shuffled/drop_last, test ordered/full; deterministic mechanism diagnostics separately labeled",
+      "paper_mse": null,
+      "paper_mae": null,
+      "paper_reference_note": "Not yet re-audited for these datasets; no guessed paper values"
+    },
+    "ettm2": {
+      "path": "/mnt/data/zza/code/TrustGTR/dataset/ETTm2.csv",
+      "sha256": "db973ca252c6410a30d0469b13d696cf919648d0f3fd588c60f03fdbdbadd1fd",
+      "size_bytes": 9677236,
+      "archive_member": "iTransformer_datasets/ETT-small/ETTm2.csv",
+      "rows": 69680,
+      "variables": 7,
+      "dataset": "ettm2",
+      "source_url": "https://drive.google.com/uc?export=download&id=1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot",
+      "provenance": "Exact public archive member; independent copy, no preprocessing",
+      "columns": [
+        "date",
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL",
+        "OT"
+      ],
+      "first_time": "2016-07-01 00:00:00",
+      "last_time": "2018-06-26 19:45:00",
+      "cadence_seconds": 900,
+      "finite_values": true,
+      "missing_value_count": 0,
+      "unique_regular_timestamps": true,
+      "timestamp_duplicate_rows": 0,
+      "cadence_histogram_seconds": {
+        "900.0": 69679
+      },
+      "timestamp_anomalies": [],
+      "timestamp_anomaly_policy": "Preserve canonical row sequence, cycle index and official split; no deduplication or resampling",
+      "official_loader": "Dataset_ETT_minute",
+      "official_script": "/mnt/data/zza/code/TrustGTR/scripts/GTR/ettm2.sh",
+      "official_script_sha256": "69512698f294b9b1e5fd2b2cfe88e4d9516fb198dd93b844cc7b7028a400daad",
+      "split_rule": "Official 12/4/4 nominal 30-day months, 96 samples/day; trailing 12080 rows unused",
+      "absolute_data_slice": {
+        "train": [
+          0,
+          34560
+        ],
+        "val": [
+          34464,
+          46080
+        ],
+        "test": [
+          45984,
+          57600
+        ]
+      },
+      "window_count": {
+        "train": 34369,
+        "val": 11425,
+        "test": 11425
+      },
+      "normalization": "StandardScaler fitted on training slice only; same scaler used on all splits",
+      "official_args": {
+        "data": "ETTm2",
+        "data_path": "ETTm2.csv",
+        "enc_in": 7,
+        "cycle": 96,
+        "batch_size": 256,
+        "learning_rate": 0.001,
+        "dropout": 0.5,
+        "use_revin": 1,
+        "features": "M",
+        "seq_len": 96,
+        "pred_len": 96,
+        "train_epochs": 30,
+        "patience": 5,
+        "random_seed": 2024,
+        "label_len": 0,
+        "freq": "h",
+        "embed": "timeF",
+        "d_model": 512,
+        "lradj": "type3",
+        "pct_start": 0.3,
+        "loss": "mse",
+        "use_amp": false
+      },
+      "frequency_note": "Preserve official parser default freq=h even though CSV cadence is finer; GTR forward does not consume time marks. No silent override.",
+      "evaluation_note": "Official val shuffled/drop_last, test ordered/full; deterministic mechanism diagnostics separately labeled",
+      "paper_mse": null,
+      "paper_mae": null,
+      "paper_reference_note": "Not yet re-audited for these datasets; no guessed paper values"
+    }
+  },
+  "new_data_size_bytes": 16912661,
+  "cpu_official_loader_check": {
+    "weather": {
+      "status": "PASSED",
+      "same_train_fitted_normalizer_on_all_splits": true,
+      "flags": {
+        "train": {
+          "window_count": 36696,
+          "slice_shape": [
+            36887,
+            21
+          ],
+          "first_input_shape": [
+            96,
+            21
+          ],
+          "first_target_shape": [
+            96,
+            21
+          ],
+          "first_forecast_cycle": 96,
+          "scaler_mean_sha256": "7796a7bad42925747c2c2fe7d6d7fb92f820da719c5655d41b8e44f3804b9160",
+          "data_x_sha256": "711de296acba022c057fe68241d76b5950238571d6997d92b8f8366e3a18ebea",
+          "all_values_finite": true
+        },
+        "val": {
+          "window_count": 5175,
+          "slice_shape": [
+            5366,
+            21
+          ],
+          "first_input_shape": [
+            96,
+            21
+          ],
+          "first_target_shape": [
+            96,
+            21
+          ],
+          "first_forecast_cycle": 23,
+          "scaler_mean_sha256": "7796a7bad42925747c2c2fe7d6d7fb92f820da719c5655d41b8e44f3804b9160",
+          "data_x_sha256": "f34f2b1fd34fb708b3528066916ed662e71e1a3b15c52adfc5e1f56f7e032ee7",
+          "all_values_finite": true
+        },
+        "test": {
+          "window_count": 10444,
+          "slice_shape": [
+            10635,
+            21
+          ],
+          "first_input_shape": [
+            96,
+            21
+          ],
+          "first_target_shape": [
+            96,
+            21
+          ],
+          "first_forecast_cycle": 109,
+          "scaler_mean_sha256": "7796a7bad42925747c2c2fe7d6d7fb92f820da719c5655d41b8e44f3804b9160",
+          "data_x_sha256": "0bb8337af5e322264019c62c10c4af90c098612db6e6ede8fdb2db3bfe373b03",
+          "all_values_finite": true
+        }
+      }
+    },
+    "ettm2": {
+      "status": "PASSED",
+      "same_train_fitted_normalizer_on_all_splits": true,
+      "flags": {
+        "train": {
+          "window_count": 34369,
+          "slice_shape": [
+            34560,
+            7
+          ],
+          "first_input_shape": [
+            96,
+            7
+          ],
+          "first_target_shape": [
+            96,
+            7
+          ],
+          "first_forecast_cycle": 0,
+          "scaler_mean_sha256": "4bf691b990ce8c85c83b8fe64c6a1dd6ddf6cb315c08bf369925e4036c37af73",
+          "data_x_sha256": "af7980a19197d58142f36a04f02a3c8269ce78a2d720f5d670a33736c6bc038f",
+          "all_values_finite": true
+        },
+        "val": {
+          "window_count": 11425,
+          "slice_shape": [
+            11616,
+            7
+          ],
+          "first_input_shape": [
+            96,
+            7
+          ],
+          "first_target_shape": [
+            96,
+            7
+          ],
+          "first_forecast_cycle": 0,
+          "scaler_mean_sha256": "4bf691b990ce8c85c83b8fe64c6a1dd6ddf6cb315c08bf369925e4036c37af73",
+          "data_x_sha256": "f72c1770c356db1211e3c9dbfc6984ac0fd3ca107a9c7c128a0246f65fd8e577",
+          "all_values_finite": true
+        },
+        "test": {
+          "window_count": 11425,
+          "slice_shape": [
+            11616,
+            7
+          ],
+          "first_input_shape": [
+            96,
+            7
+          ],
+          "first_target_shape": [
+            96,
+            7
+          ],
+          "first_forecast_cycle": 0,
+          "scaler_mean_sha256": "4bf691b990ce8c85c83b8fe64c6a1dd6ddf6cb315c08bf369925e4036c37af73",
+          "data_x_sha256": "1b56d775ff29b7fa833e89902b3ddb9b95918940aac8c447a9ea7dd41f8e5452",
+          "all_values_finite": true
+        }
+      }
+    }
+  }
+}

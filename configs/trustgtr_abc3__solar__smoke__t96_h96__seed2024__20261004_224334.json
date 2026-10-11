@@ -1,0 +1,116 @@
+{
+  "official_args": {
+    "data": "Solar",
+    "data_path": "solar_AL.txt",
+    "enc_in": 137,
+    "cycle": 144,
+    "batch_size": 64,
+    "learning_rate": 0.003,
+    "dropout": 0.0,
+    "use_revin": 0,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_abc3__solar__smoke__t96_h96__seed2024__20261004_224334",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 1,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_abc3__solar__smoke__t96_h96__seed2024__20261004_224334",
+    "dataset": "solar",
+    "model": "TrustGTR_abc3",
+    "stage": "smoke",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "paper_mse": 0.176,
+    "paper_mae": 0.235,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "same_evaluation_protocol": false,
+    "comparison_note": "Second originally selected dataset, existing official baseline; no new seed or budget",
+    "official_script": "scripts/GTR/solar.sh",
+    "config_changes": [
+      {
+        "key": "model",
+        "old": "GTR",
+        "new": "TrustGTR",
+        "reason": "abc3"
+      },
+      {
+        "key": "trustgtr",
+        "old": "modules disabled",
+        "new": {
+          "use_multi_cycle": true,
+          "use_reliability_gate": true,
+          "use_regime_contrast": true,
+          "memory_mode": "factorized_residual",
+          "contrast_loss_weight": 0.002,
+          "preserve_initialization_rng": true,
+          "gate_descriptor": "forecast",
+          "detach_gate_descriptor": true,
+          "gate_loss_mode": "power_weighted"
+        },
+        "reason": "unchanged round-3 method; test shorter-than-cycle Solar applicability"
+      },
+      {
+        "key": "gate_loss_weight",
+        "old": 0,
+        "new": 0.05,
+        "reason": "train-only utility calibration"
+      },
+      {
+        "key": "periods",
+        "old": [
+          144
+        ],
+        "new": [
+          144,
+          1008,
+          4320
+        ],
+        "reason": "same base/7x/30x rule"
+      },
+      {
+        "key": "contrast_loss_weight",
+        "old": 0,
+        "new": 0.002,
+        "reason": "unchanged round-3 contrast weight"
+      },
+      {
+        "key": "train_epochs",
+        "old": 30,
+        "new": 1,
+        "reason": "independent smoke only"
+      }
+    ],
+    "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "baseline_mse": 0.18117235600948334,
+    "baseline_mae": 0.2366592288017273
+  },
+  "smoke": {
+    "enabled": true,
+    "max_train_batches": 3,
+    "max_eval_batches": 2
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/solar_AL.txt",
+    "sha256": "230327ef72d2abb387939d4a35d6fd34f1066071bc7c40ce7ecf5531a0122ac2",
+    "size_bytes": 180018000,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": true,
+    "memory_mode": "factorized_residual",
+    "contrast_loss_weight": 0.002,
+    "preserve_initialization_rng": true,
+    "gate_descriptor": "forecast",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted"
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "scope": "6.5 CPU fixed training64 / best-checkpoint fixed full validation",
+  "cpu_threads": 2,
+  "no_test_dataset": true,
+  "no_optimizer": true,
+  "no_parameter_updates": true,
+  "no_checkpoint_writes": true,
+  "gradients_train_only": true,
+  "script_sha256": "47db22561ff89c0ef726b1607900d84df57faa7bc76f1f5bed91d566bac124f0",
+  "archive_helper_sha256": "6d80c65ccc15462a55ad06b980e0a8a567968cc03e534d8d23cdf1c5723dc1c6",
+  "arguments": {
+    "sources": null,
+    "runs": [
+      "trustgtr_ac6__etth1__forecast__t96_h96__seed2024__20261005_160731"
+    ],
+    "scope": "val",
+    "train_count": 64,
+    "val_count": 4,
+    "batch_size": 4,
+    "output": "reports/step_6_5_validation_compatibility_smoke_20261006.json"
+  },
+  "experiments": [
+    {
+      "experiment_id": "trustgtr_ac6__etth1__forecast__t96_h96__seed2024__20261005_160731",
+      "dataset": "etth1",
+      "reference": "archived formal checkpoint",
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac6__etth1__forecast__t96_h96__seed2024__20261005_160731/checkpoints/best.pt",
+      "checkpoint_sha256": "92d2e8cf78438a358ac67d26f83af51899d7a008513c5238e60755bc2bd58491",
+      "source_resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac6__etth1__forecast__t96_h96__seed2024__20261005_160731/resolved_config.yaml",
+      "source_resolved_config_sha256": "202087d855b41fbc6d079e9e9e8bfa6295c6696aebdd82efdb9117d96af887c1",
+      "model_sources": {
+        "models/GTR.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/models/GTR.py",
+          "sha256": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b"
+        },
+        "models/TrustGTR.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac6__etth1__forecast__t96_h96__seed2024__20261005_160731/untracked_code/models/TrustGTR.py",
+          "sha256": "2851253e0a207c8ccad240a54886e113072b2492a592d793937c137b2a216794"
+        },
+        "models/HistoricalMemory.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac6__etth1__forecast__t96_h96__seed2024__20261005_160731/untracked_code/models/HistoricalMemory.py",
+          "sha256": "3d8f84247121808d30a1690b7f835b4519424e4cea2ae50703a1e54ba546d6c0"
+        },
+        "data_provider/data_loader.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/data_provider/data_loader.py",
+          "sha256": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54"
+        },
+        "utils/metrics.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/utils/metrics.py",
+          "sha256": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d"
+        }
+      },
+      "train_asset": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "checks": {
+          "data_x": true,
+          "data_y": true,
+          "cycle_index": true,
+          "raw_data": true,
+          "window_count": true,
+          "split": true,
+          "mean_": true,
+          "var_": true,
+          "scale_": true
+        }
+      },
+      "options": {
+        "use_multi_cycle": true,
+        "use_reliability_gate": false,
+        "use_regime_contrast": true,
+        "periods": [
+          24,
+          168,
+          720
+        ],
+        "state_dim": 16,
+        "gate_initial_probability": 0.9,
+        "gate_loss_weight": 0.05,
+        "contrast_loss_weight": 0.002,
+        "contrast_temperature": 3.0,
+        "positive_max_distance": 1.0,
+        "regime_distance_gap": 0.25,
+        "preserve_initialization_rng": true,
+        "memory_mode": "historical",
+        "gate_descriptor": "forecast",
+        "detach_gate_descriptor": true,
+        "gate_loss_mode": "power_weighted",
+        "historical_topk": 3,
+        "historical_candidate_cap": 192,
+        "historical_blend_bound": 0.2,
+        "historical_strength_coordinates": "bounded",
+        "historical_router_mode": "global_topk",
+        "contrast_metric": "euclidean"
+      },
+      "historical_memory_sha256": "31766370417f05f9bdd4d5ed275a8d74288015489be7b3ee310a080e6d1287be",
+      "validation_asset": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "checks": {
+          "data_x": true,
+          "data_y": true,
+          "cycle_index": true,
+          "raw_data": true,
+          "window_count": true,
+          "split": true,
+          "mean_": true,
+          "var_": true,
+          "scale_": true
+        }
+      },
+      "validation_probe": {
+        "validation_indices": [
+          0,
+          928,
+          1856,
+          2784
+        ],
+        "windows": 4,
+        "total_windows": 2785,
+        "scores": {
+          "actual": {
+            "elements": 2688,
+            "mse": 0.40006557121335673,
+            "mae": 0.42102204974521773
+          },
+          "same_checkpoint_gtr_branch": {
+            "elements": 2688,
+            "mse": 0.4045332869904371,
+            "mae": 0.4231854910367041
+          },
+          "retrieval_alone": {
+            "elements": 2688,
+            "mse": 0.48363711767736867,
+            "mae": 0.4893513213631065
+          }
+        },
+        "values": {
+          "nearest_key_squared_distance": {
+            "count": 28,
+            "mean": 0.3656005532081638,
+            "std": 0.2332628263489252,
+            "quantiles": {
+              "0": 0.04048357158899307,
+              "0.1": 0.1255799673497677,
+              "0.25": 0.18601060286164284,
+              "0.5": 0.3131631016731262,
+              "0.75": 0.5921595096588135,
+              "0.9": 0.6678918838500977,
+              "1": 1.0178648233413696
+            }
+          },
+          "selected_weight_entropy": {
+            "count": 28,
+            "mean": 1.0582821794918604,
+            "std": 0.04524425305637155,
+            "quantiles": {
+              "0": 0.9059386253356934,
+              "0.1": 1.0150491714477539,
+              "0.25": 1.0535614788532257,
+              "0.5": 1.0714263319969177,
+              "0.75": 1.0869037508964539,
+              "0.9": 1.0939156889915467,
+              "1": 1.0982550382614136
+            }
+          },
+          "retrieval_mse": {
+            "count": 28,
+            "mean": 0.48363712217126575,
+            "std": 0.3610958497140173,
+            "quantiles": {
+              "0": 0.048468053340911865,
+              "0.1": 0.13866632357239725,
+              "0.25": 0.2565455660223961,
+              "0.5": 0.44530318677425385,
+              "0.75": 0.532026544213295,
+              "0.9": 0.9502481460571293,
+              "1": 1.5647183656692505
+            }
+          },
+          "actual_gain_mse": {
+            "count": 28,
+            "mean": 0.0044677093891160825,
+            "std": 0.01487368516980353,
+            "quantiles": {
+              "0": -0.010080724954605103,
+              "0.1": -0.006633847951889038,
+              "0.25": -0.0032487395219504833,
+              "0.5": -0.0006004571914672852,
+              "0.75": 0.004168983548879623,
+              "0.9": 0.025877827405929567,
+              "1": 0.05406838655471802
+            }
+          },
+          "retrieved_forecast_regime_distance": {
+            "count": 28,
+            "mean": 1.334120732332979,
+            "std": 0.8451267016120104,
+            "quantiles": {
+              "0": 0.3110874891281128,
+              "0.1": 0.41221123039722446,
+              "0.25": 0.6433590054512024,
+              "0.5": 1.0946230292320251,
+              "0.75": 1.8867996037006378,
+              "0.9": 2.5614936828613284,
+              "1": 3.1704955101013184
+            }
+          }
+        },
+        "nearest_distance_retrieval_mse_correlation": -0.13170483575889502,
+        "strength": 0.06941721588373184,
+        "raw_strength": 0.07242538034915924,
+        "mean_bank_prior": [
+          0.49457740783691406,
+          0.30508599962506977,
+          0.2003366436277117
+        ],
+        "valid_windows": 4,
+        "inference_reconstruction_max_error": 0.0,
+        "auxiliary_loss_called": false,
+        "training_selection_collector_called": false,
+        "label_regime_discrepancy_is_post_prediction_diagnostic": true,
+        "aggregation": "All fixed windows; float32 errors then float64 sums; differs from official shuffle/drop_last early-stopping validation."
+      },
+      "elapsed_seconds": 0.5089853280223906,
+      "process_peak_rss_kib": 484248
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "max_jobs": 3,
+  "poll_seconds": 3,
+  "oom_cooldown_seconds": 60,
+  "on_change_argv": [
+    "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+    "/mnt/data/zza/code/TrustGTR/scripts/summarize_results.py"
+  ],
+  "jobs": [
+    {
+      "id": "gtr__etth1__smoke__t96_h96__seed2024__20261004_214520",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/gtr__etth1__smoke__t96_h96__seed2024__20261004_214520.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__smoke__t96_h96__seed2024__20261004_214520"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__smoke__t96_h96__seed2024__20261004_214520",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": []
+    },
+    {
+      "id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/gtr__etth1__forecast__t96_h96__seed2024__20261004_214520.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__forecast__t96_h96__seed2024__20261004_214520"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": "gtr__etth1__smoke__t96_h96__seed2024__20261004_214520",
+      "depends_on": [
+        "gtr__etth1__smoke__t96_h96__seed2024__20261004_214520"
+      ],
+      "memory_estimate_from": "gtr__etth1__smoke__t96_h96__seed2024__20261004_214520"
+    },
+    {
+      "id": "gtr__solar__smoke__t96_h96__seed2024__20261004_214520",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/gtr__solar__smoke__t96_h96__seed2024__20261004_214520.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__smoke__t96_h96__seed2024__20261004_214520"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__smoke__t96_h96__seed2024__20261004_214520",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": []
+    },
+    {
+      "id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/gtr__solar__forecast__t96_h96__seed2024__20261004_214520.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__forecast__t96_h96__seed2024__20261004_214520"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": "gtr__solar__smoke__t96_h96__seed2024__20261004_214520",
+      "depends_on": [
+        "gtr__solar__smoke__t96_h96__seed2024__20261004_214520"
+      ],
+      "memory_estimate_from": "gtr__solar__smoke__t96_h96__seed2024__20261004_214520"
+    },
+    {
+      "id": "trustgtr_a3__solar__smoke__t96_h96__seed2024__20261004_231239",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a3__solar__smoke__t96_h96__seed2024__20261004_231239.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a3__solar__smoke__t96_h96__seed2024__20261004_231239"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a3__solar__smoke__t96_h96__seed2024__20261004_231239",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "gtr__solar__forecast__t96_h96__seed2024__20261004_214520"
+      ]
+    },
+    {
+      "id": "trustgtr_a3__solar__forecast__t96_h96__seed2024__20261004_231239",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a3__solar__forecast__t96_h96__seed2024__20261004_231239.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a3__solar__forecast__t96_h96__seed2024__20261004_231239"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a3__solar__forecast__t96_h96__seed2024__20261004_231239",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": "trustgtr_a3__solar__smoke__t96_h96__seed2024__20261004_231239",
+      "depends_on": [
+        "trustgtr_a3__solar__smoke__t96_h96__seed2024__20261004_231239"
+      ],
+      "memory_estimate_from": "trustgtr_a3__solar__smoke__t96_h96__seed2024__20261004_231239"
+    }
+  ]
+}

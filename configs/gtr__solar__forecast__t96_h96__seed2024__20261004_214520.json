@@ -1,0 +1,49 @@
+{
+  "official_args": {
+    "data": "Solar",
+    "data_path": "solar_AL.txt",
+    "enc_in": 137,
+    "cycle": 144,
+    "batch_size": 64,
+    "learning_rate": 0.003,
+    "dropout": 0.0,
+    "use_revin": 0,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "model": "GTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 30,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "dataset": "solar",
+    "model": "GTR",
+    "stage": "baseline",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "paper_mse": 0.176,
+    "paper_mae": 0.235,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "same_evaluation_protocol": true,
+    "comparison_note": "Single seed 2024 versus paper multi-seed reference; not a statistical reproduction claim",
+    "official_script": "scripts/GTR/solar.sh",
+    "config_changes": []
+  },
+  "smoke": {
+    "enabled": false,
+    "max_train_batches": null,
+    "max_eval_batches": null
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/solar_AL.txt",
+    "sha256": "230327ef72d2abb387939d4a35d6fd34f1066071bc7c40ce7ecf5531a0122ac2",
+    "size_bytes": 180018000,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  }
+}

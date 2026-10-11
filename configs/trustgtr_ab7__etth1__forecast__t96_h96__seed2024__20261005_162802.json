@@ -1,0 +1,176 @@
+{
+  "official_args": {
+    "data": "ETTh1",
+    "data_path": "ETTh1.csv",
+    "enc_in": 7,
+    "cycle": 24,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "dropout": 0.5,
+    "use_revin": 1,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 30,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802",
+    "dataset": "etth1",
+    "model": "TrustGTR_ab7",
+    "stage": "improvement",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "paper_mse": 0.367,
+    "paper_mae": 0.391,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "same_evaluation_protocol": true,
+    "comparison_note": "Single-factor gate loss versus completed AB6; same scalar gate, retrieval descriptor, initial probability, loss weight, seed/budget/assets; no safety guarantee",
+    "official_script": "scripts/GTR/etth1.sh",
+    "config_changes": [
+      {
+        "key": "model",
+        "old": "GTR",
+        "new": "TrustGTR",
+        "reason": "switchable historical retrieval variant"
+      },
+      {
+        "key": "memory_mode",
+        "old": "factorized_residual",
+        "new": "historical",
+        "reason": "long calendar banks overfit; fixed full-val historical retrieval shows complementary content"
+      },
+      {
+        "key": "retrieval_candidates",
+        "old": "one learned value per calendar cell",
+        "new": "train-only completed continuations, same base phase, three relative-age banks, at most 64 each",
+        "reason": "input state chooses actual history candidates; candidate future end <= query origin"
+      },
+      {
+        "key": "long_bank_phase_rule",
+        "old": "origin modulo 7x/30x base cycle",
+        "new": "all candidates align base cycle; memory banks cover short/middle/long historical cycle ages",
+        "reason": "validated three-age candidate coverage; periods retained as legacy source identifiers only"
+      },
+      {
+        "key": "retrieval_fusion",
+        "old": "modify learned Q before convolution",
+        "new": "original GTR forecast + 0.2*tanh(trainable scalar initialized 0)*retrieved forecast correction",
+        "reason": "retrieval standalone is weaker; initial prediction and RNG exactly match baseline"
+      },
+      {
+        "key": "historical_blend_bound",
+        "old": null,
+        "new": 0.2,
+        "reason": "fixed validation diagnostic blends 0.1/0.2 improve both metrics; no test tuning"
+      },
+      {
+        "key": "trustgtr",
+        "old": "disabled",
+        "new": {
+          "use_multi_cycle": true,
+          "use_reliability_gate": true,
+          "use_regime_contrast": false,
+          "memory_mode": "historical",
+          "preserve_initialization_rng": true,
+          "gate_descriptor": "forecast",
+          "detach_gate_descriptor": true,
+          "gate_loss_mode": "power_weighted",
+          "contrast_loss_weight": 0.002,
+          "historical_topk": 3,
+          "historical_candidate_cap": 192,
+          "historical_blend_bound": 0.2,
+          "historical_strength_coordinates": "bounded"
+        },
+        "reason": "A alone, add B, then add C; same original training budget and fixed assets"
+      },
+      {
+        "key": "gate_fallback",
+        "old": "local convolution/MLP branch",
+        "new": "original jointly trained GTR forecast branch",
+        "reason": "reject historical correction using train-only utility oracle"
+      },
+      {
+        "key": "historical_strength_coordinates",
+        "old": "0.2*tanh(raw)",
+        "new": "0.2*tanh(raw/0.2)",
+        "reason": "zero initial forecast and same amplitude bound; original LR/budget learned only 0.015-0.017 strength"
+      },
+      {
+        "key": "trustgtr.gate_descriptor",
+        "old": "forecast",
+        "new": "retrieval",
+        "reason": "retrieval distance/dispersion/age-bank evidence is available to reliability gate; no target needed at inference"
+      },
+      {
+        "key": "official_args.model_id",
+        "old": "trustgtr_ab5__etth1__forecast__t96_h96__seed2024__20261005_110620",
+        "new": "trustgtr_ab6__etth1__forecast__t96_h96__seed2024__20261005_160509",
+        "reason": "unique experiment ID; preserve completed source"
+      },
+      {
+        "key": "trustgtr.gate_loss_mode",
+        "old": "power_weighted",
+        "new": "counterfactual_risk",
+        "reason": "single-factor B loss: detached baseline error e and correction d define normalized counterfactual excess MSE (P*g^2-2*U*g)/(E+P); clipped oracle supervision discards benefit magnitude; fixed full-val AB6 gate/gain correlation -0.0986 and no-calibration gate nearly always open motivate this test; this is not a baseline safety guarantee"
+      },
+      {
+        "key": "official_args.model_id",
+        "old": "trustgtr_ab6__etth1__forecast__t96_h96__seed2024__20261005_160509",
+        "new": "trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802",
+        "reason": "unique follow-up experiment ID; preserve completed AB6 source"
+      }
+    ],
+    "baseline_experiment_id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+    "baseline_mse": 0.3695984184741974,
+    "baseline_mae": 0.39260444045066833,
+    "source_experiment_id": "trustgtr_ab6__etth1__forecast__t96_h96__seed2024__20261005_160509",
+    "source_mse": 0.36720603704452515,
+    "source_mae": 0.39118146896362305,
+    "fixed_evaluation_asset_source": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+    "source_provenance": {
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ab6__etth1__forecast__t96_h96__seed2024__20261005_160509.json",
+      "config_sha256": "c76aa6af7c8e188364a7bc55cab834932973ecf9c4fca098fbcc0168000428d3",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab6__etth1__forecast__t96_h96__seed2024__20261005_160509/metrics.json",
+      "metrics_sha256": "5a48c5811b53e77c403ed3dbb16d29cd5188bc36a68d16d966d21bf91fe6e00b"
+    },
+    "diagnostic_source": {
+      "path": "/mnt/data/zza/code/TrustGTR/reports/v6_fixed_full_val_20261005.json",
+      "sha256": "94fe42a57cb4cc28202d1342a6cef5bbd18b1aafca4876043f60a23a88c12074",
+      "scope": "fixed full ETTh1 validation only; no test targets; motivates gate loss on both datasets"
+    },
+    "baseline_recheck_experiment_id": "gtr__etth1__smoke_recheck__t96_h96__seed2024__20261005_160509"
+  },
+  "smoke": {
+    "enabled": false,
+    "max_train_batches": null,
+    "max_eval_batches": null
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/ETTh1.csv",
+    "sha256": "f18de3ad269cef59bb07b5438d79bb3042d3be49bdeecf01c1cd6d29695ee066",
+    "size_bytes": 2589657,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": false,
+    "memory_mode": "historical",
+    "preserve_initialization_rng": true,
+    "gate_descriptor": "retrieval",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "counterfactual_risk",
+    "contrast_loss_weight": 0.002,
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded"
+  }
+}

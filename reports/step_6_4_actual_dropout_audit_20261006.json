@@ -1,0 +1,125 @@
+{
+  "scope": "readonly archived model module probabilities; no data/labels/optimizer/GPU",
+  "experiments": [
+    {
+      "dataset": "etth1",
+      "experiment_id": "trustgtr_ab9_train__etth1__forecast__t96_h96__seed2024__20261006_122231",
+      "dropout_probabilities": {
+        "GTR.dropout": 0.1,
+        "output_proj.0": 0.5
+      },
+      "model_sources": {
+        "models/GTR.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/models/GTR.py",
+          "sha256": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b"
+        },
+        "models/TrustGTR.py": {
+          "path": "runs/trustgtr_ab9_train__etth1__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/TrustGTR.py",
+          "sha256": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970"
+        },
+        "models/HistoricalMemory.py": {
+          "path": "runs/trustgtr_ab9_train__etth1__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/HistoricalMemory.py",
+          "sha256": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9"
+        },
+        "data_provider/data_loader.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/data_provider/data_loader.py",
+          "sha256": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54"
+        },
+        "utils/metrics.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/utils/metrics.py",
+          "sha256": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d"
+        }
+      }
+    },
+    {
+      "dataset": "solar",
+      "experiment_id": "trustgtr_ab9_train__solar__forecast__t96_h96__seed2024__20261006_122231",
+      "dropout_probabilities": {
+        "GTR.dropout": 0.1,
+        "output_proj.0": 0.0
+      },
+      "model_sources": {
+        "models/GTR.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/models/GTR.py",
+          "sha256": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b"
+        },
+        "models/TrustGTR.py": {
+          "path": "runs/trustgtr_ab9_train__solar__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/TrustGTR.py",
+          "sha256": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970"
+        },
+        "models/HistoricalMemory.py": {
+          "path": "runs/trustgtr_ab9_train__solar__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/HistoricalMemory.py",
+          "sha256": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9"
+        },
+        "data_provider/data_loader.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/data_provider/data_loader.py",
+          "sha256": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54"
+        },
+        "utils/metrics.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/utils/metrics.py",
+          "sha256": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d"
+        }
+      }
+    },
+    {
+      "dataset": "weather",
+      "experiment_id": "trustgtr_ab9_train__weather__forecast__t96_h96__seed2024__20261006_122231",
+      "dropout_probabilities": {
+        "GTR.dropout": 0.1,
+        "output_proj.0": 0.5
+      },
+      "model_sources": {
+        "models/GTR.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/models/GTR.py",
+          "sha256": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b"
+        },
+        "models/TrustGTR.py": {
+          "path": "runs/trustgtr_ab9_train__weather__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/TrustGTR.py",
+          "sha256": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970"
+        },
+        "models/HistoricalMemory.py": {
+          "path": "runs/trustgtr_ab9_train__weather__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/HistoricalMemory.py",
+          "sha256": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9"
+        },
+        "data_provider/data_loader.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/data_provider/data_loader.py",
+          "sha256": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54"
+        },
+        "utils/metrics.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/utils/metrics.py",
+          "sha256": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d"
+        }
+      }
+    },
+    {
+      "dataset": "ettm2",
+      "experiment_id": "trustgtr_ab9_train__ettm2__forecast__t96_h96__seed2024__20261006_122231",
+      "dropout_probabilities": {
+        "GTR.dropout": 0.1,
+        "output_proj.0": 0.5
+      },
+      "model_sources": {
+        "models/GTR.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/models/GTR.py",
+          "sha256": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b"
+        },
+        "models/TrustGTR.py": {
+          "path": "runs/trustgtr_ab9_train__ettm2__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/TrustGTR.py",
+          "sha256": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970"
+        },
+        "models/HistoricalMemory.py": {
+          "path": "runs/trustgtr_ab9_train__ettm2__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/HistoricalMemory.py",
+          "sha256": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9"
+        },
+        "data_provider/data_loader.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/data_provider/data_loader.py",
+          "sha256": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54"
+        },
+        "utils/metrics.py": {
+          "path": "/mnt/data/zza/code/TrustGTR/utils/metrics.py",
+          "sha256": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d"
+        }
+      }
+    }
+  ]
+}

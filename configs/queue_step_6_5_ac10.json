@@ -1,0 +1,622 @@
+{
+  "max_jobs": 3,
+  "poll_seconds": 3,
+  "oom_cooldown_seconds": 60,
+  "runtime_dir": "/mnt/data/zza/code/TrustGTR/runtime/step_6_5_ac10",
+  "on_change_argv": [
+    "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+    "/mnt/data/zza/code/TrustGTR/scripts/summarize_results.py"
+  ],
+  "preparation": {
+    "step": "6.5",
+    "datasets": [
+      "etth1",
+      "solar",
+      "weather",
+      "ettm2"
+    ],
+    "new_job_count": 17,
+    "scope": "Single-seed four-dataset paired C sampling test; A6 fixed, B off for attribution; GTR/A6 results referenced only",
+    "science_sha256": {
+      "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+      "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+      "models/TrustGTR.py": "de07b0dd728c20111592624eac9fda1200bafe44090a73a174ee7dc4b464311b",
+      "models/HistoricalMemory.py": "60d848f2b087f7448e33006ab6f72e0dd21b935a86a2c5b94f57f82f114583bd",
+      "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+      "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+      "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+      "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+      "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+      "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+      "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+      "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+      "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+      "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+    },
+    "source_provenance": {
+      "etth1": {
+        "id": "trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105",
+        "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105/metrics.json",
+        "metrics_sha256": "59ecc47061f6247579893de0386ebbb45259bb66c866785393c13cdee17901d3",
+        "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105/code_manifest.json",
+        "code_manifest_sha256": "e9354ec450732c3ae382fea311d3c41e9fc3976c1a2234b42025c48a430628fa",
+        "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105.json",
+        "config_sha256": "a79e160ccaae9498c69dbf7fbd41afb94aa5bbe8b2901875a96bf79f487df708",
+        "evaluation_assets": {
+          "train": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+            "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+            "split": [
+              0,
+              8640
+            ],
+            "window_count": 8449,
+            "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+          },
+          "val": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+            "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+            "split": [
+              8544,
+              11520
+            ],
+            "window_count": 2785,
+            "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+          },
+          "test": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+            "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+            "split": [
+              11424,
+              14400
+            ],
+            "window_count": 2785,
+            "scaler_sha256": "1ee3b102be5d4385d07d5efd243bcc51a2c2e550008736c47ab9ca529afb2932"
+          }
+        },
+        "baseline": {
+          "id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+          "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__forecast__t96_h96__seed2024__20261004_214520/metrics.json",
+          "metrics_sha256": "8230dbebeaadd12a5e4de3828ec886cd9a45f198380781ccf0086ba6976ae352",
+          "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__forecast__t96_h96__seed2024__20261004_214520/code_manifest.json",
+          "code_manifest_sha256": "d42730bf8e677cfa9ad3f1576d97466d4a0f591e01a2338f071d149fe487dee4"
+        }
+      },
+      "solar": {
+        "id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+        "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/metrics.json",
+        "metrics_sha256": "116c25154b791e87b4a4961e5408859738512aac602c392d5285c4ca9e1bf9d9",
+        "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/code_manifest.json",
+        "code_manifest_sha256": "3f81b3c58c268fd654ee5c477f118da067c09e2734a55cb84f2d2e22f1909d76",
+        "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347.json",
+        "config_sha256": "d19849818e1c9c79eb34f83521bc8ab69cc7d2216aef25a4b114b6b50b2cb1e3",
+        "evaluation_assets": {
+          "train": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+            "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+            "split": [
+              0,
+              36792
+            ],
+            "window_count": 36601,
+            "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+          },
+          "val": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+            "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+            "split": [
+              36696,
+              42048
+            ],
+            "window_count": 5161,
+            "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+          },
+          "test": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+            "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+            "split": [
+              41952,
+              52560
+            ],
+            "window_count": 10417,
+            "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+          }
+        },
+        "baseline": {
+          "id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+          "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__forecast__t96_h96__seed2024__20261004_214520/metrics.json",
+          "metrics_sha256": "e77d740f249be2fa35d8701bcaafe435585dd9cf19f1dead6aefa800c9387802",
+          "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__forecast__t96_h96__seed2024__20261004_214520/code_manifest.json",
+          "code_manifest_sha256": "20b1abb7434b7044927b6b812eff80e24b694d2f6c85a5c0309ed9c9c5135d62"
+        }
+      },
+      "weather": {
+        "id": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+        "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+        "metrics_sha256": "7aff8b2dfffb6f53a1d752abef077de1f071b4177e1249e05e4d697c73b2c346",
+        "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+        "code_manifest_sha256": "17169154ad27b532cc5595299cd8f5c013ff21f661dd11b10d764ce715f9e8ae",
+        "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458.json",
+        "config_sha256": "71d3e50019c6034968d36d2774f5b42e3e3e4e8b3037a7f32e590cd50a9c0a4e",
+        "evaluation_assets": {
+          "train": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.json",
+            "sha256": "ed184698cea3f834de756f5a4a417819293e2330d3ab75c8c731908a6a33ac3b",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.scaler.npz",
+            "split": [
+              0,
+              36887
+            ],
+            "window_count": 36696,
+            "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+          },
+          "val": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.json",
+            "sha256": "63db9ed68cae8b47b2487dac9e87df9a9cc5dd56a388e6b57e8843d8da7d65da",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.scaler.npz",
+            "split": [
+              36791,
+              42157
+            ],
+            "window_count": 5175,
+            "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+          },
+          "test": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.json",
+            "sha256": "c896455a15bbb7c255f73985f453b502d6063ad284c0ca6d14a58526540e2474",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.scaler.npz",
+            "split": [
+              42061,
+              52696
+            ],
+            "window_count": 10444,
+            "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+          }
+        },
+        "baseline": {
+          "id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+          "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__weather__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+          "metrics_sha256": "1ff229a4fe27d11d1651a294537164cb9f9e4b69db0df80a3fcd7c9f1b3e420d",
+          "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__weather__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+          "code_manifest_sha256": "17fed5850a2072534e75fd546e5ef8a147d2d2b8782e776cbfb2df4982fcf8ac"
+        }
+      },
+      "ettm2": {
+        "id": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+        "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+        "metrics_sha256": "8065ca72de54179bc6c53d710a2dc03b729acab9459bfaeda10aab20a0d00a64",
+        "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+        "code_manifest_sha256": "0dbee9c9bb6dcf5b901923b6d8d7a567f75dc97325a5e1431e1594472074a784",
+        "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458.json",
+        "config_sha256": "761fdf0d231521fd3f97f96f0f205d5ab51cae756f9c04f7209079679c977f56",
+        "evaluation_assets": {
+          "train": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.json",
+            "sha256": "56c16864c1a5b3d9b64ef5181e7d068f95ac1f2c2ef82856035e706af44649a8",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.scaler.npz",
+            "split": [
+              0,
+              34560
+            ],
+            "window_count": 34369,
+            "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+          },
+          "val": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.json",
+            "sha256": "8b3718767a1147631fd02e97a047dcdd84029574ec4f05fd725ef691beafbab9",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.scaler.npz",
+            "split": [
+              34464,
+              46080
+            ],
+            "window_count": 11425,
+            "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+          },
+          "test": {
+            "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.json",
+            "sha256": "17fde4a80477d00f921515a4fa2f76604ec1b27c380b4a28c4d08ace0a8d1dbb",
+            "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.scaler.npz",
+            "split": [
+              45984,
+              57600
+            ],
+            "window_count": 11425,
+            "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+          }
+        },
+        "baseline": {
+          "id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+          "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+          "metrics_sha256": "66e6ce2ac8c575779d7b852f69cd4fa26971f31dc8f80cfb6421c465bb26cb51",
+          "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+          "code_manifest_sha256": "f8393d9806cba0a949deb25363e72336cbe0096404628ca05080d5aa4c6bd3b6"
+        }
+      }
+    },
+    "config_sha256": {
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646.json": "599dd5a07bad7657a764d0042cedbbefdb786da1495ec4b1aead1302811470c8",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646.json": "fbe236e0db9eaeb771f24acee80d15eddbc679508156f2e66f4b1e9d0d63a809",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646.json": "3dab4d33840c0f3fbf25d8167825c6dd31c6b970c9a541472ad7889e4b8ed47d",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646.json": "33b4e4c5b18e7b9614dfd3f2f0d79557ab7e49e372c18a09115c5a5f3a7479dc",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646.json": "04d27b09947776b97c0ce3be88e5c4e5d8b42c5705353d9eb06244dd03c6b14e",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646.json": "0113178e01568a95e3e900aef7430d0c9a35c7278daae50fa1cd9a68782bee8a",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646.json": "e03ee5c2088aaf6c0d8124702cbd2ff269ec6580e5d350935ae32ec5e382c4ca",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646.json": "683e45509ba3381f33a8122c4c231247cc8d5906c7c71b67cedc2c821bf377c2",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646.json": "2cb8b43e13adaf1151510e2d38bb56e2a9283e6a55dc80a3e297a89e59a15bb5",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646.json": "aba2b915e12eab1da4c72b0921d729e6f44f39e83ff92f6ea197b1e0fcf97284",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646.json": "afb6b83541b5ff1156e8fc82c41e8c5222a664284dd879c1cf79a09c30a19107",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646.json": "d4e8ae7ec718f79c58175d1e3a7ef1d2a844def0ff3dba532543dfa5f9374539",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646.json": "9fa1976d3ad6a7621e4192690ffd875e43c96f0c47e9e5db5df1e934d3745cf8",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646.json": "d74547924b79292c3a88f1a6c84dae6150940d055ccecd59e27d95262edf96de",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646.json": "458f49cc6e3dd56b01d631812e95893749d0f176e76dea7daf9f6b5d1330503c",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646.json": "353f1d9d9218bc3d4e0b0f7f625084bb1125b9b49011e7fb342bcfd4925a9800",
+      "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646.json": "68d5f82895dc58914893fbce3dd6b9c98d973deec493339c4a77323d2bcd2ae2"
+    }
+  },
+  "jobs": [
+    {
+      "id": "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": []
+    },
+    {
+      "id": "trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ]
+    },
+    {
+      "id": "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "memory_estimate_from": "trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646"
+    },
+    {
+      "id": "trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ]
+    },
+    {
+      "id": "trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "memory_estimate_from": "trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646"
+    },
+    {
+      "id": "trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ]
+    },
+    {
+      "id": "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "memory_estimate_from": "trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646"
+    },
+    {
+      "id": "trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ]
+    },
+    {
+      "id": "trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "memory_estimate_from": "trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646"
+    },
+    {
+      "id": "trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ]
+    },
+    {
+      "id": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "memory_estimate_from": "trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646"
+    },
+    {
+      "id": "trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ]
+    },
+    {
+      "id": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "memory_estimate_from": "trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646"
+    },
+    {
+      "id": "trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ]
+    },
+    {
+      "id": "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "memory_estimate_from": "trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646"
+    },
+    {
+      "id": "trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": true,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646"
+      ]
+    },
+    {
+      "id": "trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "argv": [
+        "/mnt/data/zza/code/TrustGTR/.conda/bin/python",
+        "-u",
+        "/mnt/data/zza/code/TrustGTR/scripts/run_trust_experiment.py",
+        "--config",
+        "/mnt/data/zza/code/TrustGTR/configs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646.json",
+        "--run-dir",
+        "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "cwd": "/mnt/data/zza/code/TrustGTR",
+      "run_dir": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646",
+      "required_memory_mib": null,
+      "is_smoke": false,
+      "smoke_passed": false,
+      "depends_on": [
+        "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646",
+        "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646"
+      ],
+      "memory_estimate_from": "trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646"
+    }
+  ]
+}

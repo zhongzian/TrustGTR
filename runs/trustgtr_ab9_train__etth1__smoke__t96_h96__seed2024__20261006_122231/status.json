@@ -1,0 +1,15 @@
+{
+  "experiment_id": "trustgtr_ab9_train__etth1__smoke__t96_h96__seed2024__20261006_122231",
+  "id": "trustgtr_ab9_train__etth1__smoke__t96_h96__seed2024__20261006_122231",
+  "status": "SUCCESS",
+  "state": "succeeded",
+  "attempt": 1,
+  "stage": "smoke",
+  "pid": 1794050,
+  "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+  "started_at": "2026-10-06T12:23:28.636995+08:00",
+  "updated_at": "2026-10-06T12:23:31.446830+08:00",
+  "exit_code": 0,
+  "ended_at": "2026-10-06T12:23:31.446803+08:00",
+  "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_train__etth1__smoke__t96_h96__seed2024__20261006_122231/metrics.json"
+}

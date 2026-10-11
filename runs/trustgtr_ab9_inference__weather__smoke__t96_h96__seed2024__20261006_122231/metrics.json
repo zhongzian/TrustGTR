@@ -1,0 +1,447 @@
+{
+  "id": "trustgtr_ab9_inference__weather__smoke__t96_h96__seed2024__20261006_122231",
+  "dataset": "weather",
+  "model": "TrustGTR_ab9_inference",
+  "stage": "smoke",
+  "step": "6.4",
+  "protocol": "official_gtr_t96_h96_seed2024",
+  "same_evaluation_protocol": false,
+  "official_script": "scripts/GTR/weather.sh",
+  "baseline_experiment_id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+  "baseline_mse": null,
+  "baseline_mae": null,
+  "fixed_evaluation_asset_source": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+  "source_experiment_id": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+  "source_mse": 0.15659572184085846,
+  "source_mae": 0.2073282152414322,
+  "source_provenance": {
+    "id": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+    "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+    "metrics_sha256": "7aff8b2dfffb6f53a1d752abef077de1f071b4177e1249e05e4d697c73b2c346",
+    "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+    "code_manifest_sha256": "17169154ad27b532cc5595299cd8f5c013ff21f661dd11b10d764ce715f9e8ae",
+    "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458.json",
+    "config_sha256": "71d3e50019c6034968d36d2774f5b42e3e3e4e8b3037a7f32e590cd50a9c0a4e",
+    "evaluation_assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.json",
+        "sha256": "ed184698cea3f834de756f5a4a417819293e2330d3ab75c8c731908a6a33ac3b",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.scaler.npz",
+        "split": [
+          0,
+          36887
+        ],
+        "window_count": 36696,
+        "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.json",
+        "sha256": "63db9ed68cae8b47b2487dac9e87df9a9cc5dd56a388e6b57e8843d8da7d65da",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.scaler.npz",
+        "split": [
+          36791,
+          42157
+        ],
+        "window_count": 5175,
+        "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.json",
+        "sha256": "c896455a15bbb7c255f73985f453b502d6063ad284c0ca6d14a58526540e2474",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.scaler.npz",
+        "split": [
+          42061,
+          52696
+        ],
+        "window_count": 10444,
+        "scaler_sha256": "6632a2a9584216fc6a3e017bca4d767ba22c3dfe15712ae80dc91b34f2a323f9"
+      }
+    },
+    "baseline": {
+      "id": "gtr__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__weather__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+      "metrics_sha256": "1ff229a4fe27d11d1651a294537164cb9f9e4b69db0df80a3fcd7c9f1b3e420d",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__weather__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+      "code_manifest_sha256": "17fed5850a2072534e75fd546e5ef8a147d2d2b8782e776cbfb2df4982fcf8ac"
+    }
+  },
+  "control_experiment_id": "trustgtr_ab9_train__weather__forecast__t96_h96__seed2024__20261006_122231",
+  "paired_control_experiment_id": "trustgtr_ab9_train__weather__forecast__t96_h96__seed2024__20261006_122231",
+  "paired_experiment_id": "trustgtr_ab9_train__weather__smoke__t96_h96__seed2024__20261006_122231",
+  "paired_factor": "trustgtr.gate_calibration_context",
+  "frozen_code_sha256": {
+    "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+    "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+    "models/TrustGTR.py": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970",
+    "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+    "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+    "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+    "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+    "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+    "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+    "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+    "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+    "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+    "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+    "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+  },
+  "config_changes": [
+    {
+      "key": "official_args.model_id",
+      "old": "trustgtr_a6__weather__forecast__t96_h96__seed2024__20261006_114458",
+      "new": "trustgtr_ab9_inference__weather__smoke__t96_h96__seed2024__20261006_122231",
+      "reason": "new immutable experiment ID; retain original A6 formal result"
+    },
+    {
+      "key": "trustgtr.use_reliability_gate",
+      "old": false,
+      "new": true,
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_descriptor",
+      "old": "forecast",
+      "new": "retrieval",
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.detach_gate_descriptor",
+      "old": true,
+      "new": true,
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_loss_mode",
+      "old": "power_weighted",
+      "new": "power_weighted",
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_loss_weight",
+      "old": 0.05,
+      "new": 0.05,
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_initial_probability",
+      "old": 0.9,
+      "new": 0.9,
+      "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+    },
+    {
+      "key": "trustgtr.gate_calibration_context",
+      "old": "train",
+      "new": "inference",
+      "reason": "sole paired scientific factor: same training-mode pass versus additional deterministic inference-mode gate calibration pass; original forecast loss and training budget unchanged"
+    },
+    {
+      "key": "official_args.train_epochs",
+      "old": 30,
+      "new": 1,
+      "reason": "independent smoke only"
+    },
+    {
+      "key": "smoke.batch_limits",
+      "old": null,
+      "new": {
+        "train": 3,
+        "evaluation": 2
+      },
+      "reason": "smoke chain only; official batch unchanged"
+    }
+  ],
+  "comparison_note": "Four-dataset A6 per-bank history held fixed; B shared retrieval descriptor/loss/init; C disabled only for attribution; train versus inference context is the sole pair difference. Existing GTR/A6 results are referenced, never rescheduled. Inference adds a calibration forward and may increase compute; official epochs/batches/optimizer/evaluation unchanged.",
+  "paper_mse": null,
+  "paper_mae": null,
+  "paper_reference": "NA: no verified paper values supplied for this extension",
+  "paper_url": "https://arxiv.org/html/2602.10847v1",
+  "prepared_resolved_trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": false,
+    "periods": [
+      144,
+      1008,
+      4320
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 0.1,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "historical",
+    "gate_descriptor": "retrieval",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "gate_calibration_context": "inference",
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "per_bank",
+    "contrast_metric": "cosine"
+  },
+  "experiment_id": "trustgtr_ab9_inference__weather__smoke__t96_h96__seed2024__20261006_122231",
+  "status": "SUCCESS",
+  "seed": 2024,
+  "runtime_seconds": 5.077162925968878,
+  "peak_gpu_memory_mib": 264.0,
+  "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+  "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_inference__weather__smoke__t96_h96__seed2024__20261006_122231/resolved_config.yaml",
+  "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+  "evaluation_assets": {
+    "train": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.json",
+      "sha256": "ed184698cea3f834de756f5a4a417819293e2330d3ab75c8c731908a6a33ac3b",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/train.scaler.npz",
+      "split": [
+        0,
+        36887
+      ],
+      "window_count": 36696
+    },
+    "val": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.json",
+      "sha256": "63db9ed68cae8b47b2487dac9e87df9a9cc5dd56a388e6b57e8843d8da7d65da",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/val.scaler.npz",
+      "split": [
+        36791,
+        42157
+      ],
+      "window_count": 5175
+    },
+    "test": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.json",
+      "sha256": "c896455a15bbb7c255f73985f453b502d6063ad284c0ca6d14a58526540e2474",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/494a0814d4a4083548f6/test.scaler.npz",
+      "split": [
+        42061,
+        52696
+      ],
+      "window_count": 10444
+    }
+  },
+  "error": null,
+  "parameters": 637491,
+  "trainable_parameters": 637491,
+  "training_time_seconds": 2.878849215921946,
+  "inference_time_seconds": 0.04697479400783777,
+  "inference_batches": 2,
+  "inference_seconds_per_batch": 0.023487397003918886,
+  "best_epoch": 1,
+  "epochs_completed": 1,
+  "global_step": 3,
+  "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_inference__weather__smoke__t96_h96__seed2024__20261006_122231/checkpoints/best.pt",
+  "last_checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_inference__weather__smoke__t96_h96__seed2024__20261006_122231/checkpoints/last.pt",
+  "smoke_checks": {
+    "forward": true,
+    "backward": true,
+    "optimizer_step": true,
+    "checkpoint_save": true,
+    "checkpoint_load": true,
+    "evaluation": true,
+    "metrics_write": true
+  },
+  "resume": {
+    "mode": "from_scratch",
+    "epoch": 0
+  },
+  "mae": 0.3737044334411621,
+  "mse": 0.31919240951538086,
+  "rmse": 0.5649711489677429,
+  "mape": 6.127498149871826,
+  "mspe": 8085.583984375,
+  "rse": 0.996025562286377,
+  "corr": [
+    0.057842645794153214,
+    0.06517553329467773,
+    0.06411633640527725,
+    0.06282173842191696,
+    0.05655770003795624,
+    0.06126411631703377,
+    0.05109497904777527,
+    0.05730484798550606,
+    0.0517524890601635,
+    0.05202491208910942,
+    0.05250340700149536,
+    0.05089684948325157,
+    0.0431319959461689,
+    0.035877775400877,
+    0.0470275804400444,
+    0.04829255864024162,
+    0.04272042214870453,
+    0.02647390589118004,
+    0.03317206725478172,
+    0.04483738914132118,
+    0.0273062065243721,
+    0.03653972968459129,
+    0.027343429625034332,
+    0.03715641424059868,
+    0.03861629590392113,
+    0.019994817674160004,
+    0.03809954598546028,
+    0.029241008684039116,
+    0.02616714872419834,
+    0.007198982872068882,
+    -0.0036749180871993303,
+    0.027935458347201347,
+    -0.005637398920953274,
+    0.004902262706309557,
+    0.009746227413415909,
+    0.01985199935734272,
+    0.027774948626756668,
+    0.01522550918161869,
+    0.012194203212857246,
+    0.029406428337097168,
+    0.003674938576295972,
+    0.028632955625653267,
+    0.006005028262734413,
+    0.025960637256503105,
+    0.02563086897134781,
+    0.021640155464410782,
+    0.026134904474020004,
+    0.01791401393711567,
+    0.022781383246183395,
+    0.02343727834522724,
+    0.01977517083287239,
+    0.023830685764551163,
+    0.025780126452445984,
+    0.027923626825213432,
+    0.02411065250635147,
+    0.027185142040252686,
+    0.018544115126132965,
+    0.028729459270834923,
+    0.027583500370383263,
+    0.019517162814736366,
+    0.020629210397601128,
+    0.02795182354748249,
+    0.02317262813448906,
+    0.017771435901522636,
+    0.020806357264518738,
+    0.02672744169831276,
+    0.02595440298318863,
+    0.026737665757536888,
+    0.0235612690448761,
+    0.025567762553691864,
+    0.028412794694304466,
+    0.024059968069195747,
+    0.025820603594183922,
+    0.027752794325351715,
+    0.02803395502269268,
+    0.026686517521739006,
+    0.027904445305466652,
+    0.02570616640150547,
+    0.02965059131383896,
+    0.02862923964858055,
+    0.027600767090916634,
+    0.02952433191239834,
+    0.026475491002202034,
+    0.02456895262002945,
+    0.027977820485830307,
+    0.03293508291244507,
+    0.02682730183005333,
+    0.026976214721798897,
+    0.02897399663925171,
+    0.0237470380961895,
+    0.03149991109967232,
+    0.02762000449001789,
+    0.02926962822675705,
+    0.03026581183075905,
+    0.029850954189896584,
+    0.02866591140627861
+  ],
+  "trustgtr_diagnostics": {
+    "gate_sum": 10882.038208007812,
+    "gate_count": 12096,
+    "contrast_calls": 0,
+    "contrast_valid_anchors": 0,
+    "contrast_total_anchors": 0,
+    "cycle_weight_sum": [
+      4038.5738525390625,
+      4029.37841796875,
+      4028.0477905273438
+    ],
+    "cycle_weight_count": 12096,
+    "historical_strength": 0.0029068756848573685,
+    "historical_valid_fraction_last_batch": 1.0,
+    "gate_mean": 0.899639402117048,
+    "cycle_weight_mean": [
+      0.3338768065921844,
+      0.3331166020146123,
+      0.3330065964390992
+    ]
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": false,
+    "periods": [
+      144,
+      1008,
+      4320
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 0.1,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "historical",
+    "gate_descriptor": "retrieval",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "gate_calibration_context": "inference",
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "per_bank",
+    "contrast_metric": "cosine"
+  },
+  "historical_memory": {
+    "sha256": "d26e54ad170f06a4b8f4844be839cb03fa62e265b0137cc97f7ca3abdb47fbc6",
+    "train_rows": 36887,
+    "channels": 21,
+    "source_split": "train",
+    "static_bank": true,
+    "candidate_windows": 36696,
+    "first_origin": 96,
+    "last_origin": 36791,
+    "seq_len": 96,
+    "pred_len": 96,
+    "descriptor": "train-scaled mean/log_std/trend + 12 normalized shape bins",
+    "history_std_floor": 0.1,
+    "stat_std_floor": 0.1,
+    "configured_periods": [
+      144,
+      1008,
+      4320
+    ],
+    "phase_cycle": 144,
+    "bank_rule": "same base phase; deterministic relative-age bands",
+    "bank_roles": [
+      "short",
+      "middle",
+      "long"
+    ],
+    "candidate_cap": 192,
+    "topk": 3,
+    "router_mode": "per_bank",
+    "causality": "candidate origin j + horizon <= query origin t",
+    "reliability_features": [
+      "nearest_key_distance_log1p",
+      "relative_nearest_distance_gap",
+      "selected_weight_entropy",
+      "selected_future_dispersion_log1p",
+      "selected_bank_dispersion_log1p",
+      "selected_bank_coverage",
+      "selected_age_cycles_log1p",
+      "candidate_count_fraction"
+    ]
+  }
+}

@@ -1,0 +1,685 @@
+{
+  "scope": "Four formal single-seed followups, seed2024, official T96/H96; full ETT validation and fixed Solar256 diagnostics are separate from original shuffled/drop_last early-stopping losses",
+  "results": [
+    {
+      "experiment_id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+      "dataset": "solar",
+      "model": "TrustGTR_a6",
+      "status": "SUCCESS",
+      "seed": 2024,
+      "mse": 0.18590158224105835,
+      "mae": 0.24103502929210663,
+      "runtime_seconds": 894.9939802601002,
+      "training_time_seconds": 816.7226372580044,
+      "inference_time_seconds": 3.3220256494823843,
+      "peak_gpu_memory_mib": 1830.0,
+      "parameters": 653874,
+      "best_epoch": 9,
+      "epochs_completed": 14,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/checkpoints/best.pt",
+      "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/resolved_config.yaml",
+      "source_experiment_id": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/metrics.json",
+      "metrics_sha256": "116c25154b791e87b4a4961e5408859738512aac602c392d5285c4ca9e1bf9d9",
+      "same_protocol_vs_baseline": true,
+      "config_changes": [
+        {
+          "key": "official_args.model",
+          "old": "GTR",
+          "new": "TrustGTR",
+          "reason": "test validated A5 architecture on a second dataset without changing official Solar budget"
+        },
+        {
+          "key": "trustgtr",
+          "old": "disabled",
+          "new": {
+            "use_multi_cycle": true,
+            "use_reliability_gate": false,
+            "use_regime_contrast": false,
+            "memory_mode": "historical",
+            "preserve_initialization_rng": true,
+            "gate_descriptor": "forecast",
+            "detach_gate_descriptor": true,
+            "gate_loss_mode": "power_weighted",
+            "contrast_loss_weight": 0.002,
+            "historical_topk": 3,
+            "historical_candidate_cap": 192,
+            "historical_blend_bound": 0.2,
+            "historical_strength_coordinates": "bounded",
+            "periods": [
+              144,
+              1008,
+              4320
+            ]
+          },
+          "reason": "copy completed ETTh1 A5 options; only periods scale to the official Solar base cycle"
+        },
+        {
+          "key": "trustgtr.periods",
+          "old": [
+            24,
+            168,
+            720
+          ],
+          "new": [
+            144,
+            1008,
+            4320
+          ],
+          "reason": "same short/middle/long relative-age bank semantics with Solar cycle 144; not a changed phase rule"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+          "new": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+          "reason": "unique follow-up experiment ID; preserve completed source"
+        },
+        {
+          "key": "trustgtr.historical_router_mode",
+          "old": "global_topk",
+          "new": "per_bank",
+          "reason": "single-factor Solar router transfer from A5; B/C stay disabled"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+          "new": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+          "reason": "unique follow-up experiment ID; preserve completed source"
+        }
+      ],
+      "validation_diagnostic": {
+        "report_path": "reports/v7_solar_fixed_val256_20261005.json",
+        "scope": "best checkpoint only; fixed validation windows",
+        "validation_count": 256,
+        "scores": {
+          "actual_dynamic": {
+            "mse": 0.1423702985048294,
+            "mae": 0.21222753822803497
+          },
+          "fixed_g1": {
+            "mse": 0.1423702985048294,
+            "mae": 0.21222753822803497
+          },
+          "fixed_g0_jointly_trained_GTR": {
+            "mse": 0.14474278688430786,
+            "mae": 0.21627001464366913
+          },
+          "constant_gate_at_dynamic_mean": {
+            "mse": 0.1423702985048294,
+            "mae": 0.21222753822803497
+          },
+          "retrieval_alone": {
+            "mse": 0.17167195677757263,
+            "mae": 0.22682635486125946
+          },
+          "target_aware_oracle_upper_bound": {
+            "mse": 0.13605163991451263,
+            "mae": 0.20837335288524628
+          }
+        },
+        "gate": {
+          "count": 35072,
+          "mean": 1.0,
+          "std": 0.0,
+          "quantiles": {
+            "0": 1.0,
+            "0.1": 1.0,
+            "0.25": 1.0,
+            "0.5": 1.0,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "gate_gain_correlation": null,
+        "reconstruction_error": 0.0
+      },
+      "mse_relative_vs_baseline_pct": 2.6103464875885773,
+      "mse_relative_vs_source_pct": -0.5886283723815944,
+      "mae_relative_vs_baseline_pct": 1.8489878939161875,
+      "mae_relative_vs_source_pct": 0.7094920808478289,
+      "official_best_validation_loss": 0.1423063427209854
+    },
+    {
+      "experiment_id": "trustgtr_ac7__etth1__forecast__t96_h96__seed2024__20261005_162347",
+      "dataset": "etth1",
+      "model": "TrustGTR_ac7",
+      "status": "SUCCESS",
+      "seed": 2024,
+      "mse": 0.3656374514102936,
+      "mae": 0.3906123638153076,
+      "runtime_seconds": 53.51735652808566,
+      "training_time_seconds": 51.626685832976364,
+      "inference_time_seconds": 0.2918946372810751,
+      "peak_gpu_memory_mib": 844.0,
+      "parameters": 634314,
+      "best_epoch": 9,
+      "epochs_completed": 14,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac7__etth1__forecast__t96_h96__seed2024__20261005_162347/checkpoints/best.pt",
+      "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac7__etth1__forecast__t96_h96__seed2024__20261005_162347/resolved_config.yaml",
+      "source_experiment_id": "trustgtr_ac5__etth1__forecast__t96_h96__seed2024__20261005_155314",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac7__etth1__forecast__t96_h96__seed2024__20261005_162347/metrics.json",
+      "metrics_sha256": "1f2d41b02bd230a010d4aba45586f6cb386276a97500016c27bae421f413b827",
+      "same_protocol_vs_baseline": true,
+      "config_changes": [
+        {
+          "key": "model",
+          "old": "GTR",
+          "new": "TrustGTR",
+          "reason": "switchable historical retrieval variant"
+        },
+        {
+          "key": "memory_mode",
+          "old": "factorized_residual",
+          "new": "historical",
+          "reason": "long calendar banks overfit; fixed full-val historical retrieval shows complementary content"
+        },
+        {
+          "key": "retrieval_candidates",
+          "old": "one learned value per calendar cell",
+          "new": "train-only completed continuations, same base phase, three relative-age banks, at most 64 each",
+          "reason": "input state chooses actual history candidates; candidate future end <= query origin"
+        },
+        {
+          "key": "long_bank_phase_rule",
+          "old": "origin modulo 7x/30x base cycle",
+          "new": "all candidates align base cycle; memory banks cover short/middle/long historical cycle ages",
+          "reason": "validated three-age candidate coverage; periods retained as legacy source identifiers only"
+        },
+        {
+          "key": "retrieval_fusion",
+          "old": "modify learned Q before convolution",
+          "new": "original GTR forecast + 0.2*tanh(trainable scalar initialized 0)*retrieved forecast correction",
+          "reason": "retrieval standalone is weaker; initial prediction and RNG exactly match baseline"
+        },
+        {
+          "key": "historical_blend_bound",
+          "old": null,
+          "new": 0.2,
+          "reason": "fixed validation diagnostic blends 0.1/0.2 improve both metrics; no test tuning"
+        },
+        {
+          "key": "trustgtr",
+          "old": "disabled",
+          "new": {
+            "use_multi_cycle": true,
+            "use_reliability_gate": true,
+            "use_regime_contrast": true,
+            "memory_mode": "historical",
+            "preserve_initialization_rng": true,
+            "gate_descriptor": "forecast",
+            "detach_gate_descriptor": true,
+            "gate_loss_mode": "power_weighted",
+            "contrast_loss_weight": 0.002,
+            "historical_topk": 3,
+            "historical_candidate_cap": 192,
+            "historical_blend_bound": 0.2,
+            "historical_strength_coordinates": "bounded"
+          },
+          "reason": "A alone, add B, then add C; same original training budget and fixed assets"
+        },
+        {
+          "key": "gate_fallback",
+          "old": "local convolution/MLP branch",
+          "new": "original jointly trained GTR forecast branch",
+          "reason": "reject historical correction using train-only utility oracle"
+        },
+        {
+          "key": "contrast_candidate_source",
+          "old": "same-batch same-phase samples",
+          "new": "fixed causal training history candidates with disjoint windows",
+          "reason": "train actual retrieval key encoder; avoid sparse Solar/batch positives without stale queue"
+        },
+        {
+          "key": "historical_strength_coordinates",
+          "old": "0.2*tanh(raw)",
+          "new": "0.2*tanh(raw/0.2)",
+          "reason": "zero initial forecast and same amplitude bound; original LR/budget learned only 0.015-0.017 strength"
+        },
+        {
+          "key": "trustgtr.use_reliability_gate",
+          "old": true,
+          "new": false,
+          "reason": "AC5 attribution: only disable B relative to completed ABC5; preserve A/C and training budget"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "trustgtr_abc5__etth1__forecast__t96_h96__seed2024__20261005_110620",
+          "new": "trustgtr_ac5__etth1__forecast__t96_h96__seed2024__20261005_155314",
+          "reason": "unique follow-up experiment ID; preserve completed source"
+        },
+        {
+          "key": "trustgtr.historical_router_mode",
+          "old": "global_topk",
+          "new": "per_bank",
+          "reason": "complete ETTh1 A5/AC5/A6/AC7 two-by-two router/C attribution; preserve original cosine C and its scale"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "trustgtr_ac5__etth1__forecast__t96_h96__seed2024__20261005_155314",
+          "new": "trustgtr_ac7__etth1__forecast__t96_h96__seed2024__20261005_162347",
+          "reason": "unique follow-up experiment ID; preserve completed source"
+        }
+      ],
+      "validation_diagnostic": {
+        "report_path": "reports/v7_etth1_full_val_20261005.json",
+        "scope": "best checkpoint only; fixed validation windows",
+        "validation_count": 2785,
+        "scores": {
+          "actual_dynamic": {
+            "mse": 0.6696039438247681,
+            "mae": 0.538084089756012
+          },
+          "fixed_g1": {
+            "mse": 0.6696039438247681,
+            "mae": 0.538084089756012
+          },
+          "fixed_g0_jointly_trained_GTR": {
+            "mse": 0.6729509830474854,
+            "mae": 0.5394482016563416
+          },
+          "constant_gate_at_dynamic_mean": {
+            "mse": 0.6696039438247681,
+            "mae": 0.538084089756012
+          },
+          "retrieval_alone": {
+            "mse": 0.7862167358398438,
+            "mae": 0.5957461595535278
+          },
+          "target_aware_oracle_upper_bound": {
+            "mse": 0.6638126969337463,
+            "mae": 0.5350469946861267
+          }
+        },
+        "gate": {
+          "count": 19495,
+          "mean": 1.0,
+          "std": 0.0,
+          "quantiles": {
+            "0": 1.0,
+            "0.1": 1.0,
+            "0.25": 1.0,
+            "0.5": 1.0,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "gate_gain_correlation": null,
+        "reconstruction_error": 0.0
+      },
+      "mse_relative_vs_baseline_pct": -1.0716948087212463,
+      "mse_relative_vs_source_pct": -0.08371992038137543,
+      "mae_relative_vs_baseline_pct": -0.5074004341555693,
+      "mae_relative_vs_source_pct": -0.03474856711735974,
+      "official_best_validation_loss": 0.6701286435127258
+    },
+    {
+      "experiment_id": "trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802",
+      "dataset": "etth1",
+      "model": "TrustGTR_ab7",
+      "status": "SUCCESS",
+      "seed": 2024,
+      "mse": 0.3665936589241028,
+      "mae": 0.39104121923446655,
+      "runtime_seconds": 111.98073253792245,
+      "training_time_seconds": 109.06779618491419,
+      "inference_time_seconds": 0.3626472488977015,
+      "peak_gpu_memory_mib": 640.0,
+      "parameters": 634635,
+      "best_epoch": 9,
+      "epochs_completed": 14,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802/checkpoints/best.pt",
+      "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802/resolved_config.yaml",
+      "source_experiment_id": "trustgtr_ab6__etth1__forecast__t96_h96__seed2024__20261005_160509",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802/metrics.json",
+      "metrics_sha256": "b6379941c2964c4edabb6caaf6698fdad5ded8cf235a00b4a488376ded97140f",
+      "same_protocol_vs_baseline": true,
+      "config_changes": [
+        {
+          "key": "model",
+          "old": "GTR",
+          "new": "TrustGTR",
+          "reason": "switchable historical retrieval variant"
+        },
+        {
+          "key": "memory_mode",
+          "old": "factorized_residual",
+          "new": "historical",
+          "reason": "long calendar banks overfit; fixed full-val historical retrieval shows complementary content"
+        },
+        {
+          "key": "retrieval_candidates",
+          "old": "one learned value per calendar cell",
+          "new": "train-only completed continuations, same base phase, three relative-age banks, at most 64 each",
+          "reason": "input state chooses actual history candidates; candidate future end <= query origin"
+        },
+        {
+          "key": "long_bank_phase_rule",
+          "old": "origin modulo 7x/30x base cycle",
+          "new": "all candidates align base cycle; memory banks cover short/middle/long historical cycle ages",
+          "reason": "validated three-age candidate coverage; periods retained as legacy source identifiers only"
+        },
+        {
+          "key": "retrieval_fusion",
+          "old": "modify learned Q before convolution",
+          "new": "original GTR forecast + 0.2*tanh(trainable scalar initialized 0)*retrieved forecast correction",
+          "reason": "retrieval standalone is weaker; initial prediction and RNG exactly match baseline"
+        },
+        {
+          "key": "historical_blend_bound",
+          "old": null,
+          "new": 0.2,
+          "reason": "fixed validation diagnostic blends 0.1/0.2 improve both metrics; no test tuning"
+        },
+        {
+          "key": "trustgtr",
+          "old": "disabled",
+          "new": {
+            "use_multi_cycle": true,
+            "use_reliability_gate": true,
+            "use_regime_contrast": false,
+            "memory_mode": "historical",
+            "preserve_initialization_rng": true,
+            "gate_descriptor": "forecast",
+            "detach_gate_descriptor": true,
+            "gate_loss_mode": "power_weighted",
+            "contrast_loss_weight": 0.002,
+            "historical_topk": 3,
+            "historical_candidate_cap": 192,
+            "historical_blend_bound": 0.2,
+            "historical_strength_coordinates": "bounded"
+          },
+          "reason": "A alone, add B, then add C; same original training budget and fixed assets"
+        },
+        {
+          "key": "gate_fallback",
+          "old": "local convolution/MLP branch",
+          "new": "original jointly trained GTR forecast branch",
+          "reason": "reject historical correction using train-only utility oracle"
+        },
+        {
+          "key": "historical_strength_coordinates",
+          "old": "0.2*tanh(raw)",
+          "new": "0.2*tanh(raw/0.2)",
+          "reason": "zero initial forecast and same amplitude bound; original LR/budget learned only 0.015-0.017 strength"
+        },
+        {
+          "key": "trustgtr.gate_descriptor",
+          "old": "forecast",
+          "new": "retrieval",
+          "reason": "retrieval distance/dispersion/age-bank evidence is available to reliability gate; no target needed at inference"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "trustgtr_ab5__etth1__forecast__t96_h96__seed2024__20261005_110620",
+          "new": "trustgtr_ab6__etth1__forecast__t96_h96__seed2024__20261005_160509",
+          "reason": "unique experiment ID; preserve completed source"
+        },
+        {
+          "key": "trustgtr.gate_loss_mode",
+          "old": "power_weighted",
+          "new": "counterfactual_risk",
+          "reason": "single-factor B loss: detached baseline error e and correction d define normalized counterfactual excess MSE (P*g^2-2*U*g)/(E+P); clipped oracle supervision discards benefit magnitude; fixed full-val AB6 gate/gain correlation -0.0986 and no-calibration gate nearly always open motivate this test; this is not a baseline safety guarantee"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "trustgtr_ab6__etth1__forecast__t96_h96__seed2024__20261005_160509",
+          "new": "trustgtr_ab7__etth1__forecast__t96_h96__seed2024__20261005_162802",
+          "reason": "unique follow-up experiment ID; preserve completed AB6 source"
+        }
+      ],
+      "validation_diagnostic": {
+        "report_path": "reports/v7_etth1_full_val_20261005.json",
+        "scope": "best checkpoint only; fixed validation windows",
+        "validation_count": 2785,
+        "scores": {
+          "actual_dynamic": {
+            "mse": 0.6685836315155029,
+            "mae": 0.5381262898445129
+          },
+          "fixed_g1": {
+            "mse": 0.6685869097709656,
+            "mae": 0.5381321907043457
+          },
+          "fixed_g0_jointly_trained_GTR": {
+            "mse": 0.6738459467887878,
+            "mae": 0.5402665734291077
+          },
+          "constant_gate_at_dynamic_mean": {
+            "mse": 0.6686012744903564,
+            "mae": 0.5381377935409546
+          },
+          "retrieval_alone": {
+            "mse": 0.8308524489402771,
+            "mae": 0.6180918216705322
+          },
+          "target_aware_oracle_upper_bound": {
+            "mse": 0.6621134877204895,
+            "mae": 0.5348416566848755
+          }
+        },
+        "gate": {
+          "count": 19495,
+          "mean": 0.99639892578125,
+          "std": 0.00314002251252532,
+          "quantiles": {
+            "0": 0.9601829051971436,
+            "0.1": 0.9946216821670533,
+            "0.25": 0.9960976839065552,
+            "0.5": 0.996954083442688,
+            "0.75": 0.9976162314414978,
+            "0.9": 0.9981566786766052,
+            "1": 0.9996510744094849
+          }
+        },
+        "gate_gain_correlation": 0.12145726895721667,
+        "reconstruction_error": 4.76837158203125e-07
+      },
+      "mse_relative_vs_baseline_pct": -0.8129795475043111,
+      "mse_relative_vs_source_pct": -0.16676689886448992,
+      "mae_relative_vs_baseline_pct": -0.39816697294797754,
+      "mae_relative_vs_source_pct": -0.035852856099771735,
+      "official_best_validation_loss": 0.6690070629119873
+    },
+    {
+      "experiment_id": "trustgtr_ab7__solar__forecast__t96_h96__seed2024__20261005_162802",
+      "dataset": "solar",
+      "model": "TrustGTR_ab7",
+      "status": "SUCCESS",
+      "seed": 2024,
+      "mse": 0.18681035935878754,
+      "mae": 0.23926809430122375,
+      "runtime_seconds": 1021.1582327280194,
+      "training_time_seconds": 885.7232519340469,
+      "inference_time_seconds": 3.225678372895345,
+      "peak_gpu_memory_mib": 2042.0,
+      "parameters": 654195,
+      "best_epoch": 9,
+      "epochs_completed": 14,
+      "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__solar__forecast__t96_h96__seed2024__20261005_162802/checkpoints/best.pt",
+      "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__solar__forecast__t96_h96__seed2024__20261005_162802/resolved_config.yaml",
+      "source_experiment_id": "trustgtr_ab6__solar__forecast__t96_h96__seed2024__20261005_160509",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab7__solar__forecast__t96_h96__seed2024__20261005_162802/metrics.json",
+      "metrics_sha256": "560701eb519d19c83d0e1742371c2fa3e540741f9c07f6c9fa66a0f08cf71d87",
+      "same_protocol_vs_baseline": true,
+      "config_changes": [
+        {
+          "key": "official_args.model",
+          "old": "GTR",
+          "new": "TrustGTR",
+          "reason": "test validated A5 architecture on a second dataset without changing official Solar budget"
+        },
+        {
+          "key": "trustgtr",
+          "old": "disabled",
+          "new": {
+            "use_multi_cycle": true,
+            "use_reliability_gate": false,
+            "use_regime_contrast": false,
+            "memory_mode": "historical",
+            "preserve_initialization_rng": true,
+            "gate_descriptor": "forecast",
+            "detach_gate_descriptor": true,
+            "gate_loss_mode": "power_weighted",
+            "contrast_loss_weight": 0.002,
+            "historical_topk": 3,
+            "historical_candidate_cap": 192,
+            "historical_blend_bound": 0.2,
+            "historical_strength_coordinates": "bounded",
+            "periods": [
+              144,
+              1008,
+              4320
+            ]
+          },
+          "reason": "copy completed ETTh1 A5 options; only periods scale to the official Solar base cycle"
+        },
+        {
+          "key": "trustgtr.periods",
+          "old": [
+            24,
+            168,
+            720
+          ],
+          "new": [
+            144,
+            1008,
+            4320
+          ],
+          "reason": "same short/middle/long relative-age bank semantics with Solar cycle 144; not a changed phase rule"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+          "new": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+          "reason": "unique follow-up experiment ID; preserve completed source"
+        },
+        {
+          "key": "trustgtr.use_reliability_gate",
+          "old": false,
+          "new": true,
+          "reason": "first historical B reliability test on Solar: jointly enable B and its retrieval descriptor; not a descriptor-only ablation"
+        },
+        {
+          "key": "trustgtr.gate_descriptor",
+          "old": "forecast",
+          "new": "retrieval",
+          "reason": "retrieval distance/dispersion/age-bank evidence is available to reliability gate; no target needed at inference"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+          "new": "trustgtr_ab6__solar__forecast__t96_h96__seed2024__20261005_160509",
+          "reason": "unique experiment ID; preserve completed source"
+        },
+        {
+          "key": "trustgtr.gate_loss_mode",
+          "old": "power_weighted",
+          "new": "counterfactual_risk",
+          "reason": "single-factor B loss: detached baseline error e and correction d define normalized counterfactual excess MSE (P*g^2-2*U*g)/(E+P); clipped oracle supervision discards benefit magnitude; fixed full-val AB6 gate/gain correlation -0.0986 and no-calibration gate nearly always open motivate this test; this is not a baseline safety guarantee"
+        },
+        {
+          "key": "official_args.model_id",
+          "old": "trustgtr_ab6__solar__forecast__t96_h96__seed2024__20261005_160509",
+          "new": "trustgtr_ab7__solar__forecast__t96_h96__seed2024__20261005_162802",
+          "reason": "unique follow-up experiment ID; preserve completed AB6 source"
+        }
+      ],
+      "validation_diagnostic": {
+        "report_path": "reports/v7_solar_fixed_val256_20261005.json",
+        "scope": "best checkpoint only; fixed validation windows",
+        "validation_count": 256,
+        "scores": {
+          "actual_dynamic": {
+            "mse": 0.14448624849319458,
+            "mae": 0.21436838805675507
+          },
+          "fixed_g1": {
+            "mse": 0.14448624849319458,
+            "mae": 0.21436838805675507
+          },
+          "fixed_g0_jointly_trained_GTR": {
+            "mse": 0.1429145634174347,
+            "mae": 0.21435387432575226
+          },
+          "constant_gate_at_dynamic_mean": {
+            "mse": 0.14448624849319458,
+            "mae": 0.21436838805675507
+          },
+          "retrieval_alone": {
+            "mse": 0.22325102984905243,
+            "mae": 0.25467434525489807
+          },
+          "target_aware_oracle_upper_bound": {
+            "mse": 0.13320423662662506,
+            "mae": 0.20630872249603271
+          }
+        },
+        "gate": {
+          "count": 35072,
+          "mean": 1.0,
+          "std": 2.049836389517168e-08,
+          "quantiles": {
+            "0": 0.9999980926513672,
+            "0.1": 1.0,
+            "0.25": 1.0,
+            "0.5": 1.0,
+            "0.75": 1.0,
+            "0.9": 1.0,
+            "1": 1.0
+          }
+        },
+        "gate_gain_correlation": 0.010021207875515577,
+        "reconstruction_error": 1.1920928955078125e-07
+      },
+      "mse_relative_vs_baseline_pct": 3.1119556390871717,
+      "mse_relative_vs_source_pct": 1.7524467123138932,
+      "mae_relative_vs_baseline_pct": 1.102372179908584,
+      "mae_relative_vs_source_pct": -0.03394871633323193,
+      "official_best_validation_loss": 0.14477932453155518
+    }
+  ],
+  "etth1_router_contrast_factorial": [
+    {
+      "router": "global_topk",
+      "contrast": false,
+      "id": "trustgtr_a5__etth1__forecast__t96_h96__seed2024__20261005_110620",
+      "mse": 0.36672666668891907,
+      "mae": 0.39111584424972534
+    },
+    {
+      "router": "global_topk",
+      "contrast": true,
+      "id": "trustgtr_ac5__etth1__forecast__t96_h96__seed2024__20261005_155314",
+      "mse": 0.3659438192844391,
+      "mae": 0.39074814319610596
+    },
+    {
+      "router": "per_bank",
+      "contrast": false,
+      "id": "trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105",
+      "mse": 0.36597487330436707,
+      "mae": 0.39065808057785034
+    },
+    {
+      "router": "per_bank",
+      "contrast": true,
+      "id": "trustgtr_ac7__etth1__forecast__t96_h96__seed2024__20261005_162347",
+      "mse": 0.3656374514102936,
+      "mae": 0.3906123638153076
+    }
+  ],
+  "factorial_interaction": {
+    "mse": 0.00044542551040649414,
+    "mae": 0.00032198429107666016
+  },
+  "interpretation": [
+    "AC7 is current best exploratory ETTh1 test; C improves per_bank test and full validation relative to A6, but global A5 still beats AC7 on full validation. Do not choose final method from repeated test observations.",
+    "AB7 improves ETTh1 full validation by tiny amount; gate nearly always open, so useful rejection is not established.",
+    "Solar A6 improves A5 on the fixed validation subset but still degrades both test metrics vs original baseline.",
+    "Solar AB7 gate saturates, harms its own g0 checkpoint branch, and is worse than AB6. Retain AB6 on Solar; risk loss is not a universal replacement.",
+    "Solar AB6 shows modest within-checkpoint dynamic gating benefit on fixed validation, but complete method still degrades original baseline test.",
+    "No multiple-seed expansion yet; all A/B/C versions and negative results retained."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "experiment_id": "gtr__etth1__smoke__t96_h96__seed2024__20261004_214027",
+  "id": "gtr__etth1__smoke__t96_h96__seed2024__20261004_214027",
+  "status": "CODE_ERROR",
+  "state": "failed",
+  "attempt": 1,
+  "stage": "smoke",
+  "pid": 2659980,
+  "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+  "started_at": "2026-10-04T21:43:42.668765+08:00",
+  "updated_at": "2026-10-04T21:43:44.819981+08:00",
+  "error_type": "CODE_ERROR",
+  "error": {
+    "type": "RecursionError",
+    "classification": "CODE_ERROR",
+    "message": "maximum recursion depth exceeded while calling a Python object"
+  },
+  "exit_code": 1,
+  "ended_at": "2026-10-04T21:43:44.819972+08:00"
+}

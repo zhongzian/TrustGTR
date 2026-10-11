@@ -1,0 +1,38 @@
+{
+  "reference_step": "6.4",
+  "science_sha256": {
+    "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+    "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+    "models/TrustGTR.py": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970",
+    "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+    "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+    "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+    "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+    "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+    "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+    "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+    "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+    "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+    "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+    "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+  },
+  "current_sha256": {
+    "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+    "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+    "models/TrustGTR.py": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970",
+    "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+    "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+    "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+    "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+    "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+    "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+    "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+    "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+    "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+    "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+    "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+  },
+  "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+  "git_status": "?? .gitignore\n?? AGENTS.md\n?? artifacts/\n?? configs/\n?? docs/\n?? exp/exp_repro.py\n?? findings.md\n?? models/HistoricalMemory.py\n?? models/TrustGTR.py\n?? progress.md\n?? scripts/build_project_plan.py\n?? scripts/diagnose_b8_calibration.py\n?? scripts/diagnose_evidence_router.py\n?? scripts/diagnose_gate_v5.py\n?? scripts/diagnose_historical_retrieval.py\n?? scripts/diagnose_step56_mechanism.py\n?? scripts/diagnose_step64_gate.py\n?? scripts/experiment_queue.py\n?? scripts/prepare_baseline_queue.py\n?? scripts/prepare_four_dataset_queue.py\n?? scripts/prepare_historical_queue.py\n?? scripts/prepare_solar_a3.py\n?? scripts/prepare_solar_screen.py\n?? scripts/prepare_step64_queue.py\n?? scripts/prepare_trust_queue.py\n?? scripts/prepare_two_dataset_assets.py\n?? scripts/prepare_v5_followup.py\n?? scripts/prepare_v6_router.py\n?? scripts/prepare_v7_complementarity.py\n?? scripts/prepare_v8_evidence.py\n?? scripts/queue.sh\n?? scripts/report_step64.py\n?? scripts/run_experiment.py\n?? scripts/run_trust_experiment.py\n?? scripts/setup_environment.sh\n?? scripts/summarize_results.py\n?? scripts/test_counterfactual_risk.py\n?? scripts/test_evidence_router.py\n?? scripts/test_expanded_protocol.py\n?? scripts/test_gate_reliability.py\n?? scripts/test_historical_integration.py\n?? scripts/test_historical_memory.py\n?? scripts/test_inference_calibration.py\n?? scripts/test_queue.py\n?? scripts/test_trustgtr.py\n?? task_plan.md\n",
+  "git_diff_stat": ""
+}

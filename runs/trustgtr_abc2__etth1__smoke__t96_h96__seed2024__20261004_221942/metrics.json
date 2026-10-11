@@ -1,0 +1,298 @@
+{
+  "id": "trustgtr_abc2__etth1__smoke__t96_h96__seed2024__20261004_221942",
+  "dataset": "etth1",
+  "model": "TrustGTR_abc2",
+  "stage": "smoke",
+  "protocol": "official_gtr_t96_h96_seed2024",
+  "paper_mse": 0.367,
+  "paper_mae": 0.391,
+  "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+  "paper_url": "https://arxiv.org/html/2602.10847v1",
+  "same_evaluation_protocol": false,
+  "comparison_note": "Exact official seed-2024 baseline, same budget/assets/checkpoint selection",
+  "official_script": "scripts/GTR/etth1.sh",
+  "config_changes": [
+    {
+      "key": "model",
+      "old": "GTR",
+      "new": "TrustGTR",
+      "reason": "abc"
+    },
+    {
+      "key": "trustgtr",
+      "old": "all modules disabled",
+      "new": {
+        "use_multi_cycle": true,
+        "use_reliability_gate": true,
+        "use_regime_contrast": true,
+        "preserve_initialization_rng": true,
+        "memory_mode": "base_residual",
+        "contrast_loss_weight": 0.002
+      },
+      "reason": "B alone; A alone; C incremental on A; full A/B/C combination"
+    },
+    {
+      "key": "train_epochs",
+      "old": 30,
+      "new": 1,
+      "reason": "independent smoke only"
+    },
+    {
+      "key": "periods",
+      "old": [
+        24
+      ],
+      "new": [
+        24,
+        168,
+        720
+      ],
+      "reason": "sample/channel-conditioned multi-cycle retrieval; absolute origin preserves base modulo"
+    },
+    {
+      "key": "gate_loss_weight",
+      "old": 0,
+      "new": 0.05,
+      "reason": "train-only clipped optimal mixture coefficient supervision"
+    },
+    {
+      "key": "contrast_loss_weight",
+      "old": 0,
+      "new": 0.002,
+      "reason": "train-only same-phase, disjoint-window regime contrast"
+    },
+    {
+      "key": "preserve_initialization_rng",
+      "old": false,
+      "new": true,
+      "reason": "new module initialization must not shift baseline data/dropout RNG stream"
+    },
+    {
+      "key": "memory_mode",
+      "old": "independent",
+      "new": "base_residual",
+      "reason": "preserve base-cycle gradient; centered longer-cycle deviations prevent duplicate templates"
+    },
+    {
+      "key": "contrast_loss_weight_round1",
+      "old": 0.01,
+      "new": 0.002,
+      "reason": "fixed training-batch encoder gradient diagnostic: weighted auxiliary norm exceeds main norm 2.1x"
+    }
+  ],
+  "baseline_experiment_id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+  "baseline_mse": 0.3695984184741974,
+  "baseline_mae": 0.39260444045066833,
+  "experiment_id": "trustgtr_abc2__etth1__smoke__t96_h96__seed2024__20261004_221942",
+  "status": "SUCCESS",
+  "seed": 2024,
+  "runtime_seconds": 5.780043759965338,
+  "peak_gpu_memory_mib": 644.0,
+  "git_commit": "d94161906151bdc0c94f4d21c2b0ca356aeb3135",
+  "resolved_config": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_abc2__etth1__smoke__t96_h96__seed2024__20261004_221942/resolved_config.yaml",
+  "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+  "evaluation_assets": {
+    "train": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+      "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+      "split": [
+        0,
+        8640
+      ],
+      "window_count": 8449
+    },
+    "val": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+      "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+      "split": [
+        8544,
+        11520
+      ],
+      "window_count": 2785
+    },
+    "test": {
+      "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+      "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+      "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+      "split": [
+        11424,
+        14400
+      ],
+      "window_count": 2785
+    }
+  },
+  "error": null,
+  "parameters": 640614,
+  "trainable_parameters": 640614,
+  "training_time_seconds": 4.154359568958171,
+  "inference_time_seconds": 0.009393317974172533,
+  "inference_batches": 2,
+  "inference_seconds_per_batch": 0.004696658987086266,
+  "best_epoch": 1,
+  "epochs_completed": 1,
+  "global_step": 3,
+  "checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_abc2__etth1__smoke__t96_h96__seed2024__20261004_221942/checkpoints/best.pt",
+  "last_checkpoint": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_abc2__etth1__smoke__t96_h96__seed2024__20261004_221942/checkpoints/last.pt",
+  "smoke_checks": {
+    "forward": true,
+    "backward": true,
+    "optimizer_step": true,
+    "checkpoint_save": true,
+    "checkpoint_load": true,
+    "evaluation": true,
+    "metrics_write": true
+  },
+  "resume": {
+    "mode": "from_scratch",
+    "epoch": 0
+  },
+  "mae": 0.4574589133262634,
+  "mse": 0.43661531805992126,
+  "rmse": 0.6607687473297119,
+  "mape": 7.746876239776611,
+  "mspe": 31412.654296875,
+  "rse": 0.6614907383918762,
+  "corr": [
+    0.09213516116142273,
+    0.10883017629384995,
+    0.10265135765075684,
+    0.07683961093425751,
+    0.08198373764753342,
+    0.0915619358420372,
+    0.07889017462730408,
+    0.0867450013756752,
+    0.10003485530614853,
+    0.09833595901727676,
+    0.0929553210735321,
+    0.09963570535182953,
+    0.0736212357878685,
+    0.08997926861047745,
+    0.09645329415798187,
+    0.09600646793842316,
+    0.09171663224697113,
+    0.09693136811256409,
+    0.07432273030281067,
+    0.08648078143596649,
+    0.08482866734266281,
+    0.09853613376617432,
+    0.07132427394390106,
+    0.0809989720582962,
+    0.08443906903266907,
+    0.09646399319171906,
+    0.08350862562656403,
+    0.09893060475587845,
+    0.07992713898420334,
+    0.09389609843492508,
+    0.0837065652012825,
+    0.07784149050712585,
+    0.08883599191904068,
+    0.08602176606655121,
+    0.08785111457109451,
+    0.07289771735668182,
+    0.09547599405050278,
+    0.08481405675411224,
+    0.09610641002655029,
+    0.0945228859782219,
+    0.06651370227336884,
+    0.09121685475111008,
+    0.0882357507944107,
+    0.08381891995668411,
+    0.06851036846637726,
+    0.061976999044418335,
+    0.08321143686771393,
+    0.08501515537500381,
+    0.08284127712249756,
+    0.07468137890100479,
+    0.08341721445322037,
+    0.08736877143383026,
+    0.07623201608657837,
+    0.08080697059631348,
+    0.0712774321436882,
+    0.0921570435166359,
+    0.09344583004713058,
+    0.06152402237057686,
+    0.09853874891996384,
+    0.07982680201530457,
+    0.07645484060049057,
+    0.08927399665117264,
+    0.0794694647192955,
+    0.09122921526432037,
+    0.06591451913118362,
+    0.07188507169485092,
+    0.08889959752559662,
+    0.09314543753862381,
+    0.09181547164916992,
+    0.0817812830209732,
+    0.09841358661651611,
+    0.09214936196804047,
+    0.09285029023885727,
+    0.09771338105201721,
+    0.08547347038984299,
+    0.07985314726829529,
+    0.07762160897254944,
+    0.07918314635753632,
+    0.09867497533559799,
+    0.08300387114286423,
+    0.0982915386557579,
+    0.09133092314004898,
+    0.09152299910783768,
+    0.09576550126075745,
+    0.0918797180056572,
+    0.08452791720628738,
+    0.09344533085823059,
+    0.09988796710968018,
+    0.07704499363899231,
+    0.09453291445970535,
+    0.08141203969717026,
+    0.07962408661842346,
+    0.08307740837335587,
+    0.09216128289699554,
+    0.08542367815971375,
+    0.10340216755867004
+  ],
+  "mse_difference_from_paper": 0.06961531805992127,
+  "mse_relative_difference_from_paper": 0.18968751514964924,
+  "mae_difference_from_paper": 0.06645891332626341,
+  "mae_relative_difference_from_paper": 0.16997164533571205,
+  "trustgtr_diagnostics": {
+    "gate_sum": 14505.475830078125,
+    "gate_count": 16128,
+    "contrast_calls": 3,
+    "contrast_valid_anchors": 4692,
+    "contrast_total_anchors": 5376,
+    "cycle_weight_sum": [
+      12513.640014648438,
+      1765.2410736083984,
+      1849.1186828613281
+    ],
+    "cycle_weight_count": 16128,
+    "gate_mean": 0.8993970628768678,
+    "contrast_valid_fraction": 0.8727678571428571,
+    "cycle_weight_mean": [
+      0.7758953382098486,
+      0.10945195148861597,
+      0.11465269610995338
+    ]
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": true,
+    "periods": [
+      24,
+      168,
+      720
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 0.1,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "base_residual"
+  }
+}

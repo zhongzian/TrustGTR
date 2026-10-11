@@ -1,0 +1,112 @@
+[
+  {
+    "variant": "a",
+    "options": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": false,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25
+    },
+    "validation_mean_cycle_weights": [
+      0.5789119601249695,
+      0.16681227087974548,
+      0.25427570939064026
+    ],
+    "base_memory_rms": 0.030300019308924675,
+    "extra_memory_rms": [
+      0.07019621133804321,
+      0.05348173528909683
+    ]
+  },
+  {
+    "variant": "ac",
+    "options": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": true,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25
+    },
+    "validation_mean_cycle_weights": [
+      0.5033840537071228,
+      0.21669349074363708,
+      0.2799224853515625
+    ],
+    "base_memory_rms": 0.026924481615424156,
+    "extra_memory_rms": [
+      0.07045945525169373,
+      0.0636679157614708
+    ]
+  },
+  {
+    "variant": "abc",
+    "options": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": true,
+      "use_regime_contrast": true,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25
+    },
+    "validation_mean_cycle_weights": [
+      0.6433622241020203,
+      0.1521589607000351,
+      0.20447878539562225
+    ],
+    "base_memory_rms": 0.03836696594953537,
+    "extra_memory_rms": [
+      0.042255789041519165,
+      0.04163814336061478
+    ]
+  },
+  {
+    "variant": "b",
+    "options": {
+      "use_multi_cycle": false,
+      "use_reliability_gate": true,
+      "use_regime_contrast": false,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25
+    }
+  }
+]

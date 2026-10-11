@@ -1,0 +1,154 @@
+{
+  "official_args": {
+    "data": "ETTm2",
+    "data_path": "ETTm2.csv",
+    "enc_in": 7,
+    "cycle": 96,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "dropout": 0.5,
+    "use_revin": 1,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_a6__ettm2__smoke__t96_h96__seed2024__20261006_114458",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 1,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_a6__ettm2__smoke__t96_h96__seed2024__20261006_114458",
+    "dataset": "ettm2",
+    "model": "TrustGTR_a6",
+    "stage": "smoke",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "same_evaluation_protocol": false,
+    "official_script": "scripts/GTR/ettm2.sh",
+    "paper_mse": null,
+    "paper_mae": null,
+    "paper_reference": "NA: no verified paper values supplied for this extension",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "step": "6.7",
+    "config_changes": [
+      {
+        "key": "official_args.model_id",
+        "old": "official script dataset_T_H identifier",
+        "new": "trustgtr_a6__ettm2__smoke__t96_h96__seed2024__20261006_114458",
+        "reason": "unique immutable ID; independent new dataset experiment"
+      },
+      {
+        "key": "official_args.model",
+        "old": "GTR",
+        "new": "TrustGTR",
+        "reason": "single-factor A6 historical retrieval; original GTR forecast branch retained"
+      },
+      {
+        "key": "trustgtr",
+        "old": "all innovation modules disabled",
+        "new": {
+          "use_multi_cycle": true,
+          "use_reliability_gate": false,
+          "use_regime_contrast": false,
+          "memory_mode": "historical",
+          "preserve_initialization_rng": true,
+          "gate_descriptor": "forecast",
+          "detach_gate_descriptor": true,
+          "gate_loss_mode": "power_weighted",
+          "contrast_loss_weight": 0.002,
+          "historical_topk": 3,
+          "historical_candidate_cap": 192,
+          "historical_blend_bound": 0.2,
+          "historical_strength_coordinates": "bounded",
+          "historical_router_mode": "per_bank"
+        },
+        "reason": "reuse successful prior A6 configuration, without selecting A8 from test results; B/C preserved but disabled in this initial attribution pair"
+      },
+      {
+        "key": "official_args.train_epochs",
+        "old": 30,
+        "new": 1,
+        "reason": "independent smoke only; unchanged batch/model/protocol, formal epoch cap remains 30"
+      },
+      {
+        "key": "smoke.batch_limits",
+        "old": null,
+        "new": {
+          "train": 3,
+          "evaluation": 2
+        },
+        "reason": "smoke forward/backward/optimizer/checkpoint/load/evaluation/metrics chain only"
+      }
+    ],
+    "comparison_note": "Same per-dataset official seed/budget/loader/normalization/evaluation/checkpoint policy; first extension is GTR versus A6 only; A/B/C retained for subsequent innovation rounds",
+    "frozen_code_sha256": {
+      "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+      "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+      "models/TrustGTR.py": "58196668bdc9b4ccbb49d9290ede3521848a17ddd04ab9f4de006f1466bb9a48",
+      "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+      "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+      "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+      "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+      "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+      "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+      "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+      "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94"
+    },
+    "baseline_experiment_id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+    "fixed_evaluation_asset_source": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+    "baseline_mse": null,
+    "baseline_mae": null,
+    "source_experiment_id": "trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105",
+    "source_provenance": {
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105.json",
+      "config_sha256": "a79e160ccaae9498c69dbf7fbd41afb94aa5bbe8b2901875a96bf79f487df708",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__etth1__forecast__t96_h96__seed2024__20261005_160105/metrics.json",
+      "metrics_sha256": "59ecc47061f6247579893de0386ebbb45259bb66c866785393c13cdee17901d3"
+    },
+    "source_scope": "A6 options only; new dataset uses its own official baseline protocol, not ETTh1 data/hyperparameters"
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/ETTm2.csv",
+    "sha256": "db973ca252c6410a30d0469b13d696cf919648d0f3fd588c60f03fdbdbadd1fd",
+    "size_bytes": 9677236,
+    "provenance": "Exact public archive member; independent copy, no preprocessing",
+    "audit_manifest": "/mnt/data/zza/code/TrustGTR/artifacts/expanded_data_assets.json",
+    "audit_manifest_sha256": "e8cd2f2669ecf0bad875792610f7a22de96d06dab4d7a274ef583f5832106264",
+    "source_url": "https://drive.google.com/uc?export=download&id=1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot",
+    "rows": 69680,
+    "columns": [
+      "date",
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ]
+  },
+  "smoke": {
+    "enabled": true,
+    "max_train_batches": 3,
+    "max_eval_batches": 2
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": false,
+    "use_regime_contrast": false,
+    "memory_mode": "historical",
+    "preserve_initialization_rng": true,
+    "gate_descriptor": "forecast",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "contrast_loss_weight": 0.002,
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "per_bank"
+  }
+}

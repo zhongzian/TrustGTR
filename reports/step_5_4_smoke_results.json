@@ -1,0 +1,126 @@
+{
+  "step": "5.4",
+  "status": "COMPLETE",
+  "smokes_passed": 3,
+  "smokes_total": 3,
+  "smoke_metrics_are_not_formal_results": true,
+  "experiments": [
+    {
+      "experiment_id": "gtr__etth1__smoke_recheck_v8__t96_h96__seed2024__20261005_221654",
+      "dataset": "etth1",
+      "model": "TrustGTR_alloff",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "epochs": 1,
+      "optimizer_steps": 3,
+      "smoke_checks": {
+        "forward": true,
+        "backward": true,
+        "optimizer_step": true,
+        "checkpoint_save": true,
+        "checkpoint_load": true,
+        "evaluation": true,
+        "metrics_write": true
+      },
+      "started_at": "2026-10-06T11:06:30.823903+08:00",
+      "ended_at": "2026-10-06T11:06:42.479455+08:00",
+      "runtime_seconds": 11.646218584035523,
+      "runner_peak_gpu_memory_mib": 444.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "oom_retry_count": 0,
+      "checkpoint_files": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__smoke_recheck_v8__t96_h96__seed2024__20261005_221654/checkpoints/best.pt",
+          "bytes": 2538689,
+          "sha256": "b1c552f092cd5c2a2cb2e61105b36730483d51208fb3e79d0a799a1950cb1ecd"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__smoke_recheck_v8__t96_h96__seed2024__20261005_221654/checkpoints/last.pt",
+          "bytes": 10175851,
+          "sha256": "4e84d530ac7f6ae06caa964455eb3fce09c9cc121183399ae9a3137a6105cc06"
+        }
+      },
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__smoke_recheck_v8__t96_h96__seed2024__20261005_221654/resolved_config.yaml",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__etth1__smoke_recheck_v8__t96_h96__seed2024__20261005_221654/metrics.json",
+      "scientific_source_hash_match": true
+    },
+    {
+      "experiment_id": "trustgtr_a8__etth1__smoke__t96_h96__seed2024__20261005_221654",
+      "dataset": "etth1",
+      "model": "TrustGTR_a8",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "epochs": 1,
+      "optimizer_steps": 3,
+      "smoke_checks": {
+        "forward": true,
+        "backward": true,
+        "optimizer_step": true,
+        "checkpoint_save": true,
+        "checkpoint_load": true,
+        "evaluation": true,
+        "metrics_write": true
+      },
+      "started_at": "2026-10-06T11:06:45.799156+08:00",
+      "ended_at": "2026-10-06T11:06:51.542648+08:00",
+      "runtime_seconds": 5.72739764302969,
+      "runner_peak_gpu_memory_mib": 628.0,
+      "gpu_uuid": "GPU-c88b779d-77c7-92b9-e031-943bae990121",
+      "oom_retry_count": 0,
+      "checkpoint_files": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__etth1__smoke__t96_h96__seed2024__20261005_221654/checkpoints/best.pt",
+          "bytes": 2543212,
+          "sha256": "4292fc30aabdb9bb8e7aadaf4ed5ba94164c73ab28efe9b337c7a037976875fd"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__etth1__smoke__t96_h96__seed2024__20261005_221654/checkpoints/last.pt",
+          "bytes": 10195906,
+          "sha256": "b7da3c8e7b7972c6634ed5708750cfb590555d542682091d54c093e9a6912fed"
+        }
+      },
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__etth1__smoke__t96_h96__seed2024__20261005_221654/resolved_config.yaml",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__etth1__smoke__t96_h96__seed2024__20261005_221654/metrics.json",
+      "scientific_source_hash_match": true
+    },
+    {
+      "experiment_id": "trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654",
+      "dataset": "solar",
+      "model": "TrustGTR_a8",
+      "status": "SUCCESS",
+      "exit_code": 0,
+      "epochs": 1,
+      "optimizer_steps": 3,
+      "smoke_checks": {
+        "forward": true,
+        "backward": true,
+        "optimizer_step": true,
+        "checkpoint_save": true,
+        "checkpoint_load": true,
+        "evaluation": true,
+        "metrics_write": true
+      },
+      "started_at": "2026-10-06T11:14:45.903963+08:00",
+      "ended_at": "2026-10-06T11:15:00.642811+08:00",
+      "runtime_seconds": 14.731943916063756,
+      "runner_peak_gpu_memory_mib": 1516.0,
+      "gpu_uuid": "GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb",
+      "oom_retry_count": 0,
+      "checkpoint_files": {
+        "checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654/checkpoints/best.pt",
+          "bytes": 2621420,
+          "sha256": "0561332bc9a805a5aad545be6b1305f54d6d9f01e85f45fd112a15be501674f4"
+        },
+        "last_checkpoint": {
+          "path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654/checkpoints/last.pt",
+          "bytes": 10508930,
+          "sha256": "37be2903541e71264250a7a6700a6ae98c216906716583bd3ab18f18309c683c"
+        }
+      },
+      "resolved_config_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654/resolved_config.yaml",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654/metrics.json",
+      "scientific_source_hash_match": true
+    }
+  ]
+}

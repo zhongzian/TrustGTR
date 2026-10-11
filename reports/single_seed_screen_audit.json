@@ -1,0 +1,984 @@
+[
+  {
+    "id": "gtr__etth1__forecast__t96_h96__seed2024__20261004_214520",
+    "mse": 0.3695984184741974,
+    "mae": 0.39260444045066833,
+    "status": "SUCCESS",
+    "parameters": 633754,
+    "epochs": 15,
+    "runtime": 24.75079601991456,
+    "trust": null,
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 22.72898486990016,
+    "peak_gpu_memory_mib": 622.0,
+    "best_epoch": 10
+  },
+  {
+    "id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "mse": 0.18117235600948334,
+    "mae": 0.2366592288017273,
+    "status": "SUCCESS",
+    "parameters": 653314,
+    "epochs": 14,
+    "runtime": 198.16600373398978,
+    "trust": null,
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+        "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+        "split": [
+          0,
+          36792
+        ],
+        "window_count": 36601
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+        "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+        "split": [
+          36696,
+          42048
+        ],
+        "window_count": 5161
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+        "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+        "split": [
+          41952,
+          52560
+        ],
+        "window_count": 10417
+      }
+    },
+    "training_time_seconds": 189.2787460979307,
+    "peak_gpu_memory_mib": 740.0,
+    "best_epoch": 9
+  },
+  {
+    "id": "trustgtr_a2__etth1__forecast__t96_h96__seed2024__20261004_221942",
+    "mse": 0.3832155764102936,
+    "mae": 0.39611226320266724,
+    "status": "SUCCESS",
+    "parameters": 640421,
+    "epochs": 9,
+    "runtime": 61.41207040497102,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": false,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "base_residual"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 59.23762267793063,
+    "peak_gpu_memory_mib": 450.0,
+    "best_epoch": 4
+  },
+  {
+    "id": "trustgtr_a3__etth1__forecast__t96_h96__seed2024__20261004_223023",
+    "mse": 0.38524675369262695,
+    "mae": 0.3978860378265381,
+    "status": "SUCCESS",
+    "parameters": 634982,
+    "epochs": 9,
+    "runtime": 79.61370484100189,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": false,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "factorized_residual",
+      "gate_descriptor": "feature",
+      "detach_gate_descriptor": false,
+      "gate_loss_mode": "uniform"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 77.0641136909835,
+    "peak_gpu_memory_mib": 624.0,
+    "best_epoch": 4
+  },
+  {
+    "id": "trustgtr_a__etth1__forecast__t96_h96__seed2024__20261004_220443",
+    "mse": 0.37897589802742004,
+    "mae": 0.39929401874542236,
+    "status": "SUCCESS",
+    "parameters": 640421,
+    "epochs": 14,
+    "runtime": 55.09806800901424,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": false,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 52.39689234190155,
+    "peak_gpu_memory_mib": 448.0,
+    "best_epoch": 9
+  },
+  {
+    "id": "trustgtr_abc2__etth1__forecast__t96_h96__seed2024__20261004_221942",
+    "mse": 0.3830952048301697,
+    "mae": 0.39540377259254456,
+    "status": "SUCCESS",
+    "parameters": 640614,
+    "epochs": 9,
+    "runtime": 16.26754838891793,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": true,
+      "use_regime_contrast": true,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "base_residual"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 15.188761797035113,
+    "peak_gpu_memory_mib": 474.0,
+    "best_epoch": 4
+  },
+  {
+    "id": "trustgtr_abc3__etth1__forecast__t96_h96__seed2024__20261004_223023",
+    "mse": 0.38506609201431274,
+    "mae": 0.39772719144821167,
+    "status": "SUCCESS",
+    "parameters": 635175,
+    "epochs": 9,
+    "runtime": 19.48054689099081,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": true,
+      "use_regime_contrast": true,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "factorized_residual",
+      "gate_descriptor": "forecast",
+      "detach_gate_descriptor": true,
+      "gate_loss_mode": "power_weighted"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 18.525030047050677,
+    "peak_gpu_memory_mib": 648.0,
+    "best_epoch": 4
+  },
+  {
+    "id": "trustgtr_abc3__solar__forecast__t96_h96__seed2024__20261004_224334",
+    "mse": 0.22528477013111115,
+    "mae": 0.2957781255245209,
+    "status": "SUCCESS",
+    "parameters": 669165,
+    "epochs": 6,
+    "runtime": 378.6346887369873,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": true,
+      "use_regime_contrast": true,
+      "periods": [
+        144,
+        1008,
+        4320
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "factorized_residual",
+      "gate_descriptor": "forecast",
+      "detach_gate_descriptor": true,
+      "gate_loss_mode": "power_weighted"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+        "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+        "split": [
+          0,
+          36792
+        ],
+        "window_count": 36601
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+        "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+        "split": [
+          36696,
+          42048
+        ],
+        "window_count": 5161
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+        "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+        "split": [
+          41952,
+          52560
+        ],
+        "window_count": 10417
+      }
+    },
+    "training_time_seconds": 362.47330761293415,
+    "peak_gpu_memory_mib": 894.0,
+    "best_epoch": 1
+  },
+  {
+    "id": "trustgtr_abc__etth1__forecast__t96_h96__seed2024__20261004_220443",
+    "mse": 0.3806045651435852,
+    "mae": 0.39389464259147644,
+    "status": "SUCCESS",
+    "parameters": 640614,
+    "epochs": 9,
+    "runtime": 16.520144345005974,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": true,
+      "use_regime_contrast": true,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 15.624797231983393,
+    "peak_gpu_memory_mib": 472.0,
+    "best_epoch": 4
+  },
+  {
+    "id": "trustgtr_ac2__etth1__forecast__t96_h96__seed2024__20261004_221942",
+    "mse": 0.3830702006816864,
+    "mae": 0.39552199840545654,
+    "status": "SUCCESS",
+    "parameters": 640421,
+    "epochs": 9,
+    "runtime": 27.83549043594394,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": true,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "base_residual"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 26.86277884291485,
+    "peak_gpu_memory_mib": 450.0,
+    "best_epoch": 4
+  },
+  {
+    "id": "trustgtr_ac3__etth1__forecast__t96_h96__seed2024__20261004_223023",
+    "mse": 0.38527730107307434,
+    "mae": 0.39799633622169495,
+    "status": "SUCCESS",
+    "parameters": 634982,
+    "epochs": 9,
+    "runtime": 38.737191684078425,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": true,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "factorized_residual",
+      "gate_descriptor": "feature",
+      "detach_gate_descriptor": false,
+      "gate_loss_mode": "uniform"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 37.69424161105417,
+    "peak_gpu_memory_mib": 624.0,
+    "best_epoch": 4
+  },
+  {
+    "id": "trustgtr_ac__etth1__forecast__t96_h96__seed2024__20261004_220443",
+    "mse": 0.3809712529182434,
+    "mae": 0.3975708484649658,
+    "status": "SUCCESS",
+    "parameters": 640421,
+    "epochs": 11,
+    "runtime": 20.84794243099168,
+    "trust": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": false,
+      "use_regime_contrast": true,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 19.993540511932224,
+    "peak_gpu_memory_mib": 450.0,
+    "best_epoch": 6
+  },
+  {
+    "id": "trustgtr_b2__etth1__forecast__t96_h96__seed2024__20261004_221942",
+    "mse": 0.3697231113910675,
+    "mae": 0.3933846354484558,
+    "status": "SUCCESS",
+    "parameters": 633947,
+    "epochs": 15,
+    "runtime": 83.35262530599721,
+    "trust": {
+      "use_multi_cycle": false,
+      "use_reliability_gate": true,
+      "use_regime_contrast": false,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "independent"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 82.28097307507414,
+    "peak_gpu_memory_mib": 472.0,
+    "best_epoch": 10
+  },
+  {
+    "id": "trustgtr_b3__etth1__forecast__t96_h96__seed2024__20261004_223023",
+    "mse": 0.37067484855651855,
+    "mae": 0.3935807943344116,
+    "status": "SUCCESS",
+    "parameters": 633947,
+    "epochs": 15,
+    "runtime": 115.41101386293303,
+    "trust": {
+      "use_multi_cycle": false,
+      "use_reliability_gate": true,
+      "use_regime_contrast": false,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "independent",
+      "gate_descriptor": "forecast",
+      "detach_gate_descriptor": true,
+      "gate_loss_mode": "power_weighted"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 113.07428054197226,
+    "peak_gpu_memory_mib": 646.0,
+    "best_epoch": 10
+  },
+  {
+    "id": "trustgtr_b3__solar__forecast__t96_h96__seed2024__20261004_224334",
+    "mse": 0.17879347503185272,
+    "mae": 0.24021945893764496,
+    "status": "SUCCESS",
+    "parameters": 653507,
+    "epochs": 14,
+    "runtime": 501.6192169849528,
+    "trust": {
+      "use_multi_cycle": false,
+      "use_reliability_gate": true,
+      "use_regime_contrast": false,
+      "periods": [
+        144,
+        1008,
+        4320
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "independent",
+      "gate_descriptor": "forecast",
+      "detach_gate_descriptor": true,
+      "gate_loss_mode": "power_weighted"
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+        "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+        "split": [
+          0,
+          36792
+        ],
+        "window_count": 36601
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+        "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+        "split": [
+          36696,
+          42048
+        ],
+        "window_count": 5161
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+        "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+        "split": [
+          41952,
+          52560
+        ],
+        "window_count": 10417
+      }
+    },
+    "training_time_seconds": 492.67910338996444,
+    "peak_gpu_memory_mib": 888.0,
+    "best_epoch": 9
+  },
+  {
+    "id": "trustgtr_b__etth1__forecast__t96_h96__seed2024__20261004_220443",
+    "mse": 0.36749881505966187,
+    "mae": 0.39271435141563416,
+    "status": "SUCCESS",
+    "parameters": 633947,
+    "epochs": 19,
+    "runtime": 68.29205198492855,
+    "trust": {
+      "use_multi_cycle": false,
+      "use_reliability_gate": true,
+      "use_regime_contrast": false,
+      "periods": [
+        24,
+        168,
+        720
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.01,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25
+    },
+    "assets": {
+      "train": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.json",
+        "sha256": "a7745b757b4387615f61102d96ac951f0eb776fd614bde4f5897a11c62f1907a",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/train.scaler.npz",
+        "split": [
+          0,
+          8640
+        ],
+        "window_count": 8449
+      },
+      "val": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.json",
+        "sha256": "453802ab41ec4793e3acea59fefbbc26223a5cf9b409ca50e9452a851f61c8fa",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/val.scaler.npz",
+        "split": [
+          8544,
+          11520
+        ],
+        "window_count": 2785
+      },
+      "test": {
+        "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.json",
+        "sha256": "1b543ed926f0504263b2cd78092a36072cd00a69d5e530996468ce0d77a48cc3",
+        "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/bfe9623f632b1c68ce78/test.scaler.npz",
+        "split": [
+          11424,
+          14400
+        ],
+        "window_count": 2785
+      }
+    },
+    "training_time_seconds": 66.05837496300228,
+    "peak_gpu_memory_mib": 472.0,
+    "best_epoch": 14
+  }
+]

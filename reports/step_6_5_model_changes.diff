@@ -1,0 +1,176 @@
+diff --git a/runs/trustgtr_ab9_train__etth1__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/TrustGTR.py b/models/TrustGTR.py
+index fe028e4..e96a96c 100644
+--- a/runs/trustgtr_ab9_train__etth1__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/TrustGTR.py
++++ b/models/TrustGTR.py
+@@ -20,7 +20,7 @@ DEFAULTS = dict(use_multi_cycle=False, use_reliability_gate=False,
+                 gate_loss_mode='uniform', gate_calibration_context='train', historical_topk=3,
+                 historical_candidate_cap=192, historical_blend_bound=0.2,
+                 historical_strength_coordinates='raw', historical_router_mode='global_topk',
+-                contrast_metric='cosine')
++                contrast_metric='cosine', contrast_sampling='regime_extremes')
+ 
+ 
+ def resolved_options(options, cycle):
+@@ -62,6 +62,11 @@ def resolved_options(options, cycle):
+         raise ValueError('Unknown historical routing mode')
+     if result['contrast_metric'] not in ('cosine', 'euclidean'):
+         raise ValueError('Unknown contrastive metric')
++    if result['contrast_sampling'] not in ('regime_extremes', 'retrieval_hard'):
++        raise ValueError('Unknown contrastive sampling')
++    if (result['use_regime_contrast'] and result['contrast_sampling'] == 'retrieval_hard'
++            and result['memory_mode'] != 'historical'):
++        raise ValueError('Retrieval-hard contrast requires historical memory')
+     return result
+ 
+ 
+@@ -125,7 +130,8 @@ class Model(OfficialModel):
+                 self.cycle_len, self.enc_in, opts['periods'], state_dim=opts['state_dim'],
+                 topk=opts['historical_topk'], candidate_cap=opts['historical_candidate_cap'],
+                 router_mode=opts['historical_router_mode'],
+-                collect_reliability=opts['use_reliability_gate'] and opts['gate_descriptor'] == 'retrieval')
++                collect_reliability=opts['use_reliability_gate'] and opts['gate_descriptor'] == 'retrieval',
++                collect_contrast=opts['use_regime_contrast'] and opts['contrast_sampling'] == 'retrieval_hard')
+             # Start from the exact original forecast. This controls a small
+             # signed correction; the backbone and its training budget stay intact.
+             self.historical_strength = nn.Parameter(torch.zeros(()))
+@@ -364,7 +370,11 @@ class Model(OfficialModel):
+         distance = (bank_regime - regime.unsqueeze(2)).square().sum(-1).sqrt()
+         mask = candidate_mask.unsqueeze(1)
+         near_distance, positive = distance.masked_fill(~mask, float('inf')).min(-1)
+-        far_distance, negative = distance.masked_fill(~mask, -float('inf')).max(-1)
++        if self.options['contrast_sampling'] == 'retrieval_hard':
++            negative, far_distance = self.retrieval_hard_negative(
++                distance, candidate_mask, near_distance, positive, state)
++        else:
++            far_distance, negative = distance.masked_fill(~mask, -float('inf')).max(-1)
+         usable = ((candidate_mask.sum(-1) >= 2).unsqueeze(1) &
+                   (near_distance <= self.options['positive_max_distance']) &
+                   (far_distance - near_distance >= self.options['regime_distance_gap']))
+@@ -386,6 +396,44 @@ class Model(OfficialModel):
+         logits = torch.stack((pos_logits, neg_logits), -1)[usable]
+         return F.cross_entropy(logits, torch.zeros(len(logits), device=logits.device, dtype=torch.long))
+ 
++    def retrieval_hard_negative(self, regime_distance, candidate_mask, near_distance, positive, state):
++        """Nearest eligible key among this forward's nonzero retrieval slots.
++
++        Only the discrete selection is detached. The historical CE subsequently
++        gathers from the original differentiable query/candidate embeddings.
++        A -inf regime distance marks anchors without any usable retrieved
++        negative, so the unchanged validity test returns differentiable zero.
++        """
++        required = ('selected_candidate_positions', 'selected_candidate_distances',
++                    'selected_candidate_weights')
++        if any(name not in state for name in required):
++            raise RuntimeError('Retrieval-hard contrast requires the training retrieval collector')
++        with torch.no_grad():
++            positions, key_distance, weights = (state[name].detach() for name in required)
++            if positions.shape != key_distance.shape or positions.shape != weights.shape:
++                raise ValueError('Mismatched retrieval selection shapes')
++            if positions.shape[:2] != regime_distance.shape[:2]:
++                raise ValueError('Retrieval selection does not match contrastive anchors')
++            if not positions.shape[-1]:
++                return torch.zeros_like(positive), torch.full_like(near_distance, -float('inf'))
++            width = regime_distance.shape[-1]
++            safe = positions.clamp(0, width - 1)
++            selected_regime = regime_distance.detach().gather(-1, safe)
++            disjoint = candidate_mask.unsqueeze(1).expand_as(regime_distance).gather(-1, safe)
++            eligible = ((positions >= 0) & (positions < width) & disjoint &
++                        torch.isfinite(key_distance) & torch.isfinite(weights) & (weights > 0) &
++                        (positions != positive.unsqueeze(-1)) &
++                        (selected_regime >= near_distance.detach().unsqueeze(-1) +
++                         self.options['regime_distance_gap']))
++            eligible_keys = key_distance.masked_fill(~eligible, float('inf'))
++            # Equal distances retain the actual router slot order; no extra
++            # top-k pass or future-label-dependent retrieval is introduced.
++            chosen_key, slot = eligible_keys.min(-1)
++            negative = safe.gather(-1, slot.unsqueeze(-1)).squeeze(-1)
++            distance = selected_regime.gather(-1, slot.unsqueeze(-1)).squeeze(-1)
++            distance = distance.masked_fill(~torch.isfinite(chosen_key), -float('inf'))
++            return negative, distance
++
+     def contrastive_loss(self, target, cache):
+         state = cache['state']
+         embeddings = F.normalize(state.permute(1, 0, 2), dim=-1)
+diff --git a/runs/trustgtr_ab9_train__etth1__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/HistoricalMemory.py b/models/HistoricalMemory.py
+index 2320011..1cd4a09 100644
+--- a/runs/trustgtr_ab9_train__etth1__forecast__t96_h96__seed2024__20261006_122231/untracked_code/models/HistoricalMemory.py
++++ b/models/HistoricalMemory.py
+@@ -36,7 +36,7 @@ class HistoricalMemory(nn.Module):
+     """
+     def __init__(self, seq_len, pred_len, cycle, channels, periods,
+                  state_dim=16, topk=3, candidate_cap=192, router_mode='global_topk',
+-                 collect_reliability=False):
++                 collect_reliability=False, collect_contrast=False):
+         super().__init__()
+         if min(seq_len, pred_len, cycle, channels, state_dim, topk, candidate_cap) < 1:
+             raise ValueError('Historical-memory dimensions and budgets must be positive')
+@@ -51,11 +51,14 @@ class HistoricalMemory(nn.Module):
+             raise ValueError('router_mode must be global_topk, per_bank or per_bank_evidence')
+         if not isinstance(collect_reliability, bool):
+             raise ValueError('collect_reliability must be a bool')
++        if not isinstance(collect_contrast, bool):
++            raise ValueError('collect_contrast must be a bool')
+         self.seq_len, self.pred_len, self.cycle = seq_len, pred_len, cycle
+         self.channels, self.periods = channels, periods
+         self.topk, self.candidate_cap = topk, candidate_cap
+         self.router_mode = router_mode
+         self.collect_reliability = collect_reliability
++        self.collect_contrast = collect_contrast
+         self.key_encoder = nn.Sequential(nn.Linear(15, state_dim), nn.GELU(), nn.Linear(state_dim, 15))
+         nn.init.zeros_(self.key_encoder[-1].weight)
+         nn.init.zeros_(self.key_encoder[-1].bias)
+@@ -264,7 +267,7 @@ class HistoricalMemory(nn.Module):
+         return weights, evidence, posterior, counts
+ 
+     def _retrieve_bank(self, query, mean, scale, indices, provenance, priors, origin=None,
+-                       routing_state=None):
++                       routing_state=None, selection_state=None):
+         batch, channels, _ = query.shape
+         mask = indices >= 0
+         width = indices.shape[1]
+@@ -279,6 +282,10 @@ class HistoricalMemory(nn.Module):
+                 routing_state.update(bank_prior=priors, bank_evidence=zeros,
+                                      bank_posterior=zeros, bank_effective_weights=zeros,
+                                      bank_selected_valid_count=torch.zeros_like(priors, dtype=torch.long))
++            if selection_state is not None:
++                selection_state.update(selected_candidate_positions=selected_banks,
++                                       selected_candidate_distances=weights,
++                                       selected_candidate_weights=weights)
+             return prediction, embeddings, selected_banks, weights, reliability
+         safe = indices.clamp_min(0)
+         embeddings = self.encode(self.history_keys[safe].permute(0, 2, 1, 3))
+@@ -333,6 +340,14 @@ class HistoricalMemory(nn.Module):
+         transferred = (standardized * weights.unsqueeze(-1)).sum(2)
+         prediction = (transferred * scale.unsqueeze(-1) + mean.unsqueeze(-1)).transpose(1, 2)
+         selected_banks = selected_banks.masked_fill(~torch.isfinite(distances), -1)
++        if selection_state is not None:
++            # Record this forward's actual router choices, rather than running
++            # a second retrieval after supervised future labels become known.
++            # Positions address base_candidate_*; masked top-k slots use -1.
++            selection_state.update(
++                selected_candidate_positions=positions.detach().masked_fill(~torch.isfinite(distances), -1),
++                selected_candidate_distances=distances.detach(),
++                selected_candidate_weights=weights.detach())
+         if self.router_mode == 'per_bank_evidence' and routing_state is not None:
+             routing_state['bank_effective_weights'] = torch.stack([
+                 weights.masked_fill(selected_banks != bank, 0).sum(-1)
+@@ -368,8 +383,9 @@ class HistoricalMemory(nn.Module):
+         priors = logits.softmax(-1) * valid_banks.unsqueeze(1)
+         priors = priors / priors.sum(-1, keepdim=True).clamp_min(1e-12)
+         routing_state = {} if self.router_mode == 'per_bank_evidence' else None
++        selection_state = {} if self.collect_contrast and self.training else None
+         prediction, embeddings, selected_banks, selected_weights, reliability = self._retrieve_bank(
+-            query, mean, scale, indices, provenance, priors, origin, routing_state)
++            query, mean, scale, indices, provenance, priors, origin, routing_state, selection_state)
+         candidate_mask = indices >= 0
+         candidate_origins = self.origins[indices.clamp_min(0)].masked_fill(~candidate_mask, -1)
+         state = dict(query_embedding=query, query_mean=mean, query_std=scale, query_scale=scale,
+@@ -393,6 +409,8 @@ class HistoricalMemory(nn.Module):
+             self.diagnostics['bank_routing_count'] += len(raw_input) * self.channels
+         if self.collect_reliability:
+             state['reliability_features'] = reliability
++        if selection_state is not None:
++            state.update(selection_state)
+         self.diagnostics['calls'] += 1
+         self.diagnostics['empty_queries'] += sum(not any(row) for row in counts)
+         candidate_totals = [sum(row[bank] for row in counts) for bank in range(len(self.periods))]

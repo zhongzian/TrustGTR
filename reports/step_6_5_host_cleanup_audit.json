@@ -1,0 +1,311 @@
+{
+  "checked_at": "2026-10-06T22:16:06.252987+08:00",
+  "step": "6.5",
+  "queue_runtime": "/mnt/data/zza/code/TrustGTR/runtime/step_6_5_ac10",
+  "host_process_namespace": true,
+  "read_only": true,
+  "daemon_status": "COMPLETED",
+  "counts": {
+    "failed": 0,
+    "pending": 0,
+    "retrying": 0,
+    "running": 0,
+    "stopped": 0,
+    "succeeded": 17
+  },
+  "identity_count": 18,
+  "attempt_identity_count": 17,
+  "process_group_checks": [
+    {
+      "label": "daemon",
+      "recorded_pid": 3429130,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3429142,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3430746,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3433624,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3430787,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3451198,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3433703,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3442061,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3442402,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3537068,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3450487,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3452436,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3473207,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3565580,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3475619,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3478116,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3506279,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    },
+    {
+      "label": "trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "recorded_pid": 3508330,
+      "same_identity_exists": false,
+      "remaining_group_members": []
+    }
+  ],
+  "remaining_original_processes": 0,
+  "remaining_group_members": 0,
+  "shared_reservation_path": "/mnt/data/zza/runtime/trustgtr_gpu_reservations.json",
+  "self_queue_reservations": {},
+  "self_queue_reservation_count": 0,
+  "other_queue_reservation_count": 0,
+  "own_queue_compute_processes": [],
+  "GPU_query_exit_code": 0,
+  "compute_query_exit_code": 0,
+  "GPU_snapshot_csv": "0, GPU-c88b779d-77c7-92b9-e031-943bae990121, NVIDIA GeForce RTX 4080, 16376, 8378, 7700\n1, GPU-a3af3617-5bcd-4c65-a68e-17e716b31edb, NVIDIA GeForce RTX 4090, 24564, 18905, 5304",
+  "attempt_exit_artifacts": [
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_alloff__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294519.8092568,
+        "returncode": 0,
+        "worker_pid": 3429142
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294526.8882456,
+        "returncode": 0,
+        "worker_pid": 3430746
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__etth1__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294570.8461425,
+        "returncode": 0,
+        "worker_pid": 3433624
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294527.6634026,
+        "returncode": 0,
+        "worker_pid": 3430787
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__etth1__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294683.8886666,
+        "returncode": 0,
+        "worker_pid": 3451198
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294546.1763146,
+        "returncode": 0,
+        "worker_pid": 3433703
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__solar__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791295231.758709,
+        "returncode": 0,
+        "worker_pid": 3442061
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294569.4747133,
+        "returncode": 0,
+        "worker_pid": 3442402
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__solar__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791295893.9609692,
+        "returncode": 0,
+        "worker_pid": 3537068
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294575.7483585,
+        "returncode": 0,
+        "worker_pid": 3450487
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__weather__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791295504.681387,
+        "returncode": 0,
+        "worker_pid": 3452436
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294691.2400067,
+        "returncode": 0,
+        "worker_pid": 3473207
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__weather__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791296007.756654,
+        "returncode": 0,
+        "worker_pid": 3565580
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294701.798381,
+        "returncode": 0,
+        "worker_pid": 3475619
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_extremes__ettm2__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294975.2423928,
+        "returncode": 0,
+        "worker_pid": 3478116
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__smoke__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791294982.4796708,
+        "returncode": 0,
+        "worker_pid": 3506279
+      }
+    },
+    {
+      "identity_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_pid.json",
+      "exit_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ac10_hard__ettm2__forecast__t96_h96__seed2024__20261006_214646/queue_attempt_1_exit.json",
+      "exit_record": {
+        "attempt": 1,
+        "finished_at": 1791295243.5265393,
+        "returncode": 0,
+        "worker_pid": 3508330
+      }
+    }
+  ],
+  "violations": []
+}

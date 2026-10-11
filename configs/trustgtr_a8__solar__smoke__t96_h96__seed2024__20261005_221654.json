@@ -1,0 +1,180 @@
+{
+  "official_args": {
+    "data": "Solar",
+    "data_path": "solar_AL.txt",
+    "enc_in": 137,
+    "cycle": 144,
+    "batch_size": 64,
+    "learning_rate": 0.003,
+    "dropout": 0.0,
+    "use_revin": 0,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 1,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654",
+    "dataset": "solar",
+    "model": "TrustGTR_a8",
+    "stage": "smoke",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "paper_mse": 0.176,
+    "paper_mae": 0.235,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "same_evaluation_protocol": false,
+    "comparison_note": "Single-factor evidence-aware bank weighting versus completed A6; B/C disabled, fixed seed, official budget and evaluation assets; evidence is input similarity, not guaranteed future utility",
+    "official_script": "scripts/GTR/solar.sh",
+    "config_changes": [
+      {
+        "key": "official_args.model",
+        "old": "GTR",
+        "new": "TrustGTR",
+        "reason": "test validated A5 architecture on a second dataset without changing official Solar budget"
+      },
+      {
+        "key": "trustgtr",
+        "old": "disabled",
+        "new": {
+          "use_multi_cycle": true,
+          "use_reliability_gate": false,
+          "use_regime_contrast": false,
+          "memory_mode": "historical",
+          "preserve_initialization_rng": true,
+          "gate_descriptor": "forecast",
+          "detach_gate_descriptor": true,
+          "gate_loss_mode": "power_weighted",
+          "contrast_loss_weight": 0.002,
+          "historical_topk": 3,
+          "historical_candidate_cap": 192,
+          "historical_blend_bound": 0.2,
+          "historical_strength_coordinates": "bounded",
+          "periods": [
+            144,
+            1008,
+            4320
+          ]
+        },
+        "reason": "copy completed ETTh1 A5 options; only periods scale to the official Solar base cycle"
+      },
+      {
+        "key": "trustgtr.periods",
+        "old": [
+          24,
+          168,
+          720
+        ],
+        "new": [
+          144,
+          1008,
+          4320
+        ],
+        "reason": "same short/middle/long relative-age bank semantics with Solar cycle 144; not a changed phase rule"
+      },
+      {
+        "key": "official_args.model_id",
+        "old": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+        "new": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+        "reason": "unique follow-up experiment ID; preserve completed source"
+      },
+      {
+        "key": "trustgtr.historical_router_mode",
+        "old": "global_topk",
+        "new": "per_bank",
+        "reason": "single-factor Solar router transfer from A5; B/C stay disabled"
+      },
+      {
+        "key": "official_args.model_id",
+        "old": "trustgtr_a5__solar__forecast__t96_h96__seed2024__20261005_155314",
+        "new": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+        "reason": "unique follow-up experiment ID; preserve completed source"
+      },
+      {
+        "key": "trustgtr.historical_router_mode",
+        "old": "per_bank",
+        "new": "per_bank_evidence",
+        "reason": "single-factor A8: preserve top-k coverage per age bank, update bank mass with mean inverse-distance candidate evidence before final normalization; query-only bank priors ignore absolute matching quality; no new trainable parameters or independent innovation claim"
+      },
+      {
+        "key": "official_args.model_id",
+        "old": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+        "new": "trustgtr_a8__solar__smoke__t96_h96__seed2024__20261005_221654",
+        "reason": "unique A8 follow-up ID; preserve the completed A6 comparison"
+      },
+      {
+        "key": "official_args.train_epochs",
+        "old": 30,
+        "new": 1,
+        "reason": "independent smoke only; unchanged formal 30-epoch maximum and patience"
+      },
+      {
+        "key": "smoke",
+        "old": {
+          "enabled": false,
+          "max_train_batches": null,
+          "max_eval_batches": null
+        },
+        "new": {
+          "enabled": true,
+          "max_train_batches": 3,
+          "max_eval_batches": 2
+        },
+        "reason": "three training/two evaluation batches for smoke only"
+      }
+    ],
+    "source_experiment_id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+    "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "baseline_mse": 0.18117235600948334,
+    "baseline_mae": 0.2366592288017273,
+    "fixed_evaluation_asset_source": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "source_mse": 0.18590158224105835,
+    "source_mae": 0.24103502929210663,
+    "source_provenance": {
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347.json",
+      "config_sha256": "d19849818e1c9c79eb34f83521bc8ab69cc7d2216aef25a4b114b6b50b2cb1e3",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/metrics.json",
+      "metrics_sha256": "116c25154b791e87b4a4961e5408859738512aac602c392d5285c4ca9e1bf9d9"
+    },
+    "baseline_recheck_experiment_id": "gtr__etth1__smoke_recheck_v8__t96_h96__seed2024__20261005_221654"
+  },
+  "smoke": {
+    "enabled": true,
+    "max_train_batches": 3,
+    "max_eval_batches": 2
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/solar_AL.txt",
+    "sha256": "230327ef72d2abb387939d4a35d6fd34f1066071bc7c40ce7ecf5531a0122ac2",
+    "size_bytes": 180018000,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": false,
+    "use_regime_contrast": false,
+    "memory_mode": "historical",
+    "preserve_initialization_rng": true,
+    "gate_descriptor": "forecast",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "contrast_loss_weight": 0.002,
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "periods": [
+      144,
+      1008,
+      4320
+    ],
+    "historical_router_mode": "per_bank_evidence"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "official_args": {
+    "data": "Solar",
+    "data_path": "solar_AL.txt",
+    "enc_in": 137,
+    "cycle": 144,
+    "batch_size": 64,
+    "learning_rate": 0.003,
+    "dropout": 0.0,
+    "use_revin": 0,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_ab9_inference__solar__smoke__t96_h96__seed2024__20261006_122231",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 1,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_ab9_inference__solar__smoke__t96_h96__seed2024__20261006_122231",
+    "dataset": "solar",
+    "model": "TrustGTR_ab9_inference",
+    "stage": "smoke",
+    "step": "6.4",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "same_evaluation_protocol": false,
+    "official_script": "scripts/GTR/solar.sh",
+    "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "baseline_mse": null,
+    "baseline_mae": null,
+    "fixed_evaluation_asset_source": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "source_experiment_id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+    "source_mse": 0.18590158224105835,
+    "source_mae": 0.24103502929210663,
+    "source_provenance": {
+      "id": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/metrics.json",
+      "metrics_sha256": "116c25154b791e87b4a4961e5408859738512aac602c392d5285c4ca9e1bf9d9",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347/code_manifest.json",
+      "code_manifest_sha256": "3f81b3c58c268fd654ee5c477f118da067c09e2734a55cb84f2d2e22f1909d76",
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347.json",
+      "config_sha256": "d19849818e1c9c79eb34f83521bc8ab69cc7d2216aef25a4b114b6b50b2cb1e3",
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.json",
+          "sha256": "a877f6204684be7b7d06fe5f28c3eb139fd540ab75c99e855f73974b063fb5e8",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/train.scaler.npz",
+          "split": [
+            0,
+            36792
+          ],
+          "window_count": 36601,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.json",
+          "sha256": "f05a01445ef753294a9e42c935b2837ee196d3f53109e818c5ee7ee3155b4edf",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/val.scaler.npz",
+          "split": [
+            36696,
+            42048
+          ],
+          "window_count": 5161,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.json",
+          "sha256": "ddcf102fc08790b7c83c866d4cf2175c379310b4f09a36a3f554194d7b6f41db",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8c343b57ef82b26b213a/test.scaler.npz",
+          "split": [
+            41952,
+            52560
+          ],
+          "window_count": 10417,
+          "scaler_sha256": "e398cdfa4a314f8bb93b3fd6131aaa70b76b56a18c7cb4d7220d4d51612b87e0"
+        }
+      },
+      "baseline": {
+        "id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+        "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__forecast__t96_h96__seed2024__20261004_214520/metrics.json",
+        "metrics_sha256": "e77d740f249be2fa35d8701bcaafe435585dd9cf19f1dead6aefa800c9387802",
+        "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__solar__forecast__t96_h96__seed2024__20261004_214520/code_manifest.json",
+        "code_manifest_sha256": "20b1abb7434b7044927b6b812eff80e24b694d2f6c85a5c0309ed9c9c5135d62"
+      }
+    },
+    "control_experiment_id": "trustgtr_ab9_train__solar__forecast__t96_h96__seed2024__20261006_122231",
+    "paired_control_experiment_id": "trustgtr_ab9_train__solar__forecast__t96_h96__seed2024__20261006_122231",
+    "paired_experiment_id": "trustgtr_ab9_train__solar__smoke__t96_h96__seed2024__20261006_122231",
+    "paired_factor": "trustgtr.gate_calibration_context",
+    "frozen_code_sha256": {
+      "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+      "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+      "models/TrustGTR.py": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970",
+      "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+      "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+      "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+      "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+      "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+      "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+      "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+      "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+      "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+      "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+      "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+    },
+    "config_changes": [
+      {
+        "key": "official_args.model_id",
+        "old": "trustgtr_a6__solar__forecast__t96_h96__seed2024__20261005_162347",
+        "new": "trustgtr_ab9_inference__solar__smoke__t96_h96__seed2024__20261006_122231",
+        "reason": "new immutable experiment ID; retain original A6 formal result"
+      },
+      {
+        "key": "trustgtr.use_reliability_gate",
+        "old": false,
+        "new": true,
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_descriptor",
+        "old": "forecast",
+        "new": "retrieval",
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.detach_gate_descriptor",
+        "old": true,
+        "new": true,
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_loss_mode",
+        "old": "power_weighted",
+        "new": "power_weighted",
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_loss_weight",
+        "old": 0.05,
+        "new": 0.05,
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_initial_probability",
+        "old": 0.9,
+        "new": 0.9,
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_calibration_context",
+        "old": "train",
+        "new": "inference",
+        "reason": "sole paired scientific factor: same training-mode pass versus additional deterministic inference-mode gate calibration pass; original forecast loss and training budget unchanged"
+      },
+      {
+        "key": "official_args.train_epochs",
+        "old": 30,
+        "new": 1,
+        "reason": "independent smoke only"
+      },
+      {
+        "key": "smoke.batch_limits",
+        "old": null,
+        "new": {
+          "train": 3,
+          "evaluation": 2
+        },
+        "reason": "smoke chain only; official batch unchanged"
+      }
+    ],
+    "comparison_note": "Four-dataset A6 per-bank history held fixed; B shared retrieval descriptor/loss/init; C disabled only for attribution; train versus inference context is the sole pair difference. Existing GTR/A6 results are referenced, never rescheduled. Inference adds a calibration forward and may increase compute; official epochs/batches/optimizer/evaluation unchanged.",
+    "paper_mse": 0.176,
+    "paper_mae": 0.235,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "prepared_resolved_trustgtr": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": true,
+      "use_regime_contrast": false,
+      "periods": [
+        144,
+        1008,
+        4320
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "historical",
+      "gate_descriptor": "retrieval",
+      "detach_gate_descriptor": true,
+      "gate_loss_mode": "power_weighted",
+      "gate_calibration_context": "inference",
+      "historical_topk": 3,
+      "historical_candidate_cap": 192,
+      "historical_blend_bound": 0.2,
+      "historical_strength_coordinates": "bounded",
+      "historical_router_mode": "per_bank",
+      "contrast_metric": "cosine"
+    }
+  },
+  "smoke": {
+    "enabled": true,
+    "max_train_batches": 3,
+    "max_eval_batches": 2
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/solar_AL.txt",
+    "sha256": "230327ef72d2abb387939d4a35d6fd34f1066071bc7c40ce7ecf5531a0122ac2",
+    "size_bytes": 180018000,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": false,
+    "memory_mode": "historical",
+    "preserve_initialization_rng": true,
+    "gate_descriptor": "retrieval",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "contrast_loss_weight": 0.002,
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "periods": [
+      144,
+      1008,
+      4320
+    ],
+    "historical_router_mode": "per_bank",
+    "gate_loss_weight": 0.05,
+    "gate_initial_probability": 0.9,
+    "gate_calibration_context": "inference"
+  }
+}

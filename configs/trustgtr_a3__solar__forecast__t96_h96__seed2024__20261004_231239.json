@@ -1,0 +1,113 @@
+{
+  "official_args": {
+    "data": "Solar",
+    "data_path": "solar_AL.txt",
+    "enc_in": 137,
+    "cycle": 144,
+    "batch_size": 64,
+    "learning_rate": 0.003,
+    "dropout": 0.0,
+    "use_revin": 0,
+    "is_training": 1,
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset/",
+    "model_id": "trustgtr_a3__solar__forecast__t96_h96__seed2024__20261004_231239",
+    "model": "TrustGTR",
+    "features": "M",
+    "seq_len": 96,
+    "pred_len": 96,
+    "train_epochs": 30,
+    "patience": 5,
+    "itr": 1,
+    "random_seed": 2024
+  },
+  "experiment": {
+    "id": "trustgtr_a3__solar__forecast__t96_h96__seed2024__20261004_231239",
+    "dataset": "solar",
+    "model": "TrustGTR_a3",
+    "stage": "improvement",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "paper_mse": 0.176,
+    "paper_mae": 0.235,
+    "paper_reference": "Table 7/10 H96; reported five-seed mean, seeds 2025-2029",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "same_evaluation_protocol": true,
+    "comparison_note": "Missing Solar A3-only attribution: same seed, budget, data/assets and evaluation as completed baseline",
+    "official_script": "scripts/GTR/solar.sh",
+    "config_changes": [
+      {
+        "key": "model",
+        "old": "GTR",
+        "new": "TrustGTR",
+        "reason": "Solar A3 single-factor attribution"
+      },
+      {
+        "key": "trustgtr",
+        "old": "all modules disabled",
+        "new": {
+          "use_multi_cycle": true,
+          "preserve_initialization_rng": true,
+          "memory_mode": "factorized_residual",
+          "periods": [
+            144,
+            1008,
+            4320
+          ],
+          "use_reliability_gate": false,
+          "use_regime_contrast": false
+        },
+        "reason": "Use the existing ETTh1 A3 method unchanged; B and C remain disabled"
+      },
+      {
+        "key": "periods",
+        "old": [
+          144
+        ],
+        "new": [
+          144,
+          1008,
+          4320
+        ],
+        "reason": "Apply the unchanged base/7x/30x period rule to Solar cycle=144"
+      },
+      {
+        "key": "memory_mode",
+        "old": "single official base-cycle bank",
+        "new": "factorized_residual",
+        "reason": "Exactly the previously tested A3 level/trend/amplitude residual memory"
+      },
+      {
+        "key": "preserve_initialization_rng",
+        "old": false,
+        "new": true,
+        "reason": "Preserve the official baseline data/dropout RNG stream after new module initialization"
+      }
+    ],
+    "baseline_experiment_id": "gtr__solar__forecast__t96_h96__seed2024__20261004_214520",
+    "baseline_mse": 0.18117235600948334,
+    "baseline_mae": 0.2366592288017273,
+    "method_source_config": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a3__etth1__forecast__t96_h96__seed2024__20261004_223023.json"
+  },
+  "smoke": {
+    "enabled": false,
+    "max_train_batches": null,
+    "max_eval_batches": null
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/solar_AL.txt",
+    "sha256": "230327ef72d2abb387939d4a35d6fd34f1066071bc7c40ce7ecf5531a0122ac2",
+    "size_bytes": 180018000,
+    "provenance": "Existing public-format asset copied without preprocessing changes"
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "preserve_initialization_rng": true,
+    "memory_mode": "factorized_residual",
+    "periods": [
+      144,
+      1008,
+      4320
+    ],
+    "use_reliability_gate": false,
+    "use_regime_contrast": false
+  }
+}

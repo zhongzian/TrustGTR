@@ -1,0 +1,379 @@
+{
+  "official_args": {
+    "random_seed": 2024,
+    "is_training": 1,
+    "model_id": "trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231",
+    "model": "TrustGTR",
+    "data": "ETTm2",
+    "root_path": "/mnt/data/zza/code/TrustGTR/dataset",
+    "data_path": "ETTm2.csv",
+    "features": "M",
+    "target": "OT",
+    "freq": "h",
+    "checkpoints": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231/checkpoints",
+    "seq_len": 96,
+    "label_len": 0,
+    "pred_len": 96,
+    "cycle": 96,
+    "model_type": "mlp",
+    "use_revin": 1,
+    "fc_dropout": 0.05,
+    "head_dropout": 0.0,
+    "patch_len": 16,
+    "stride": 8,
+    "padding_patch": "end",
+    "revin": 0,
+    "affine": 0,
+    "subtract_last": 0,
+    "decomposition": 0,
+    "kernel_size": 25,
+    "individual": 0,
+    "rnn_type": "gru",
+    "dec_way": "pmf",
+    "seg_len": 48,
+    "channel_id": 1,
+    "embed_type": 0,
+    "enc_in": 7,
+    "dec_in": 7,
+    "c_out": 7,
+    "d_model": 512,
+    "n_heads": 8,
+    "e_layers": 2,
+    "d_layers": 1,
+    "d_ff": 2048,
+    "moving_avg": 25,
+    "factor": 1,
+    "distil": true,
+    "dropout": 0.5,
+    "embed": "timeF",
+    "activation": "gelu",
+    "output_attention": false,
+    "do_predict": false,
+    "num_workers": 10,
+    "itr": 1,
+    "train_epochs": 1,
+    "batch_size": 256,
+    "patience": 5,
+    "learning_rate": 0.001,
+    "des": "test",
+    "loss": "mse",
+    "lradj": "type3",
+    "pct_start": 0.3,
+    "use_amp": false,
+    "use_gpu": true,
+    "gpu": 0,
+    "use_multi_gpu": false,
+    "devices": "0,1",
+    "test_flop": false,
+    "trustgtr": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": true,
+      "use_regime_contrast": false,
+      "periods": [
+        96,
+        672,
+        2880
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "historical",
+      "gate_descriptor": "retrieval",
+      "detach_gate_descriptor": true,
+      "gate_loss_mode": "power_weighted",
+      "gate_calibration_context": "train",
+      "historical_topk": 3,
+      "historical_candidate_cap": 192,
+      "historical_blend_bound": 0.2,
+      "historical_strength_coordinates": "bounded",
+      "historical_router_mode": "per_bank",
+      "contrast_metric": "cosine"
+    }
+  },
+  "experiment": {
+    "id": "trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231",
+    "dataset": "ettm2",
+    "model": "TrustGTR_ab9_train",
+    "stage": "smoke",
+    "step": "6.4",
+    "protocol": "official_gtr_t96_h96_seed2024",
+    "same_evaluation_protocol": false,
+    "official_script": "scripts/GTR/ettm2.sh",
+    "baseline_experiment_id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+    "baseline_mse": null,
+    "baseline_mae": null,
+    "fixed_evaluation_asset_source": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+    "source_experiment_id": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+    "source_mse": 0.16614621877670288,
+    "source_mae": 0.2505177855491638,
+    "source_provenance": {
+      "id": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+      "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+      "metrics_sha256": "8065ca72de54179bc6c53d710a2dc03b729acab9459bfaeda10aab20a0d00a64",
+      "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+      "code_manifest_sha256": "0dbee9c9bb6dcf5b901923b6d8d7a567f75dc97325a5e1431e1594472074a784",
+      "config_path": "/mnt/data/zza/code/TrustGTR/configs/trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458.json",
+      "config_sha256": "761fdf0d231521fd3f97f96f0f205d5ab51cae756f9c04f7209079679c977f56",
+      "evaluation_assets": {
+        "train": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.json",
+          "sha256": "56c16864c1a5b3d9b64ef5181e7d068f95ac1f2c2ef82856035e706af44649a8",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/train.scaler.npz",
+          "split": [
+            0,
+            34560
+          ],
+          "window_count": 34369,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        },
+        "val": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.json",
+          "sha256": "8b3718767a1147631fd02e97a047dcdd84029574ec4f05fd725ef691beafbab9",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/val.scaler.npz",
+          "split": [
+            34464,
+            46080
+          ],
+          "window_count": 11425,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        },
+        "test": {
+          "path": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.json",
+          "sha256": "17fde4a80477d00f921515a4fa2f76604ec1b27c380b4a28c4d08ace0a8d1dbb",
+          "scaler": "/mnt/data/zza/code/TrustGTR/artifacts/evaluation/8780ec7b6ff003d85d6b/test.scaler.npz",
+          "split": [
+            45984,
+            57600
+          ],
+          "window_count": 11425,
+          "scaler_sha256": "25c7b12d7d8722752447eadada54e9c5b8ad0391c73c8d0e0ea7eb330973b700"
+        }
+      },
+      "baseline": {
+        "id": "gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+        "metrics_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458/metrics.json",
+        "metrics_sha256": "66e6ce2ac8c575779d7b852f69cd4fa26971f31dc8f80cfb6421c465bb26cb51",
+        "code_manifest_path": "/mnt/data/zza/code/TrustGTR/runs/gtr__ettm2__forecast__t96_h96__seed2024__20261006_114458/code_manifest.json",
+        "code_manifest_sha256": "f8393d9806cba0a949deb25363e72336cbe0096404628ca05080d5aa4c6bd3b6"
+      }
+    },
+    "control_experiment_id": "trustgtr_ab9_train__ettm2__forecast__t96_h96__seed2024__20261006_122231",
+    "paired_control_experiment_id": "trustgtr_ab9_train__ettm2__forecast__t96_h96__seed2024__20261006_122231",
+    "paired_experiment_id": "trustgtr_ab9_inference__ettm2__smoke__t96_h96__seed2024__20261006_122231",
+    "paired_factor": "trustgtr.gate_calibration_context",
+    "frozen_code_sha256": {
+      "run.py": "8b924f5a3d274d6d5622de99e807f90e3d5f7ee4215598a85baa12ee15a10096",
+      "models/GTR.py": "eaeba1d8b820c41bf2796bffad2006d0d04609b0247a3aadf84930b19062c42b",
+      "models/TrustGTR.py": "59fef362c5e61905bcd4db9f866ef9f30454ab63f511c797c72eff28eb540970",
+      "models/HistoricalMemory.py": "c05182901b603689b4852fa4b569d41f9ba4db938e3d3fcd462f5dfd3f90b6b9",
+      "scripts/run_experiment.py": "390ed7cc04fb758300dbc898278999005948d9b99da77e264d9b68e3ccd3cacc",
+      "scripts/run_trust_experiment.py": "6b659d0c26f5d6574632c1e73108c87ad70eac285f42dcc9d9b3dd4c489e36eb",
+      "exp/exp_basic.py": "6c69badaaf13536a212e2b96975e2d59ebd7b5546550e487ea52249173e10afe",
+      "exp/exp_main.py": "3a8a97430339656ef7ed88d6623c21961f80c5b67699817ef61999653a853c42",
+      "exp/exp_repro.py": "f0611f1040a59422d441268edbbfcc741aad41a6d48998278d0d912d21b518a6",
+      "data_provider/data_loader.py": "ebe05adc111b1d044e86ac791859b5df1a819911e7e8654cb5a56e3d6d996b54",
+      "data_provider/data_factory.py": "103612837d50c9a935163b4175818ba544ef34516ffd33bcc6906c90dc48b107",
+      "utils/metrics.py": "9d61cbf6239d2749f7640eff9fa80e66a17dbbea1881b919c4375b126195294d",
+      "utils/tools.py": "718a8e8c70a6f50e03af26e1e3cbaca3583aef0567e688250eefca6d82917e94",
+      "utils/timefeatures.py": "2ad031a425f6f02b88db1918333a30937e41b18f435df90e6bcbb6470427221b"
+    },
+    "config_changes": [
+      {
+        "key": "official_args.model_id",
+        "old": "trustgtr_a6__ettm2__forecast__t96_h96__seed2024__20261006_114458",
+        "new": "trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231",
+        "reason": "new immutable experiment ID; retain original A6 formal result"
+      },
+      {
+        "key": "trustgtr.use_reliability_gate",
+        "old": false,
+        "new": true,
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_descriptor",
+        "old": "forecast",
+        "new": "retrieval",
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.detach_gate_descriptor",
+        "old": true,
+        "new": true,
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_loss_mode",
+        "old": "power_weighted",
+        "new": "power_weighted",
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_loss_weight",
+        "old": 0.05,
+        "new": 0.05,
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_initial_probability",
+        "old": 0.9,
+        "new": 0.9,
+        "reason": "shared control and inference setting; B6 retrieval gate and power-weighted calibration held fixed"
+      },
+      {
+        "key": "trustgtr.gate_calibration_context",
+        "old": "train",
+        "new": "train",
+        "reason": "sole paired scientific factor: same training-mode pass versus additional deterministic inference-mode gate calibration pass; original forecast loss and training budget unchanged"
+      },
+      {
+        "key": "official_args.train_epochs",
+        "old": 30,
+        "new": 1,
+        "reason": "independent smoke only"
+      },
+      {
+        "key": "smoke.batch_limits",
+        "old": null,
+        "new": {
+          "train": 3,
+          "evaluation": 2
+        },
+        "reason": "smoke chain only; official batch unchanged"
+      }
+    ],
+    "comparison_note": "Four-dataset A6 per-bank history held fixed; B shared retrieval descriptor/loss/init; C disabled only for attribution; train versus inference context is the sole pair difference. Existing GTR/A6 results are referenced, never rescheduled. Inference adds a calibration forward and may increase compute; official epochs/batches/optimizer/evaluation unchanged.",
+    "paper_mse": null,
+    "paper_mae": null,
+    "paper_reference": "NA: no verified paper values supplied for this extension",
+    "paper_url": "https://arxiv.org/html/2602.10847v1",
+    "prepared_resolved_trustgtr": {
+      "use_multi_cycle": true,
+      "use_reliability_gate": true,
+      "use_regime_contrast": false,
+      "periods": [
+        96,
+        672,
+        2880
+      ],
+      "state_dim": 16,
+      "gate_initial_probability": 0.9,
+      "gate_loss_weight": 0.05,
+      "contrast_loss_weight": 0.002,
+      "contrast_temperature": 0.1,
+      "positive_max_distance": 1.0,
+      "regime_distance_gap": 0.25,
+      "preserve_initialization_rng": true,
+      "memory_mode": "historical",
+      "gate_descriptor": "retrieval",
+      "detach_gate_descriptor": true,
+      "gate_loss_mode": "power_weighted",
+      "gate_calibration_context": "train",
+      "historical_topk": 3,
+      "historical_candidate_cap": 192,
+      "historical_blend_bound": 0.2,
+      "historical_strength_coordinates": "bounded",
+      "historical_router_mode": "per_bank",
+      "contrast_metric": "cosine"
+    }
+  },
+  "smoke": {
+    "enabled": true,
+    "max_train_batches": 3,
+    "max_eval_batches": 2
+  },
+  "data_asset": {
+    "path": "/mnt/data/zza/code/TrustGTR/dataset/ETTm2.csv",
+    "sha256": "db973ca252c6410a30d0469b13d696cf919648d0f3fd588c60f03fdbdbadd1fd",
+    "size_bytes": 9677236,
+    "provenance": "Exact public archive member; independent copy, no preprocessing",
+    "audit_manifest": "/mnt/data/zza/code/TrustGTR/artifacts/expanded_data_assets.json",
+    "audit_manifest_sha256": "e8cd2f2669ecf0bad875792610f7a22de96d06dab4d7a274ef583f5832106264",
+    "source_url": "https://drive.google.com/uc?export=download&id=1l51QsKvQPcqILT3DwfjCgx8Dsg2rpjot",
+    "rows": 69680,
+    "columns": [
+      "date",
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ]
+  },
+  "runner": {
+    "science_fingerprint": "382484b08136cdb0d6b940d6f9a4fc0a7e7a8201de826cb4028018f39a86e8e4",
+    "entrypoint": "runpy.run_path(original run.py)",
+    "resume_policy": "complete epoch only; identical science/data/code/environment fingerprint",
+    "loader_protocol": {
+      "train": {
+        "shuffle": true,
+        "drop_last": true
+      },
+      "val": {
+        "shuffle": true,
+        "drop_last": true
+      },
+      "test": {
+        "shuffle": false,
+        "drop_last": false
+      }
+    },
+    "checkpoint_selection": "official validation EarlyStopping; per-epoch test_loss is observation only",
+    "initial_lr_rule": "official OneCycleLR initialization: learning_rate / 25; type3 does not step OneCycleLR",
+    "changes_from_config": [
+      {
+        "parameter": "checkpoints",
+        "original": "official default",
+        "new": "/mnt/data/zza/code/TrustGTR/runs/trustgtr_ab9_train__ettm2__smoke__t96_h96__seed2024__20261006_122231/checkpoints",
+        "reason": "isolate checkpoint outputs"
+      },
+      {
+        "parameter": "gpu",
+        "original": "official default",
+        "new": 0,
+        "reason": "UUID visibility maps the selected GPU to logical zero"
+      }
+    ],
+    "model_class": "models.TrustGTR.Model",
+    "criterion": "same forecast MSE; gate/contrast auxiliary losses on training only",
+    "phase_transform": "absolute forecast origin; baseline modulo base cycle unchanged",
+    "gate_fallback": "original GTR forecast branch, jointly trained; exact original initialization, no trained-performance guarantee",
+    "history_memory": "fixed training-only completed continuations; causal end <= query origin; no validation/test memory update"
+  },
+  "trustgtr": {
+    "use_multi_cycle": true,
+    "use_reliability_gate": true,
+    "use_regime_contrast": false,
+    "periods": [
+      96,
+      672,
+      2880
+    ],
+    "state_dim": 16,
+    "gate_initial_probability": 0.9,
+    "gate_loss_weight": 0.05,
+    "contrast_loss_weight": 0.002,
+    "contrast_temperature": 0.1,
+    "positive_max_distance": 1.0,
+    "regime_distance_gap": 0.25,
+    "preserve_initialization_rng": true,
+    "memory_mode": "historical",
+    "gate_descriptor": "retrieval",
+    "detach_gate_descriptor": true,
+    "gate_loss_mode": "power_weighted",
+    "gate_calibration_context": "train",
+    "historical_topk": 3,
+    "historical_candidate_cap": 192,
+    "historical_blend_bound": 0.2,
+    "historical_strength_coordinates": "bounded",
+    "historical_router_mode": "per_bank",
+    "contrast_metric": "cosine"
+  }
+}
